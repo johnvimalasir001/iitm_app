@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       // Use builder only if you need to use library outside ScreenUtilInit context
       builder: (_, child) {
-        return  MaterialApp(
+        return const MaterialApp(
           debugShowCheckedModeBanner: false,
           home: LoginPage(),
         );

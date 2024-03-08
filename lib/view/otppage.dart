@@ -5,7 +5,7 @@ import 'package:iitm_app/view/userdetail.dart';
 import 'package:pinput/pinput.dart';
 
 class OTPPage extends StatelessWidget {
-   OTPPage({super.key});
+  const OTPPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,29 +16,29 @@ class OTPPage extends StatelessWidget {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) =>  PhoneNumber(),
+                  builder: (context) => const PhoneNumber(),
                 ));
           },
-          child:  Icon(
+          child: Icon(
             Icons.arrow_back,
             size: 25.h,
           ),
         ),
         centerTitle: true,
-        title:  Text(
+        title: Text(
           'Verify OTP',
           style: TextStyle(fontSize: 22.sp, fontWeight: FontWeight.w600),
         ),
         elevation: 0,
       ),
       body: Padding(
-        padding:  EdgeInsets.symmetric(horizontal: 15.w),
+        padding: EdgeInsets.symmetric(horizontal: 15.w),
         child: Column(
           children: [
-             SizedBox(
+            SizedBox(
               height: 10.h,
             ),
-             Padding(
+            Padding(
               padding: EdgeInsets.only(top: 10.h),
               child: Text(
                 'Enter the 6-Digit Key in your message',
@@ -46,7 +46,7 @@ class OTPPage extends StatelessWidget {
               ),
             ),
             Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 5.w, vertical: 20.h),
+              padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 20.h),
               child: Pinput(
                 length: 6,
                 showCursor: true,
@@ -59,14 +59,14 @@ class OTPPage extends StatelessWidget {
                       color: Colors.black38,
                     ),
                   ),
-                  textStyle:  TextStyle(
+                  textStyle: TextStyle(
                     fontSize: 20.sp,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
             ),
-             SizedBox(
+            SizedBox(
               height: 10.h,
             ),
             GestureDetector(
@@ -74,16 +74,16 @@ class OTPPage extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) =>  UserDetails(),
+                      builder: (context) => const UserDetails(),
                     ));
               },
               child: Container(
                 height: 70.h,
                 width: double.infinity.w,
-                decoration:  BoxDecoration(
+                decoration: BoxDecoration(
                     color: Colors.blue,
                     borderRadius: BorderRadius.all(Radius.circular(10.r))),
-                child:  Center(
+                child: Center(
                   child: Text(
                     'Verify',
                     style: TextStyle(

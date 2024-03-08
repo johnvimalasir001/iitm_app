@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iitm_app/view/otppage.dart';
 import 'package:iitm_app/view/userdetails_builder.dart';
@@ -16,7 +15,7 @@ class UserDetails extends StatelessWidget {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => OTPPage(),
+                  builder: (context) => const OTPPage(),
                 ));
           },
           child: Icon(
