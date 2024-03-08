@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iitm_app/view/otppage.dart';
 import 'package:iitm_app/view/userdetails_builder.dart';
 
@@ -15,97 +16,98 @@ class UserDetails extends StatelessWidget {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const OTPPage(),
+                  builder: (context) => OTPPage(),
                 ));
           },
-          child: const Icon(
+          child: Icon(
             Icons.arrow_back,
-            size: 25,
+            size: 25.sp,
           ),
         ),
         centerTitle: true,
-        title: const Text(
+        title: Text(
           'User Details',
-          style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
+          style: TextStyle(fontSize: 22.sp, fontWeight: FontWeight.w600),
         ),
         elevation: 0,
       ),
-      body: const SingleChildScrollView(
+      body: SingleChildScrollView(
         child: SafeArea(
             child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20),
+          padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: 18,
+                height: 18.h,
               ),
-              UserDetailsBuilder(),
-              Padding(
-                padding: EdgeInsets.only(top: 20, bottom: 8),
-                child: Text(
-                  'Crop Name',
-                  style: TextStyle(fontSize: 20),
-                ),
+              const UserDetailsBuilder(),
+              Text(
+                'Crop Name',
+                style: TextStyle(fontSize: 20.sp),
               ),
               ExpansionTile(
-                backgroundColor: Color.fromRGBO(255, 251, 255, 1),
+                initiallyExpanded: true,
+                shape: Border.all(color: Colors.transparent),
+                backgroundColor: const Color.fromRGBO(255, 251, 255, 1),
                 // leading: Image.asset(
                 //   'assets/image/plant-removebg-preview.png',
                 //   color: Colors.blue,
                 // ),
                 title: Text(
                   "Crop name",
-                  style: TextStyle(fontSize: 17, color: Colors.black54),
+                  style: TextStyle(fontSize: 17.sp, color: Colors.black54),
                 ),
-                children: [
+                children: const [
                   ListTile(
                     title: Text('in Acre'),
                   ),
                 ],
               ),
               Padding(
-                padding: EdgeInsets.only(top: 20, bottom: 8),
+                padding: EdgeInsets.only(
+                  top: 8.h,
+                ),
                 child: Text(
                   'Land Details',
-                  style: TextStyle(fontSize: 20),
+                  style: TextStyle(fontSize: 20.sp),
                 ),
               ),
               Row(
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(top: 5),
+                    padding: EdgeInsets.only(top: 5.h),
                     child: SizedBox(
-                      height: 70,
-                      width: 190,
+                      height: 70.h,
+                      width: 190.w,
                       child: TextField(
-                        keyboardType: TextInputType.numberWithOptions(),
+                        keyboardType: const TextInputType.numberWithOptions(),
                         decoration: InputDecoration(
                             hintText: 'land size',
-                            prefixIcon: Icon(
+                            prefixIcon: const Icon(
                               Icons.landscape,
                               color: Colors.blue,
                             ),
                             border: OutlineInputBorder(
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(10)))),
+                                    BorderRadius.all(Radius.circular(10.r)))),
                       ),
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 65),
+                    padding: EdgeInsets.only(left: 40.w),
                     child: Row(
                       children: [
                         Text(
                           'Acre',
                           style: TextStyle(
-                              fontSize: 18,
+                              fontSize: 18.sp,
                               color: Colors.black54,
                               fontWeight: FontWeight.w500),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(left: 10),
-                          child: Icon(
+                          padding: EdgeInsets.only(left: 10.w),
+                          child: const Icon(
                             Icons.keyboard_arrow_down,
                           ),
                         )

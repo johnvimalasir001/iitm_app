@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iitm_app/view/phonenumber.dart';
 
 class LoginPage extends StatelessWidget {
@@ -9,25 +10,25 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
           child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(8.0.h.w),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Padding(
-              padding: EdgeInsets.only(left: 12, top: 10, bottom: 30),
+            Padding(
+              padding: EdgeInsets.only(left: 12.w, top: 10.h, bottom: 30.w),
               child: Text(
                 'H2O Smart',
                 style: TextStyle(
-                    fontSize: 22,
-                    color: Color.fromRGBO(83, 132, 118, 1),
+                    fontSize: 22.sp,
+                    color: const Color.fromRGBO(83, 132, 118, 1),
                     fontWeight: FontWeight.bold),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 30),
+              padding: EdgeInsets.only(top: 30.h),
               child: Container(
-                height: 300,
-                width: double.infinity,
+                height: 190.h,
+                width: double.infinity.w,
                 decoration: const BoxDecoration(
                     image: DecorationImage(
                         image: NetworkImage(
@@ -35,33 +36,37 @@ class LoginPage extends StatelessWidget {
                         fit: BoxFit.fill)),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 50),
+            Padding(
+              padding: EdgeInsets.only(top: 50.h),
               child: Center(
                 child: Text(
                   'Smart',
                   style: TextStyle(
-                      fontSize: 38, fontWeight: FontWeight.w500, height: 1),
+                      fontSize: 38.sp,
+                      fontWeight: FontWeight.w500,
+                      height: 1.h),
                 ),
               ),
             ),
-            const Center(
+            Center(
               child: Text(
                 'Irrigitation',
                 style: TextStyle(
-                    fontSize: 38, fontWeight: FontWeight.w500, height: 1.2),
+                    fontSize: 38.sp,
+                    fontWeight: FontWeight.w500,
+                    height: 1.2.h),
               ),
             ),
-            const Center(
+            Center(
               child: Text(
                 'System',
                 style: TextStyle(
-                    fontSize: 38, fontWeight: FontWeight.w500, height: 1),
+                    fontSize: 38.sp, fontWeight: FontWeight.w500, height: 1.h),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 25),
-              child: Center(
+            Padding(
+              padding: EdgeInsets.only(top: 25.h),
+              child: const Center(
                   child: Text(
                 'A smart wireless sensors network',
                 style: TextStyle(
@@ -75,25 +80,25 @@ class LoginPage extends StatelessWidget {
                   TextStyle(color: Colors.black45, fontWeight: FontWeight.w500),
             )),
             Padding(
-              padding: const EdgeInsets.only(top: 40),
+              padding: EdgeInsets.only(top: 40.h),
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const PhoneNumber(),
+                        builder: (context) => PhoneNumber(),
                       ));
                 },
                 child: Container(
-                  height: 60,
-                  width: double.infinity,
-                  decoration: const BoxDecoration(
+                  height: 60.h,
+                  width: double.infinity.w,
+                  decoration: BoxDecoration(
                       color: Colors.blue,
-                      borderRadius: BorderRadius.all(Radius.circular(8))),
-                  child: const Center(
+                      borderRadius: BorderRadius.all(Radius.circular(8.r))),
+                  child: Center(
                     child: Text(
                       'Get started',
-                      style: TextStyle(color: Colors.white, fontSize: 18),
+                      style: TextStyle(color: Colors.white, fontSize: 18.sp),
                     ),
                   ),
                 ),

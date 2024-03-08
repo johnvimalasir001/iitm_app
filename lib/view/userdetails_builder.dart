@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iitm_app/view/userdetails_component.dart';
 
 class UserDetailsBuilder extends StatefulWidget {
@@ -24,15 +25,14 @@ class _UserDetailsBuilderState extends State<UserDetailsBuilder> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 240,
+      height: 220.h,
       child: ListView.builder(
         itemCount: name.length,
         itemBuilder: (context, index) {
           return UserdetailsComponent(
-            names: name[index],
-            icons: icons[index],
-            hintText:hintText[index]
-          );
+              names: name[index],
+              icons: icons[index],
+              hintText: hintText[index]);
         },
       ),
     );

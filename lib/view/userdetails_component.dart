@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class UserdetailsComponent extends StatelessWidget {
   const UserdetailsComponent(
@@ -8,21 +9,21 @@ class UserdetailsComponent extends StatelessWidget {
       required this.hintText});
 
   final String names, hintText;
-  final icons;
+  final IconData icons;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.only(top: 20),
+          padding: EdgeInsets.only(top: 20.h),
           child: Text(
             names,
-            style: const TextStyle(fontSize: 20),
+            style: TextStyle(fontSize: 20.sp),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 5),
+          padding: EdgeInsets.only(top: 5.h),
           child: TextField(
             decoration: InputDecoration(
                 hintText: hintText,
@@ -30,8 +31,8 @@ class UserdetailsComponent extends StatelessWidget {
                   icons,
                   color: Colors.blue,
                 ),
-                border: const OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10)))),
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10.r)))),
           ),
         ),
       ],
