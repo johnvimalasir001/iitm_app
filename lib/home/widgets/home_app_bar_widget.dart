@@ -34,7 +34,7 @@ class HomeAppBar extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Good morning",
+                      "காலை வணக்கம்",
                       style: TextStyle(
                         fontWeight: FontWeight.w400,
                         fontSize: 14,

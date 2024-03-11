@@ -46,7 +46,7 @@ class _CurrentStatusCardState extends State<CurrentStatusCard> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    "Motor 1 is running",
+                    "மோட்டார் 1 இயங்குகிறது",
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
