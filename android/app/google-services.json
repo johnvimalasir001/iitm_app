@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "905182502126",
+    "project_id": "iot-smart-water-meter",
+    "storage_bucket": "iot-smart-water-meter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:905182502126:android:53b7b27f07744d3d7de7ff",
+        "android_client_info": {
+          "package_name": "com.example.iitm_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChObI1WWvAIJGSYIVICgWCnQCvGgP0u7E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
