@@ -40,6 +40,9 @@ dependencies:
   pinput: 3.0.0
   flutter_screenutil: ^5.9.0
   firebase_core: ^2.27.0
+  firebase_auth: 
+  get:
+
 
 dev_dependencies:
   flutter_test:

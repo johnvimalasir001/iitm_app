@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iitm_app/view/otppage.dart';
+import 'package:iitm_app/auth/otppage.dart';
 import 'package:iitm_app/view/userdetails_builder.dart';
 
 class UserDetails extends StatelessWidget {
