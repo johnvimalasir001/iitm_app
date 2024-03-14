@@ -29,21 +29,27 @@ class _WeatherPageState extends State<WeatherPage>
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const WeatherAppBar(),
-              const Divider(
-                thickness: 0.2,
-                color: Colors.grey,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              const CustomText(inputText: "Weather Report"),
-              TabBar(
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 15),
+              child: WeatherAppBar(),
+            ),
+            const Divider(
+              thickness: 0.2,
+              color: Colors.grey,
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 15),
+              child: CustomText(inputText: "Weather Report"),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: TabBar(
                 padding: const EdgeInsets.all(10),
                 labelColor: Colors.black,
                 indicatorColor: Colors.blue,
@@ -58,18 +64,18 @@ class _WeatherPageState extends State<WeatherPage>
                   ),
                 ],
               ),
-              Expanded(
-                child: TabBarView(
-                  controller: tabController,
-                  children: const [
-                    Temperature(),
-                    SoilMoisture(),
-                    Humidity(),
-                  ],
-                ),
+            ),
+            Expanded(
+              child: TabBarView(
+                controller: tabController,
+                children: const [
+                  Temperature(),
+                  SoilMoisture(),
+                  Humidity(),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

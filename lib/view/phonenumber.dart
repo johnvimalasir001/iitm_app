@@ -59,7 +59,7 @@ class PhoneNumber extends StatelessWidget {
                 keyboardType: const TextInputType.numberWithOptions(),
               ),
               SizedBox(
-                height: 30.h,
+                height: 20.h,
               ),
               //
               GestureDetector(
@@ -71,7 +71,7 @@ class PhoneNumber extends StatelessWidget {
                       ));
                 },
                 child: Container(
-                  height: 70.h,
+                  height: 52.h,
                   width: double.infinity.w,
                   decoration: BoxDecoration(
                       color: Colors.blue,

@@ -52,7 +52,7 @@ class OTPPage extends StatelessWidget {
                 showCursor: true,
                 defaultPinTheme: PinTheme(
                   width: 80.w,
-                  height: 65.h,
+                  height: 45.h,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.r),
                     border: Border.all(
@@ -67,7 +67,7 @@ class OTPPage extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 10.h,
+              height: 5.h,
             ),
             GestureDetector(
               onTap: () {
@@ -78,7 +78,7 @@ class OTPPage extends StatelessWidget {
                     ));
               },
               child: Container(
-                height: 70.h,
+                height: 52.h,
                 width: double.infinity.w,
                 decoration: BoxDecoration(
                     color: Colors.blue,

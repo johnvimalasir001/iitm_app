@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:iitm_app/application_page/application_page.dart';
 import 'package:iitm_app/view/otppage.dart';
 import 'package:iitm_app/view/userdetails_builder.dart';
 
@@ -94,7 +95,7 @@ class UserDetails extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 40.w),
+                    padding: EdgeInsets.only(left: 40.w, bottom: 8.h),
                     child: Row(
                       children: [
                         Text(
@@ -114,6 +115,34 @@ class UserDetails extends StatelessWidget {
                     ),
                   )
                 ],
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 20),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ApplicationPage(),
+                        ));
+                  },
+                  child: Container(
+                    height: 52.h,
+                    width: double.infinity.w,
+                    decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.all(Radius.circular(10.r))),
+                    child: Center(
+                      child: Text(
+                        'Submit',
+                        style: TextStyle(
+                            fontSize: 18.sp,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w700),
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
