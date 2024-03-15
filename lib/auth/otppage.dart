@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:iitm_app/auth/controller/auth_controller.dart';
+import 'package:pinput/pinput.dart';
 
 class OTPPage extends StatelessWidget {
   final String phonenNumber;
@@ -53,46 +55,55 @@ class OTPPage extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 20),
-              child: TextFormField(
+              padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 20.h),
+              child: Pinput(
                 controller: otpController,
-                keyboardType: TextInputType.number,
-                maxLength: 6,
-                decoration: InputDecoration(
-                  counterText: '',
-                  hintText: 'Enter OTP',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(color: Colors.black38),
+                length: 6,
+                showCursor: true,
+                defaultPinTheme: PinTheme(
+                  width: 80.w,
+                  height: 45.h,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.r),
+                    border: Border.all(
+                      color: Colors.black38,
+                    ),
+                  ),
+                  textStyle: TextStyle(
+                    fontSize: 20.sp,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
+                onCompleted: (value) {
+                  String otp = otpController.text;
+                  authController.verifyOTP(otp);
+                },
               ),
             ),
             const SizedBox(
               height: 10,
             ),
-            GestureDetector(
-              onTap: () {
-                String otp = otpController.text;
-                authController.verifyOTP(otp);
-              },
-              child: Container(
-                height: 70,
-                width: double.infinity,
-                decoration: const BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.all(Radius.circular(10))),
-                child: const Center(
-                  child: Text(
-                    'Verify',
-                    style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w700),
-                  ),
-                ),
-              ),
-            ),
+            // GestureDetector(
+            //   onTap: () {
+
+            //   },
+            //   child: Container(
+            //     height: 70,
+            //     width: double.infinity,
+            //     decoration: const BoxDecoration(
+            //         color: Colors.blue,
+            //         borderRadius: BorderRadius.all(Radius.circular(10))),
+            //     child: const Center(
+            //       child: Text(
+            //         'Verify',
+            //         style: TextStyle(
+            //             fontSize: 18,
+            //             color: Colors.white,
+            //             fontWeight: FontWeight.w700),
+            //       ),
+            //     ),
+            //   ),
+            // ),
             const SizedBox(height: 20),
             GestureDetector(
               onTap: () {
@@ -104,7 +115,7 @@ class OTPPage extends StatelessWidget {
                   fontSize: 16,
                   color: Colors.blue,
                   fontWeight: FontWeight.w600,
-                  decoration: TextDecoration.underline,
+                  decoration: TextDecoration.none,
                 ),
               ),
             ),

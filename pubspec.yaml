@@ -40,7 +40,7 @@ dependencies:
   pinput: 3.0.0
   flutter_screenutil: ^5.9.0
   firebase_core: ^2.25.4
-  firebase_auth: 
+  firebase_auth: ^4.17.9
   get:
 
   fl_chart: ^0.66.2
