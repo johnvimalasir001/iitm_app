@@ -10,6 +10,8 @@ class Temperature extends StatefulWidget {
 class _TemperatureState extends State<Temperature> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: Colors.amber,);
+    return const Scaffold(
+      backgroundColor: Colors.amber,
+    );
   }
 }

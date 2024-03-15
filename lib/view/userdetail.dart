@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iitm_app/auth/otppage.dart';
 import 'package:iitm_app/view/userdetails_builder.dart';
 
 class UserDetails extends StatelessWidget {
@@ -12,11 +11,7 @@ class UserDetails extends StatelessWidget {
       appBar: AppBar(
         leading: GestureDetector(
           onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const OTPPage(),
-                ));
+            Navigator.pop(context);
           },
           child: Icon(
             Icons.arrow_back,

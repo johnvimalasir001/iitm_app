@@ -1,11 +1,14 @@
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:iitm_app/auth/otppage.dart';
+import 'package:iitm_app/home/home.dart';
+import 'package:iitm_app/view/userdetail.dart';
 
 class AuthController extends GetxController {
   RxString phoneNumber = ''.obs;
   RxString otp = ''.obs;
 
-  FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   void updatePhoneNumber(String value) {
     phoneNumber.value = value;
@@ -15,25 +18,37 @@ class AuthController extends GetxController {
     otp.value = value;
   }
 
-Future<void> verifyOTP(String verificationId,String otp) async {
-  try {
-    PhoneAuthCredential phoneAuthCredential = PhoneAuthProvider.credential(
-      verificationId: verificationId,
-      smsCode: otp,
-    );
+  String get verificationId => _verificationId;
 
-    await _auth.signInWithCredential(phoneAuthCredential);
+  Future<void> verifyOTP(String otp) async {
+    try {
+      PhoneAuthCredential phoneAuthCredential = PhoneAuthProvider.credential(
+        verificationId: verificationId,
+        smsCode: otp,
+      );
 
-    // Navigate to the next screen upon successful authentication
-    Get.offNamed('/home');
-  } catch (e) {
-    // Handle authentication failure
-    print('Failed to verify OTP: $e');
-    Get.snackbar('Error', 'Failed to verify OTP. Please try again.',
-        snackPosition: SnackPosition.BOTTOM);
+      // Sign in with the credential
+      UserCredential userCredential =
+          await _auth.signInWithCredential(phoneAuthCredential);
+
+      // Check if the user already exists
+      if (userCredential.additionalUserInfo!.isNewUser) {
+        // Navigate to user details filling page
+        Get.to(const UserDetails());
+      } else {
+        // User already exists, navigate to home page
+        Get.to(const HomePage());
+      }
+
+      Get.snackbar('Success', 'OTP verification is Successful.',
+          snackPosition: SnackPosition.BOTTOM);
+    } catch (e) {
+      // Handle authentication failure
+      print('Failed to verify OTP: $e');
+      Get.snackbar('Error', 'Failed to verify OTP. Please try again.',
+          snackPosition: SnackPosition.BOTTOM);
+    }
   }
-}
-
 
   String _verificationId = '';
 
@@ -43,7 +58,7 @@ Future<void> verifyOTP(String verificationId,String otp) async {
         phoneNumber: phoneNumber.value,
         verificationCompleted: (PhoneAuthCredential credential) async {
           await _auth.signInWithCredential(credential);
-          // Navigate to the next screen upon successful authentication
+          // // Navigate to the next screen upon successful authentication
           Get.offNamed('/home');
         },
         verificationFailed: (FirebaseAuthException e) {
@@ -59,7 +74,7 @@ Future<void> verifyOTP(String verificationId,String otp) async {
         codeAutoRetrievalTimeout: (String verificationId) {
           _verificationId = verificationId;
         },
-        timeout: Duration(seconds: 60), // Set timeout duration
+        timeout: const Duration(seconds: 100), // Set timeout duration
         forceResendingToken: null, // Provide forceResendingToken if necessary
       );
     } catch (e) {
@@ -68,7 +83,8 @@ Future<void> verifyOTP(String verificationId,String otp) async {
           snackPosition: SnackPosition.BOTTOM);
     }
   }
-   Future <void> resendOTP(String phoneNumber, int? resendToken) async {
+
+  Future<void> resendOTP(String phoneNumber, int? resendToken) async {
     await _auth.verifyPhoneNumber(
       phoneNumber: phoneNumber,
       verificationCompleted: (PhoneAuthCredential credential) async {
@@ -79,10 +95,13 @@ Future<void> verifyOTP(String verificationId,String otp) async {
       },
       codeSent: (String verificationId, int? newResendToken) {
         // Update resendToken and navigate back to OTP page
-        Get.offNamed('/otp', arguments: {'verificationId': verificationId, 'resendToken': newResendToken});
+        Get.to(OTPPage(phonenNumber: phoneNumber), arguments: {
+          'verificationId': verificationId,
+          'resendToken': newResendToken
+        });
       },
       codeAutoRetrievalTimeout: (String verificationId) {},
-      timeout: Duration(seconds: 60), // Change timeout if needed
+      timeout: const Duration(seconds: 100), // Change timeout if needed
       forceResendingToken: resendToken,
     );
   }
