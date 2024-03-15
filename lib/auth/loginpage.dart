@@ -37,7 +37,7 @@ class LoginPage extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 50.h),
+              padding: EdgeInsets.only(top: 38.h),
               child: Center(
                 child: Text(
                   'Smart',
@@ -52,9 +52,7 @@ class LoginPage extends StatelessWidget {
               child: Text(
                 'Irrigitation',
                 style: TextStyle(
-                    fontSize: 38.sp,
-                    fontWeight: FontWeight.w500,
-                    height: 1.2.h),
+                    fontSize: 38.sp, fontWeight: FontWeight.w500, height: 1.h),
               ),
             ),
             Center(
@@ -65,7 +63,7 @@ class LoginPage extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 25.h),
+              padding: EdgeInsets.only(top: 20.h),
               child: const Center(
                   child: Text(
                 'A smart wireless sensors network',
@@ -80,7 +78,7 @@ class LoginPage extends StatelessWidget {
                   TextStyle(color: Colors.black45, fontWeight: FontWeight.w500),
             )),
             Padding(
-              padding: EdgeInsets.only(top: 40.h),
+              padding: EdgeInsets.only(top: 30.h),
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.push(
@@ -90,7 +88,7 @@ class LoginPage extends StatelessWidget {
                       ));
                 },
                 child: Container(
-                  height: 60.h,
+                  height: 55.h,
                   width: double.infinity.w,
                   decoration: BoxDecoration(
                       color: Colors.blue,
