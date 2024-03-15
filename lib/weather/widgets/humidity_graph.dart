@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class Graph extends StatelessWidget {
-  const Graph({
+class HumidityGraph extends StatelessWidget {
+  const HumidityGraph({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 250,
-      width: double.infinity,
+      height: 244.h,
+      width: double.infinity.w,
       child: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: EdgeInsets.all(20.h),
         child: LineChart(
           LineChartData(
             gridData: const FlGridData(show: false),
@@ -25,9 +26,9 @@ class Graph extends StatelessWidget {
                       // Customize this function to return your time labels based on the indices
                       switch (value.toInt()) {
                         case 0:
-                          return const Padding(
-                            padding: EdgeInsets.only(left: 20),
-                            child: Text('12 AM'),
+                          return Padding(
+                            padding: EdgeInsets.only(left: 20.w),
+                            child: const Text('12 AM'),
                           );
                         case 1:
                           return const Text('1');

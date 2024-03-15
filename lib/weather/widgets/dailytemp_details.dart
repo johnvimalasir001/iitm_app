@@ -1,33 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DailyTempDetails extends StatelessWidget {
   const DailyTempDetails({
     super.key,
+    required this.dailytempreport,
+    required this.tempreportcontent,
   });
+
+  final String dailytempreport, tempreportcontent;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(5.0),
       child: Container(
-        height: 70,
-        width: 115,
+        height: 40.h,
+        width: 105.w,
         decoration: BoxDecoration(
-            color: Colors.blue.shade50,
-            borderRadius: const BorderRadius.all(Radius.circular(10))),
-        child: const Padding(
-          padding: EdgeInsets.all(8.0),
+            color: Colors.orange.shade50,
+            borderRadius: BorderRadius.all(Radius.circular(10.r))),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                '16°',
-                style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+                dailytempreport,
+                style: TextStyle(fontSize: 26.sp, fontWeight: FontWeight.bold),
               ),
               Text(
-                'Avg Temperature',
+                tempreportcontent,
                 style: TextStyle(
-                  fontSize: 11,
+                  fontSize: 9.sp,
                 ),
               ),
             ],

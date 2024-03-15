@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Days extends StatelessWidget {
   const Days({
@@ -9,24 +10,24 @@ class Days extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(
-        left: 2,
-        right: 2,
+      padding: EdgeInsets.only(
+        left: 2.w,
+        right: 2.w,
       ),
       child: GestureDetector(
         onTap: () {},
         child: Container(
-          height: 40,
-          width: 68,
-          decoration: const BoxDecoration(
+          height: 40.h,
+          width: 68.w,
+          decoration: BoxDecoration(
 
               // color: Colors.green,
-              borderRadius: BorderRadius.all(Radius.circular(10))),
+              borderRadius: BorderRadius.all(Radius.circular(10.r))),
           child: Center(
             child: Text(
               time,
-              style: const TextStyle(
-                  fontSize: 18,
+              style: TextStyle(
+                  fontSize: 14.sp,
                   fontWeight: FontWeight.w500,
                   color: Colors.black45),
             ),

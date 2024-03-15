@@ -25,8 +25,8 @@ class PhoneNumber extends StatelessWidget {
         ),
         centerTitle: true,
         title: Text(
-          'Login Page',
-          style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.w600),
+          'உள்நுழைவு பக்கம்',
+          style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w600),
         ),
         elevation: 0,
       ),
@@ -42,14 +42,14 @@ class PhoneNumber extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(top: 20.h, bottom: 8.h, left: 4.w),
                 child: Text(
-                  'Enter Your Number',
+                  'உங்கள் எண்ணை நிரப்பவும்',
                   style:
-                      TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w600),
+                      TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w600),
                 ),
               ),
               TextField(
                 decoration: InputDecoration(
-                    hintText: '  phone number',
+                    hintText: 'தொலைபேசி எண்',
                     prefixIcon: const Icon(
                       Icons.phone,
                       color: Colors.blue,

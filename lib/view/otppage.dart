@@ -26,7 +26,7 @@ class OTPPage extends StatelessWidget {
         ),
         centerTitle: true,
         title: Text(
-          'Verify OTP',
+          'OTP சரிபார்க்க',
           style: TextStyle(fontSize: 22.sp, fontWeight: FontWeight.w600),
         ),
         elevation: 0,
@@ -41,8 +41,8 @@ class OTPPage extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(top: 10.h),
               child: Text(
-                'Enter the 6-Digit Key in your message',
-                style: TextStyle(fontSize: 25.sp, fontWeight: FontWeight.w500),
+                'உங்கள் செய்தியில் 6 இலக்க விசையை உள்ளிடவும்',
+                style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w500),
               ),
             ),
             Padding(

@@ -40,7 +40,7 @@ class LoginPage extends StatelessWidget {
               padding: EdgeInsets.only(top: 38.h),
               child: Center(
                 child: Text(
-                  'Smart',
+                  'நவீன',
                   style: TextStyle(
                       fontSize: 38.sp,
                       fontWeight: FontWeight.w500,
@@ -50,14 +50,14 @@ class LoginPage extends StatelessWidget {
             ),
             Center(
               child: Text(
-                'Irrigitation',
+                'நீர்ப்பாசன',
                 style: TextStyle(
                     fontSize: 38.sp, fontWeight: FontWeight.w500, height: 1.h),
               ),
             ),
             Center(
               child: Text(
-                'System',
+                'அமைப்பு',
                 style: TextStyle(
                     fontSize: 38.sp, fontWeight: FontWeight.w500, height: 1.h),
               ),
@@ -66,14 +66,14 @@ class LoginPage extends StatelessWidget {
               padding: EdgeInsets.only(top: 20.h),
               child: const Center(
                   child: Text(
-                'A smart wireless sensors network',
+                'ஸ்மார்ட் வயர்லெஸ் சென்சார்கள் நெட்வொர்க்',
                 style: TextStyle(
                     color: Colors.black54, fontWeight: FontWeight.w500),
               )),
             ),
             const Center(
                 child: Text(
-              'designed to eliminate water wastage',
+              'நீர் விரயத்தை அகற்ற வடிவமைக்கப்பட்டுள்ளது',
               style:
                   TextStyle(color: Colors.black45, fontWeight: FontWeight.w500),
             )),
@@ -95,7 +95,7 @@ class LoginPage extends StatelessWidget {
                       borderRadius: BorderRadius.all(Radius.circular(8.r))),
                   child: Center(
                     child: Text(
-                      'Get started',
+                      'தொடங்கு',
                       style: TextStyle(color: Colors.white, fontSize: 18.sp),
                     ),
                   ),
