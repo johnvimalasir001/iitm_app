@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iitm_app/weather/widgets/dailytemp_details.dart';
+import 'package:iitm_app/src/weather/widgets/dailytemp_details.dart';
 
 class DailytempBuilder extends StatelessWidget {
   const DailytempBuilder({super.key});

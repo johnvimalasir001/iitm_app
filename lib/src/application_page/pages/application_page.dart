@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:iitm_app/home/home.dart';
-import 'package:iitm_app/profile/pages/profile_page.dart';
-import 'package:iitm_app/weather/pages/weather.dart';
+import 'package:iitm_app/src/home/pages/home.dart';
+import 'package:iitm_app/src/profile/pages/profile_page.dart';
+import 'package:iitm_app/src/weather/pages/weather.dart';
 
 class ApplicationPage extends StatefulWidget {
   const ApplicationPage({super.key});

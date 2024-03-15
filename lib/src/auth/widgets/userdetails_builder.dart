@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iitm_app/auth/widgets/userdetails_component.dart';
+import 'package:iitm_app/src/auth/widgets/userdetails_component.dart';
 
 class UserDetailsBuilder extends StatefulWidget {
   const UserDetailsBuilder({super.key});
