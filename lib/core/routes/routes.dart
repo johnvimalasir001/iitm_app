@@ -16,7 +16,7 @@ class AppRoutes {
       AppRouteNames.userDetailsroute: (context) => const UserDetails(),
       AppRouteNames.phoneNumberRoute: (context) => const PhoneNumber(),
       AppRouteNames.expansionDetails: (context) => const MyDropdown(),
-      AppRouteNames.reportroute: (context) => const Report(),
+      AppRouteNames.reportroute: (context) => Report(),
     };
   }
 }

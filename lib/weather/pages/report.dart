@@ -1,17 +1,19 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iitm_app/weather/widgets/reportdata_builder.dart';
 
-class Report extends StatefulWidget {
-  const Report({super.key});
+class Report extends StatelessWidget {
+  Report({super.key});
 
-  @override
-  State<Report> createState() => _ReportState();
-}
+  final List<String> recorddate = [
+    '16/3/2024',
+    '17/3/2024',
+    '18/3/2024',
+    '19/3/2024',
+    '20/3/2024',
+    '21/3/2024',
+  ];
 
-class _ReportState extends State<Report> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -157,9 +159,9 @@ class _ReportState extends State<Report> {
               ListView.builder(
                 shrinkWrap: true,
                 scrollDirection: Axis.vertical,
-                itemCount: 8,
+                itemCount: 6,
                 itemBuilder: (context, index) {
-                  return const TaskRecord();
+                  return TaskRecord(recorddate: recorddate[index]);
                 },
               ),
             ],
@@ -173,14 +175,15 @@ class _ReportState extends State<Report> {
 class TaskRecord extends StatelessWidget {
   const TaskRecord({
     super.key,
+    required this.recorddate,
   });
-
+  final String recorddate;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 5.h),
       child: Container(
-        height: 60.h,
+        height: 55.h,
         width: double.infinity.w,
         decoration: BoxDecoration(
             color: Colors.blue.shade50,
@@ -192,7 +195,7 @@ class TaskRecord extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsets.only(left: 14.w, top: 10.h),
+                  padding: EdgeInsets.only(left: 14.w, top: 7.h),
                   child: Text(
                     'Turn ON/OFF the motor',
                     style:
@@ -206,7 +209,7 @@ class TaskRecord extends StatelessWidget {
                   child: Row(
                     children: [
                       Text(
-                        '16/3/2024',
+                        recorddate,
                         style: TextStyle(
                             fontSize: 15.sp, fontWeight: FontWeight.w700),
                       ),

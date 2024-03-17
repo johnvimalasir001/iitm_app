@@ -25,7 +25,7 @@ class _ReportDataBuilderState extends State<ReportDataBuilder> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 76.h,
+      height: 70.h,
       width: double.infinity.w,
       child: ListView.builder(
         physics: const BouncingScrollPhysics(),
