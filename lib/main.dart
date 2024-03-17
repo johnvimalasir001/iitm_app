@@ -23,7 +23,7 @@ void main() async {
       return GetMaterialApp(
         debugShowCheckedModeBanner: false,
         routes: appRoutes.getRoutes(),
-        initialRoute: AppRouteNames.userDetailsroute,
+        initialRoute: AppRouteNames.reportroute,
       );
     },
   ));
