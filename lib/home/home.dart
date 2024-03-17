@@ -14,7 +14,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<String> fieldName = ['Weather', 'WaterFlow', 'Temperature', 'Humidity'];
+  List<String> fieldName = ['வானிலை', 'நீரோட்டம்', 'வெப்பநிலை', 'ஈரப்பதம்'];
   List<String> imgPath = [
     "assets/img/cloudy.png",
     "assets/img/cloudy.png",
@@ -25,7 +25,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-   
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
@@ -35,7 +34,7 @@ class _HomePageState extends State<HomePage> {
               children: [
                 const HomeAppBar(),
                 const SizedBox(height: 15),
-                const CustomText(inputText: "Today's Weather"),
+                const CustomText(inputText: "இன்றைய வானிலை"),
                 const SizedBox(height: 15),
                 const WeatherCard(),
                 const SizedBox(height: 15),
@@ -57,7 +56,7 @@ class _HomePageState extends State<HomePage> {
                     },
                   ),
                 ),
-                const CustomText(inputText: "Recent Activty"),
+                const CustomText(inputText: "சமீபத்திய நடவடிக்கை"),
                 const SizedBox(height: 15),
                 ListView.builder(
                   shrinkWrap: true,

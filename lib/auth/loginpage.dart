@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iitm_app/view/phonenumber.dart';
+import 'package:iitm_app/auth/phonenumber.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});

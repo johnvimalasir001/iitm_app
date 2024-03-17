@@ -47,7 +47,7 @@ class _WeatherCardState extends State<WeatherCard> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Tamil Nadu, 27 Nov 2023",
+                      "தமிழ்நாடு, 27 Nov 2023",
                       style: TextStyle(
                         fontSize: 14,
                         color: Colors.white,
@@ -69,7 +69,7 @@ class _WeatherCardState extends State<WeatherCard> {
                       height: 8,
                     ),
                     Text(
-                      "Humidity 82%",
+                      "ஈரப்பதம் 82%",
                       style: TextStyle(
                         fontSize: 18,
                         color: Colors.white,
@@ -94,7 +94,7 @@ class _WeatherCardState extends State<WeatherCard> {
             color: Colors.white,
           ),
           const Text(
-            "Today is a good day to apply pesticides",
+            "பூச்சிக்கொல்லி மருந்துகளை பயன்படுத்த இன்று நல்ல நாள்",
             style: TextStyle(
               fontSize: 14,
               color: Colors.white,

@@ -1,29 +1,30 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iitm_app/view/loginpage.dart';
+import 'package:get/get.dart';
+import 'package:iitm_app/core/routes/app_routes.dart';
+import 'package:iitm_app/core/routes/routes.dart';
 
-void main(){
-  
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    //Set the fit size (Find your UI design, look at the dimensions of the device screen and fill it in,unit in dp)
-    return ScreenUtilInit(
-      designSize: const Size(360, 690),
-      minTextAdapt: true,
-      splitScreenMode: true,
-      // Use builder only if you need to use library outside ScreenUtilInit context
-      builder: (_, child) {
-        return const MaterialApp(
-          debugShowCheckedModeBanner: false,
-          home: LoginPage(),
-        );
-      },
-    );
-  }
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+      options: const FirebaseOptions(
+    apiKey: "AIzaSyB7lm8XR3JabplK1JMX7tQQWBOYuO6WONo",
+    appId: "1:964382089415:android:93b1baf37d17d4cde2dee2",
+    messagingSenderId: "964382089415",
+    projectId: "iot-smart-water-meter-19f34",
+  ));
+  final AppRoutes appRoutes = AppRoutes();
+  runApp(ScreenUtilInit(
+    designSize: const Size(360, 690),
+    minTextAdapt: true,
+    splitScreenMode: true,
+    builder: (_, child) {
+      return GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        routes: appRoutes.getRoutes(),
+        initialRoute: AppRouteNames.userDetailsroute,
+      );
+    },
+  ));
 }

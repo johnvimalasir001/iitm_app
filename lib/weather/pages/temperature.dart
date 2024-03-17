@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iitm_app/weather/widgets/dailytemp_builder.dart';
-import 'package:iitm_app/weather/widgets/temp_graph.dart';
+import 'package:iitm_app/weather/widgets/dailytemp_details.dart';
+import 'package:iitm_app/weather/widgets/graph.dart';
 import 'package:iitm_app/weather/widgets/time_builder.dart';
 
 class Temperature extends StatefulWidget {
@@ -16,7 +17,7 @@ class _TemperatureState extends State<Temperature> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       // backgroundColor: Colors.amber,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

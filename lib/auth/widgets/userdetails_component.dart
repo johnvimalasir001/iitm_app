@@ -26,13 +26,17 @@ class UserdetailsComponent extends StatelessWidget {
           padding: EdgeInsets.only(top: 5.h),
           child: TextField(
             decoration: InputDecoration(
-                hintText: hintText,
-                prefixIcon: Icon(
-                  icons,
-                  color: Colors.blue,
+              hintText: hintText,
+              prefixIcon: Icon(
+                icons,
+                color: Colors.blue,
+              ),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(10.r),
                 ),
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10.r)))),
+              ),
+            ),
           ),
         ),
       ],

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iitm_app/application_page/application_page.dart';
-import 'package:iitm_app/view/otppage.dart';
-import 'package:iitm_app/view/userdetails_builder.dart';
+import 'package:iitm_app/auth/widgets/expansion.dart';
+import 'package:iitm_app/auth/widgets/userdetails_builder.dart';
 
 class UserDetails extends StatelessWidget {
   const UserDetails({super.key});
@@ -13,11 +13,7 @@ class UserDetails extends StatelessWidget {
       appBar: AppBar(
         leading: GestureDetector(
           onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const OTPPage(),
-                ));
+            Navigator.pop(context);
           },
           child: Icon(
             Icons.arrow_back,
@@ -38,16 +34,13 @@ class UserDetails extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                height: 18.h,
-              ),
               const UserDetailsBuilder(),
               Text(
                 'Crop Name',
                 style: TextStyle(fontSize: 20.sp),
               ),
               ExpansionTile(
-                initiallyExpanded: true,
+                initiallyExpanded: false,
                 shape: Border.all(color: Colors.transparent),
                 backgroundColor: const Color.fromRGBO(255, 251, 255, 1),
                 // leading: Image.asset(
@@ -60,7 +53,16 @@ class UserDetails extends StatelessWidget {
                 ),
                 children: const [
                   ListTile(
-                    title: Text('in Acre'),
+                    title: Text('Paddy'),
+                  ),
+                  ListTile(
+                    title: Text('Wheet'),
+                  ),
+                  ListTile(
+                    title: Text('Chick peas'),
+                  ),
+                  ListTile(
+                    title: Text('Kidney '),
                   ),
                 ],
               ),
@@ -74,6 +76,7 @@ class UserDetails extends StatelessWidget {
                 ),
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Padding(
                     padding: EdgeInsets.only(top: 5.h),
@@ -94,26 +97,7 @@ class UserDetails extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 40.w, bottom: 8.h),
-                    child: Row(
-                      children: [
-                        Text(
-                          'Acre',
-                          style: TextStyle(
-                              fontSize: 18.sp,
-                              color: Colors.black54,
-                              fontWeight: FontWeight.w500),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(left: 10.w),
-                          child: const Icon(
-                            Icons.keyboard_arrow_down,
-                          ),
-                        )
-                      ],
-                    ),
-                  )
+                  const MyDropdown()
                 ],
               ),
               Padding(
