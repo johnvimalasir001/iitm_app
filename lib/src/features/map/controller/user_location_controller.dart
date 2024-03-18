@@ -60,16 +60,12 @@ class LocationController extends GetxController {
         latitude.value = value.latitude;
         longitude.value = value.longitude;
         isLoading.value = false;
-        // List<Placemark> p =
-        //     await placemarkFromCoordinates(value.latitude, value.longitude);
-        // Placemark place = p[0];
-        // address.value = place.locality!;
+
         final coordinates = Coordinates(value.latitude, value.longitude);
         var addresses =
             await Geocoder.local.findAddressesFromCoordinates(coordinates);
         if (addresses.isNotEmpty) {
           address.value = addresses.first.addressLine ?? "";
-         
         } else {
           print("No address found for the coordinates");
         }

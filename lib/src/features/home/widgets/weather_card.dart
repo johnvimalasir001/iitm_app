@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:iitm_app/src/features/weather/controller/weather_controller.dart';
 
 class WeatherCard extends StatefulWidget {
   // final String location;
@@ -20,10 +22,16 @@ class WeatherCard extends StatefulWidget {
 }
 
 class _WeatherCardState extends State<WeatherCard> {
+  final WeatherController weatherController = WeatherController();
   var tmp = 0x00B0;
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Obx(() {
+      if (weatherController.minuteDataList.isEmpty) {
+        weatherController.fetchData();
+        return CircularProgressIndicator();
+      }else{
+        return Container(
       padding: const EdgeInsets.all(15),
       width: double.infinity,
       decoration: const BoxDecoration(
@@ -40,13 +48,13 @@ class _WeatherCardState extends State<WeatherCard> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(
+              SizedBox(
                 height: 110,
                 width: 200,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       "தமிழ்நாடு, 27 Nov 2023",
                       style: TextStyle(
                         fontSize: 14,
@@ -54,21 +62,22 @@ class _WeatherCardState extends State<WeatherCard> {
                         fontWeight: FontWeight.w400,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 8,
                     ),
                     Text(
-                      "28°C",
-                      style: TextStyle(
+                      weatherController.minuteDataList[0].values.temperature
+                          .toString(),
+                      style: const TextStyle(
                         fontSize: 25,
                         color: Colors.white,
                         fontWeight: FontWeight.w700,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 8,
                     ),
-                    Text(
+                    const Text(
                       "ஈரப்பதம் 82%",
                       style: TextStyle(
                         fontSize: 18,
@@ -104,5 +113,7 @@ class _WeatherCardState extends State<WeatherCard> {
         ],
       ),
     );
+      }
+    });
   }
 }

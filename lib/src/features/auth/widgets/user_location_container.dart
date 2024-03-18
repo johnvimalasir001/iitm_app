@@ -4,6 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:iitm_app/src/features/auth/widgets/custom_title.dart';
 import 'package:iitm_app/src/features/map/controller/user_location_controller.dart';
+import 'package:iitm_app/src/features/weather/controller/weather_controller.dart';
+import 'package:iitm_app/src/features/weather/pages/weather.dart';
 
 class UserLocationContainer extends StatelessWidget {
   const UserLocationContainer({super.key});
@@ -11,6 +13,7 @@ class UserLocationContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final LocationController locationController = LocationController();
+    final WeatherController weatherController = WeatherController();
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,6 +51,7 @@ class UserLocationContainer extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   locationController.getCurrentLocation();
+                  weatherController.fetchData();
                 },
                 child: Container(
                   height: 40.h,
@@ -66,7 +70,7 @@ class UserLocationContainer extends StatelessWidget {
               ),
             ],
           );
-        })
+        }),
       ],
     );
   }

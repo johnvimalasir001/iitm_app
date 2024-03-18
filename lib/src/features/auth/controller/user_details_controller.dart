@@ -19,6 +19,8 @@ class UserDetailsController extends GetxController {
   final RxString landSize = '0'.obs;
   final RxString unit = ''.obs;
   final RxString address = ''.obs;
+  final RxDouble latitude = 0.0.obs;
+  final RxDouble longitude = 0.0.obs;
 
   void updateSelectedUnit(String item) {
     selectedUnit = item; // Update the selected unit
@@ -38,6 +40,9 @@ class UserDetailsController extends GetxController {
     String landSize,
     String unit,
     String address,
+    double latitude,
+    double longitude,
+
   ) async {
     try {
       User? user = auth.currentUser;
@@ -52,6 +57,8 @@ class UserDetailsController extends GetxController {
           'landSize': landSize,
           'unit': unit,
           'address': address,
+          'latitdue':latitude,
+          'longitude':longitude,
         });
       } else {
         Get.snackbar(

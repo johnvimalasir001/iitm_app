@@ -178,6 +178,8 @@ class _UserDetailsState extends State<UserDetails> {
 
                 Obx(() {
                   String address = locationController.address.value;
+                  double lat = locationController.latitude.value;
+                  double lon = locationController.longitude.value;
                   return Padding(
                     padding: EdgeInsets.only(top: 15.h),
                     child: CustomElevatedButton(
@@ -191,12 +193,14 @@ class _UserDetailsState extends State<UserDetails> {
                           landSizeController.text,
                           userDetailsController.selectedUnit,
                           address,
+                          lat,
+                          lon,
                         );
                         texfieldClear();
                       },
                     ),
                   );
-                })
+                }),
               ],
             ),
           ),
