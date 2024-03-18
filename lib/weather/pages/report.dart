@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:iitm_app/weather/widgets/reportdata_builder.dart';
+import 'package:iitm_app/weather/widgets/taskrecord.dart';
 
 class Report extends StatelessWidget {
   Report({super.key});
@@ -23,7 +25,14 @@ class Report extends StatelessWidget {
           'Report',
           style: TextStyle(fontSize: 22.sp, fontWeight: FontWeight.w600),
         ),
-        elevation: 1,
+        elevation: 0,
+        scrolledUnderElevation: 0,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        shape: const CircleBorder(),
+        child: const Icon(Icons.add),
       ),
       body: SingleChildScrollView(
         child: SafeArea(
@@ -38,111 +47,144 @@ class Report extends StatelessWidget {
               ),
               Text(
                 'Today task',
-                style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w700),
+                style: TextStyle(
+                    fontSize: 19.sp,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.black),
               ),
               Padding(
-                padding: EdgeInsets.only(top: 10.h),
-                child: Container(
-                  height: 65.h,
-                  width: double.infinity.w,
-                  decoration: BoxDecoration(
-                      color: Colors.blue.shade50,
-                      borderRadius: BorderRadius.all(Radius.circular(10.r))),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                padding: const EdgeInsets.all(8.0),
+                child: Slidable(
+                  endActionPane:
+                      ActionPane(motion: const BehindMotion(), children: [
+                    SlidableAction(
+                      backgroundColor: Colors.red,
+                      label: 'OFF',
+                      onPressed: (context) => _onDismissed,
+                    )
+                  ]),
+                  startActionPane:
+                      ActionPane(motion: const ScrollMotion(), children: [
+                    SlidableAction(
+                      backgroundColor: Colors.green,
+                      label: 'ON',
+                      onPressed: (context) => _onDismissed,
+                    )
+                  ]),
+                  child: Padding(
+                    padding: EdgeInsets.only(top: 10.h),
+                    child: Container(
+                      height: 65.h,
+                      width: double.infinity.w,
+                      decoration: BoxDecoration(
+                          color: Colors.blue.shade50,
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(10.r))),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Padding(
-                            padding: EdgeInsets.only(top: 2.h, left: 8.w),
-                            child: Text(
-                              'Task 1',
-                              style: TextStyle(
-                                  fontSize: 17.sp, fontWeight: FontWeight.w700),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(left: 17.w),
-                            child: Text(
-                              'Turn ON/OFF the motor',
-                              style: TextStyle(
-                                  fontSize: 14.sp, fontWeight: FontWeight.w700),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(left: 17.w),
-                            child: Row(
-                              children: [
-                                Text(
-                                  '16/3/2024',
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(top: 2.h, left: 8.w),
+                                child: Text(
+                                  'Task 1',
                                   style: TextStyle(
-                                      fontSize: 14.sp,
-                                      fontWeight: FontWeight.w700),
+                                      fontSize: 17.sp,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.black87),
                                 ),
-                                SizedBox(
-                                  width: 10.w,
-                                ),
-                                Text(
-                                  '10:00 AM',
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 17.w),
+                                child: Text(
+                                  'Turn ON/OFF the motor',
                                   style: TextStyle(
-                                      fontSize: 14.sp,
-                                      fontWeight: FontWeight.w700),
+                                      fontSize: 13.sp,
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.black),
                                 ),
-                              ],
-                            ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 17.w),
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      '16/3/2024',
+                                      style: TextStyle(
+                                          fontSize: 13.sp,
+                                          fontWeight: FontWeight.w400,
+                                          color: Colors.black),
+                                    ),
+                                    SizedBox(
+                                      width: 10.w,
+                                    ),
+                                    Text(
+                                      '10:00 AM',
+                                      style: TextStyle(
+                                          fontSize: 13.sp,
+                                          fontWeight: FontWeight.w400,
+                                          color: Colors.black),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
+                          // Padding(
+                          //   padding: EdgeInsets.only(right: 18.w),
+                          //   child: Row(
+                          //     children: [
+                          //       GestureDetector(
+                          //         onTap: () {},
+                          //         child: Container(
+                          //           height: 33.h,
+                          //           width: 50.w,
+                          //           decoration: BoxDecoration(
+                          //               color: Colors.green,
+                          //               borderRadius: BorderRadius.all(
+                          //                   Radius.circular(8.r))),
+                          //           child: Center(
+                          //             child: Text(
+                          //               'ON',
+                          //               style: TextStyle(
+                          //                   color: Colors.white,
+                          //                   fontSize: 18.sp,
+                          //                   fontWeight: FontWeight.bold),
+                          //             ),
+                          //           ),
+                          //         ),
+                          //       ),
+                          //       SizedBox(
+                          //         width: 5.w,
+                          //       ),
+                          //       GestureDetector(
+                          //         onTap: () {},
+                          //         child: Container(
+                          //           height: 33.h,
+                          //           width: 50.w,
+                          //           decoration: BoxDecoration(
+                          //               color: Colors.redAccent,
+                          //               borderRadius: BorderRadius.all(
+                          //                   Radius.circular(8.r))),
+                          //           child: Center(
+                          //             child: Text(
+                          //               'OFF',
+                          //               style: TextStyle(
+                          //                   color: Colors.white,
+                          //                   fontSize: 18.sp,
+                          //                   fontWeight: FontWeight.bold),
+                          //             ),
+                          //           ),
+                          //         ),
+                          //       ),
+                          //     ],
+                          //   ),
+                          // )
                         ],
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(right: 18.w),
-                        child: Row(
-                          children: [
-                            GestureDetector(
-                              onTap: () {},
-                              child: Container(
-                                height: 33.h,
-                                width: 50.w,
-                                decoration: BoxDecoration(
-                                    color: Colors.blue.shade400,
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(8.r))),
-                                child: Center(
-                                  child: Text(
-                                    'ON',
-                                    style: TextStyle(
-                                        fontSize: 18.sp,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              width: 5.w,
-                            ),
-                            GestureDetector(
-                              onTap: () {},
-                              child: Container(
-                                height: 33.h,
-                                width: 50.w,
-                                decoration: BoxDecoration(
-                                    color: Colors.blue.shade400,
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(8.r))),
-                                child: Center(
-                                  child: Text(
-                                    'OFF',
-                                    style: TextStyle(
-                                        fontSize: 18.sp,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
+                    ),
                   ),
                 ),
               ),
@@ -170,79 +212,6 @@ class Report extends StatelessWidget {
       ),
     );
   }
-}
 
-class TaskRecord extends StatelessWidget {
-  const TaskRecord({
-    super.key,
-    required this.recorddate,
-  });
-  final String recorddate;
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 5.h),
-      child: Container(
-        height: 55.h,
-        width: double.infinity.w,
-        decoration: BoxDecoration(
-            color: Colors.blue.shade50,
-            borderRadius: BorderRadius.all(Radius.circular(10.r))),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(left: 14.w, top: 7.h),
-                  child: Text(
-                    'Turn ON/OFF the motor',
-                    style:
-                        TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w700),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(
-                    left: 14.w,
-                  ),
-                  child: Row(
-                    children: [
-                      Text(
-                        recorddate,
-                        style: TextStyle(
-                            fontSize: 15.sp, fontWeight: FontWeight.w700),
-                      ),
-                      SizedBox(
-                        width: 12.w,
-                      ),
-                      Text(
-                        '10:00 - 12:00',
-                        style: TextStyle(
-                            fontSize: 15.sp, fontWeight: FontWeight.w700),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.circle,
-              ),
-              color: Colors.green,
-            ),
-            // Container(
-            //   height: 40,
-            //   width: 40,
-            //   decoration: BoxDecoration(
-            //       color: Colors.green, borderRadius: BorderRadius.circular(30)),
-            //   child:
-            // )
-          ],
-        ),
-      ),
-    );
-  }
+  void _onDismissed() {}
 }

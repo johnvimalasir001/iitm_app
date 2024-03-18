@@ -6,9 +6,11 @@ class ReportData extends StatelessWidget {
     super.key,
     required this.dailyreport,
     required this.dailyreportcontent,
+    required this.reportcolor,
   });
 
   final String dailyreport, dailyreportcontent;
+  final reportcolor;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,7 @@ class ReportData extends StatelessWidget {
         height: 40.h,
         width: 105.w,
         decoration: BoxDecoration(
-            color: Colors.blue.shade50,
+            color: reportcolor,
             borderRadius: BorderRadius.all(Radius.circular(10.r))),
         child: Padding(
           padding: const EdgeInsets.all(10.0),

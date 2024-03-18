@@ -22,6 +22,12 @@ class _ReportDataBuilderState extends State<ReportDataBuilder> {
     'Humidity'
   ];
 
+  final List reportcolor = [
+    Colors.orange.shade100,
+    Colors.green.shade100,
+    Colors.blue.shade100
+  ];
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -33,8 +39,10 @@ class _ReportDataBuilderState extends State<ReportDataBuilder> {
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           return ReportData(
-              dailyreport: dailyreport[index],
-              dailyreportcontent: dailyreportcontent[index]);
+            dailyreport: dailyreport[index],
+            dailyreportcontent: dailyreportcontent[index],
+            reportcolor: reportcolor[index],
+          );
         },
       ),
     );

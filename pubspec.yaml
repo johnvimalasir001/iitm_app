@@ -44,6 +44,7 @@ dependencies:
   get:
 
   fl_chart: ^0.66.2
+  flutter_slidable: ^3.1.0
 
 dev_dependencies:
   flutter_test:
