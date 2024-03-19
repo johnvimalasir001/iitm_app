@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:iitm_app/src/features/application_page/pages/application_page.dart';
 import 'package:iitm_app/src/features/auth/pages/otppage.dart';
-import 'package:iitm_app/src/features/auth/widgets/userdetail.dart';
+import 'package:iitm_app/src/features/auth/pages/userdetail.dart';
 
 class AuthController extends GetxController {
   RxString phoneNumber = ''.obs;

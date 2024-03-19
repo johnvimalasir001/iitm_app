@@ -6,7 +6,7 @@ import 'package:iitm_app/src/features/auth/widgets/expansion.dart';
 import 'package:iitm_app/src/core/routes/app_routes.dart';
 import 'package:iitm_app/src/features/home/pages/home.dart';
 
-import 'package:iitm_app/src/features/auth/widgets/userdetail.dart';
+import 'package:iitm_app/src/features/auth/pages/userdetail.dart';
 import 'package:iitm_app/src/features/map/widgets/map.dart';
 import 'package:iitm_app/src/features/map/pages/user_location.dart';
 

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:iitm_app/src/features/auth/widgets/userdetail.dart';
+import 'package:iitm_app/src/features/auth/pages/userdetail.dart';
 
 import 'package:iitm_app/src/features/map/controller/user_location_controller.dart';
 

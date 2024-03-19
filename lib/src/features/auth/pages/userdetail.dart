@@ -177,6 +177,8 @@ class _UserDetailsState extends State<UserDetails> {
                 // ),
 
                 Obx(() {
+                  
+                  locationController.getCurrentLocation();
                   String address = locationController.address.value;
                   double lat = locationController.latitude.value;
                   double lon = locationController.longitude.value;
@@ -185,6 +187,7 @@ class _UserDetailsState extends State<UserDetails> {
                     child: CustomElevatedButton(
                       fieldName: "Submit",
                       onPressed: () {
+                        print("demo address: ${address}");
                         userDetailsController.createUserDocument(
                           firstNameController.text,
                           lastNameController.text,

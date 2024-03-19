@@ -6,8 +6,8 @@ import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class LocationController extends GetxController {
-  RxDouble latitude = 9.939093.obs;
-  RxDouble longitude = 78.121719.obs;
+  RxDouble latitude = 0.0.obs;
+  RxDouble longitude = 0.0.obs;
   RxString address = "".obs;
 
   RxBool isLoading = false.obs;
