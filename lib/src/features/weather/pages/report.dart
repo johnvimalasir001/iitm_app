@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:iitm_app/weather/widgets/reportdata_builder.dart';
-import 'package:iitm_app/weather/widgets/taskrecord.dart';
+import 'package:iitm_app/src/features/weather/widgets/reportdata_builder.dart';
+import 'package:iitm_app/src/features/weather/widgets/taskrecord.dart';
 
 class Report extends StatelessWidget {
   Report({super.key});

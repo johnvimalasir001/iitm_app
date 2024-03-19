@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iitm_app/weather/widgets/report_data.dart';
+import 'package:iitm_app/src/features/weather/widgets/report_data.dart';
+
 
 class ReportDataBuilder extends StatefulWidget {
   const ReportDataBuilder({super.key});
@@ -38,11 +39,7 @@ class _ReportDataBuilderState extends State<ReportDataBuilder> {
         itemCount: 3,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
-          return ReportData(
-            dailyreport: dailyreport[index],
-            dailyreportcontent: dailyreportcontent[index],
-            reportcolor: reportcolor[index],
-          );
+          return ReportData(dailyreport:dailyreport[index] ,dailyreportcontent: dailyreportcontent[index],reportcolor: reportcolor[index],);
         },
       ),
     );

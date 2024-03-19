@@ -87,21 +87,6 @@ class LoginPage extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) => const PhoneNumber(),
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const PhoneNumber(),
-                      ));
-                },
-                child: Container(
-                  height: 55.h,
-                  width: double.infinity.w,
-                  decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.all(Radius.circular(8.r))),
-                  child: Center(
-                    child: Text(
-                      'தொடங்கு',
-                      style: TextStyle(color: Colors.white, fontSize: 18.sp),
                     ),
                   );
                 },

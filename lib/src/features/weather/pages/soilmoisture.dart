@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iitm_app/weather/widgets/soilmoisture_graph.dart';
-import 'package:iitm_app/weather/widgets/time_builder.dart';
+import 'package:iitm_app/src/features/weather/widgets/soilmoisture_graph.dart';
+import 'package:iitm_app/src/features/weather/widgets/time_builder.dart';
 
 class SoilMoisture extends StatefulWidget {
   const SoilMoisture({super.key});
