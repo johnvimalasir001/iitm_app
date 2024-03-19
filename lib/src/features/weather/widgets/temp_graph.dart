@@ -1,11 +1,15 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:iitm_app/src/features/weather/models/weather_model.dart';
+import 'package:iitm_app/src/features/weather/controller/weather_controller.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 
 class Graph extends StatelessWidget {
-  const Graph({
-    super.key,
-  });
+  const Graph({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,91 +18,76 @@ class Graph extends StatelessWidget {
       width: double.infinity.w,
       child: Padding(
         padding: EdgeInsets.all(20.h),
-        child: LineChart(
-          LineChartData(
-            gridData: const FlGridData(show: false),
-            titlesData: FlTitlesData(
-              show: true,
-              bottomTitles: AxisTitles(
-                sideTitles: SideTitles(
-                    showTitles: true,
-                    getTitlesWidget: (value, meta) {
-                      // Customize this function to return your time labels based on the indices
-                      switch (value.toInt()) {
-                        case 0:
-                          return Padding(
-                            padding: EdgeInsets.only(left: 20.w),
-                            child: const Text('12 AM'),
-                          );
-                        case 1:
-                          return const Text('1 AM');
-                        case 2:
-                          return const Text('2:00 AM');
-                        case 3:
-                          return const Text('3:00 AM');
-                        case 4:
-                          return const Text('4:00 AM');
-                        case 5:
-                          return const Text('5:00 AM');
-                        case 6:
-                          return const Text('6:00 AM');
-                        case 7:
-                          return const Text('7:00 AM');
-                        case 8:
-                          return const Text('8:00 AM');
-                        case 9:
-                          return const Text('9:00 AM');
-                        case 10:
-                          return const Text('10:00 AM');
-                        case 12:
-                          return const Text('11:00 AM');
-                        case 13:
-                          return const Text('12 PM');
-                        case 14:
-                          return const SizedBox(width: 50, child: Text('1 PM'));
-                        case 15:
-                          return const Text('2:00');
-                        case 16:
-                          return const Text('4:00');
-                        // Add more cases as needed
-                        default:
-                          return const Text('0');
-                      }
-                    },
-                    interval: 2),
-              ),
-              leftTitles:
-                  const AxisTitles(sideTitles: SideTitles(showTitles: false)),
-              rightTitles:
-                  const AxisTitles(sideTitles: SideTitles(showTitles: false)),
-              topTitles:
-                  const AxisTitles(sideTitles: SideTitles(showTitles: false)),
-            ),
-            borderData: FlBorderData(
-              show: true,
-              border: Border.all(color: const Color(0xff37434d), width: 0),
-            ),
-            minX: 0,
-            maxX: 8,
-            minY: 0,
-            maxY: 8,
-            lineBarsData: [
-              LineChartBarData(
-                spots: [
-                  const FlSpot(0, 5),
-                  const FlSpot(2, 6),
-                  const FlSpot(4, 4),
-                  const FlSpot(6, 5),
-                  const FlSpot(8, 3),
+        child: Obx(
+          () {
+            final List<MinuteData> minuteDataList =
+                Get.put(WeatherController()).minuteDataList;
+            // Extract temperature data from minuteDataList
+            final List<double> temperatures = minuteDataList
+                .map((data) => data.values.temperature ?? 0.0)
+                .toList();
+
+            return LineChart(
+              LineChartData(
+                gridData: const FlGridData(show: false),
+                titlesData: FlTitlesData(
+                  show: true,
+                  bottomTitles: AxisTitles(
+                    sideTitles: SideTitles(
+                      showTitles: true,
+                      getTitlesWidget: (value, meta) {
+                        // Calculate current hour
+                        final now = DateTime.now();
+                        final currentHour = now.hour;
+                        // Calculate next 5 hours
+                        final nextFiveHours =
+                            List.generate(6, (index) => currentHour + index);
+                        // Customize this function to return your time labels based on the indices
+                        if (value >= 0 && value < nextFiveHours.length) {
+                          final hour = nextFiveHours[value.toInt()];
+                          final formattedHour = DateFormat('ha').format(
+                              DateTime(now.year, now.month, now.day, hour));
+                          return Text(formattedHour);
+                        } else {
+                          return const Text("");
+                        }
+                      },
+                      interval: 1,
+                    ),
+                  ),
+                  leftTitles: const AxisTitles(
+                      sideTitles: SideTitles(showTitles: false)),
+                  rightTitles: const AxisTitles(
+                      sideTitles: SideTitles(showTitles: false)),
+                  topTitles: const AxisTitles(
+                      sideTitles: SideTitles(showTitles: false)),
+                ),
+                borderData: FlBorderData(
+                  show: true,
+                  border: Border.all(color: const Color(0xff37434d), width: 0),
+                ),
+                minX: 0,
+                maxX: 5,
+                minY:
+                    temperatures.isNotEmpty ? temperatures.reduce(min) - 2 : 0,
+                maxY:
+                    temperatures.isNotEmpty ? temperatures.reduce(max) + 2 : 10,
+                lineBarsData: [
+                  LineChartBarData(
+                    spots: List.generate(
+                      temperatures.length,
+                      (index) => FlSpot(index.toDouble(), temperatures[index]),
+                    ),
+                    isCurved: true,
+                    barWidth: 3,
+                    color: Colors.orange,
+                    dotData: const FlDotData(show: false),
+                    belowBarData: BarAreaData(show: false),
+                  ),
                 ],
-                isCurved: true,
-                barWidth: 3,
-                color: Colors.orange,
-                dotData: const FlDotData(show: false),
-                belowBarData: BarAreaData(show: false),
               ),
-            ],
-          ),
+            );
+          },
         ),
       ),
     );

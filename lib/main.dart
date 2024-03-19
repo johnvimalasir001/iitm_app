@@ -25,7 +25,7 @@ void main() async {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           routes: appRoutes.getRoutes(),
-          initialRoute: AppRouteNames.homeRoute,
+          initialRoute: AppRouteNames.weatherPageRoute,
         );
       },
     ),

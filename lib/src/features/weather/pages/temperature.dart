@@ -3,7 +3,6 @@ import 'package:iitm_app/src/features/weather/widgets/dailytemp_builder.dart';
 import 'package:iitm_app/src/features/weather/widgets/temp_graph.dart';
 import 'package:iitm_app/src/features/weather/widgets/time_builder.dart';
 
-
 class Temperature extends StatefulWidget {
   const Temperature({super.key});
 
@@ -16,7 +15,7 @@ class _TemperatureState extends State<Temperature> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      backgroundColor: Colors.amber,
+      // backgroundColor: Colors.amber,
       // backgroundColor: Colors.amber,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

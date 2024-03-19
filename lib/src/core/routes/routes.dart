@@ -9,6 +9,7 @@ import 'package:iitm_app/src/features/home/pages/home.dart';
 import 'package:iitm_app/src/features/auth/pages/userdetail.dart';
 import 'package:iitm_app/src/features/map/widgets/map.dart';
 import 'package:iitm_app/src/features/map/pages/user_location.dart';
+import 'package:iitm_app/src/features/weather/pages/weather.dart';
 
 class AppRoutes {
   Map<String, WidgetBuilder> getRoutes() {
@@ -21,6 +22,7 @@ class AppRoutes {
       AppRouteNames.expansionDetails: (context) => MyDropdown(),
       AppRouteNames.mapRoutes: (context) => const MapPage(),
       AppRouteNames.userlocationRoute: (context) => const UserLocationpage(),
+      AppRouteNames.weatherPageRoute: (context) => const WeatherPage(),
     };
   }
 }
