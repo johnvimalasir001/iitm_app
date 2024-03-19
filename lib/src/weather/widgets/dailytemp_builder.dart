@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iitm_app/weather/widgets/dailytemp_details.dart';
 import 'package:iitm_app/src/weather/widgets/dailytemp_details.dart';
 
 class DailytempBuilder extends StatefulWidget {
@@ -14,15 +13,15 @@ class _DailytempBuilderState extends State<DailytempBuilder> {
   final List<String> dailytempreport = ['16°', '20°', '30°'];
 
   final List<String> tempreportcontent = [
-    'Avg Temperature',
-    'Lowest',
-    'highest'
+    'சராசரி வெப்பநிலை ',
+    'மிகக்குறைந்த',
+    'மிக உயர்ந்த'
   ];
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 76.h,
+      height: 77.h,
       width: double.infinity.w,
       child: ListView.builder(
         physics: const BouncingScrollPhysics(),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iitm_app/weather/widgets/report_data.dart';
+import 'package:iitm_app/report/widgets/report_data.dart';
 
 class ReportDataBuilder extends StatefulWidget {
   const ReportDataBuilder({super.key});
@@ -17,9 +17,9 @@ class _ReportDataBuilderState extends State<ReportDataBuilder> {
   ];
 
   final List<String> dailyreportcontent = [
-    'Temperature',
-    'Soil Moisure',
-    'Humidity'
+    'தட்பவெப்ப நிலை',
+    'மண் மொய்சூர்',
+    'ஈரம்'
   ];
 
   final List reportcolor = [

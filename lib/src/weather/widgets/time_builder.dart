@@ -9,7 +9,7 @@ class TimeBuilder extends StatefulWidget {
 }
 
 class _TimeBuilderState extends State<TimeBuilder> {
-  final List<String> time = ['24hrs', '1week', '1month'];
+  final List<String> time = ['24மணி', '1வாரம்', '1மாதம்'];
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class _TimeBuilderState extends State<TimeBuilder> {
         physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
-          return  Days(time:time[index]);
+          return Days(time: time[index]);
         },
       ),
     );

@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:iitm_app/src/application_page/pages/application_page.dart';
 import 'package:iitm_app/src/auth/controller/user_details_controller.dart';
 import 'package:iitm_app/src/auth/widgets/custom_button.dart';
 import 'package:iitm_app/src/auth/widgets/custom_textfield.dart';
 import 'package:iitm_app/src/auth/widgets/custom_title.dart';
 import 'package:iitm_app/src/auth/widgets/expansion.dart';
+import 'package:iitm_app/src/home/pages/home.dart';
 
 class UserDetails extends StatefulWidget {
   const UserDetails({super.key});
@@ -160,6 +162,11 @@ class _UserDetailsState extends State<UserDetails> {
                     child: CustomElevatedButton(
                       fieldName: "Submit",
                       onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const ApplicationPage(),
+                            ));
                         userDetailsController.createUserDocument(
                           firstNameController.text,
                           lastNameController.text,

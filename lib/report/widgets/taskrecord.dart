@@ -19,7 +19,7 @@ class _TaskRecordState extends State<TaskRecord> {
         selected: true,
         selectedTileColor: Colors.blue.shade50,
         title: Text(
-          'Turn ON/OFF the motor',
+          'மோட்டாரை ஆன்/ஆஃப் செய்யவும்',
           style: TextStyle(
               color: Colors.black87,
               fontSize: 13.sp,
@@ -46,19 +46,22 @@ class _TaskRecordState extends State<TaskRecord> {
             ),
           ],
         ),
-        trailing: Container(
-          height: 40,
-          width: 90,
-          decoration: BoxDecoration(
-              border: Border.all(color: Colors.green),
-              borderRadius: const BorderRadius.all(Radius.circular(10))),
-          child: Center(
-            child: Text(
-              'Completed',
-              style: TextStyle(
-                  color: Colors.green,
-                  fontSize: 13.sp,
-                  fontWeight: FontWeight.w700),
+        trailing: Padding(
+          padding: const EdgeInsets.only(left: 20),
+          child: Container(
+            height: 40,
+            width: 100,
+            decoration: BoxDecoration(
+                border: Border.all(color: Colors.green),
+                borderRadius: const BorderRadius.all(Radius.circular(10))),
+            child: Center(
+              child: Text(
+                'முடிந்தது',
+                style: TextStyle(
+                    color: Colors.green,
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.w700),
+              ),
             ),
           ),
         ),

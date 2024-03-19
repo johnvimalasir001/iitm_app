@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iitm_app/src/auth/pages/phonenumber.dart';
+import 'package:iitm_app/src/auth/widgets/custom_button.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -40,7 +41,7 @@ class LoginPage extends StatelessWidget {
               padding: EdgeInsets.only(top: 38.h),
               child: Center(
                 child: Text(
-                  'Smart',
+                  'ஸ்மார்ட்',
                   style: TextStyle(
                       fontSize: 38.sp,
                       fontWeight: FontWeight.w500,
@@ -50,14 +51,14 @@ class LoginPage extends StatelessWidget {
             ),
             Center(
               child: Text(
-                'Irrigitation',
+                'நீர்ப்பாசன',
                 style: TextStyle(
                     fontSize: 38.sp, fontWeight: FontWeight.w500, height: 1.h),
               ),
             ),
             Center(
               child: Text(
-                'System',
+                'அமைப்பு',
                 style: TextStyle(
                     fontSize: 38.sp, fontWeight: FontWeight.w500, height: 1.h),
               ),
@@ -66,42 +67,23 @@ class LoginPage extends StatelessWidget {
               padding: EdgeInsets.only(top: 20.h),
               child: const Center(
                   child: Text(
-                'A smart wireless sensors network',
+                'நீரின்றி அமையாது உலகெனின் யார்யார்க்கும் வான்இன்று அமையாது ஒழுக்கு',
                 style: TextStyle(
                     color: Colors.black54, fontWeight: FontWeight.w500),
               )),
             ),
-            const Center(
-                child: Text(
-              'designed to eliminate water wastage',
-              style:
-                  TextStyle(color: Colors.black45, fontWeight: FontWeight.w500),
-            )),
             Padding(
-              padding: EdgeInsets.only(top: 30.h),
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const PhoneNumber(),
-                      ));
-                },
-                child: Container(
-                  height: 55.h,
-                  width: double.infinity.w,
-                  decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.all(Radius.circular(8.r))),
-                  child: Center(
-                    child: Text(
-                      'Get started',
-                      style: TextStyle(color: Colors.white, fontSize: 18.sp),
-                    ),
-                  ),
-                ),
-              ),
-            )
+              padding: const EdgeInsets.only(top: 20),
+              child: CustomElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const PhoneNumber(),
+                        ));
+                  },
+                  fieldName: 'தொடங்கு'),
+            ),
           ],
         ),
       )),

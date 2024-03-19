@@ -6,4 +6,7 @@ class AppRouteNames {
   static String expansionDetails = "/expansionDetails";
   static String reportroute = "/report";
   static String mapRoutes = "/map";
+  static String taskManagementRoute = "/taskmanagement";
+  static String weatherroute="/weather";
+  static String navbar = "/navbar";
 }

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:iitm_app/weather/widgets/reportdata_builder.dart';
-import 'package:iitm_app/weather/widgets/taskrecord.dart';
+import 'package:iitm_app/report/pages/taskinput.dart';
+import 'package:iitm_app/report/widgets/reportdata_builder.dart';
+import 'package:iitm_app/report/widgets/taskrecord.dart';
 
 class Report extends StatelessWidget {
   Report({super.key});
@@ -22,15 +23,22 @@ class Report extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          'Report',
+          'அறிக்கை',
           style: TextStyle(fontSize: 22.sp, fontWeight: FontWeight.w600),
         ),
         elevation: 0,
         scrolledUnderElevation: 0,
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        backgroundColor: Colors.red,
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const TaskManagement(),
+              ));
+        },
         shape: const CircleBorder(),
         child: const Icon(Icons.add),
       ),
@@ -46,7 +54,7 @@ class Report extends StatelessWidget {
                 child: const ReportDataBuilder(),
               ),
               Text(
-                'Today task',
+                'இன்றைய டாஸ்க்',
                 style: TextStyle(
                     fontSize: 19.sp,
                     fontWeight: FontWeight.w700,
@@ -59,7 +67,7 @@ class Report extends StatelessWidget {
                       ActionPane(motion: const BehindMotion(), children: [
                     SlidableAction(
                       backgroundColor: Colors.red,
-                      label: 'OFF',
+                      label: 'ஆஃப்',
                       onPressed: (context) => _onDismissed,
                     )
                   ]),
@@ -67,7 +75,7 @@ class Report extends StatelessWidget {
                       ActionPane(motion: const ScrollMotion(), children: [
                     SlidableAction(
                       backgroundColor: Colors.green,
-                      label: 'ON',
+                      label: 'ஆன்',
                       onPressed: (context) => _onDismissed,
                     )
                   ]),
@@ -89,7 +97,7 @@ class Report extends StatelessWidget {
                               Padding(
                                 padding: EdgeInsets.only(top: 2.h, left: 8.w),
                                 child: Text(
-                                  'Task 1',
+                                  'டாஸ்க் 1',
                                   style: TextStyle(
                                       fontSize: 17.sp,
                                       fontWeight: FontWeight.w500,
@@ -99,7 +107,7 @@ class Report extends StatelessWidget {
                               Padding(
                                 padding: EdgeInsets.only(left: 17.w),
                                 child: Text(
-                                  'Turn ON/OFF the motor',
+                                  'மோட்டாரை ஆன்/ஆஃப் செய்யவும்',
                                   style: TextStyle(
                                       fontSize: 13.sp,
                                       fontWeight: FontWeight.w400,
@@ -132,56 +140,6 @@ class Report extends StatelessWidget {
                               ),
                             ],
                           ),
-                          // Padding(
-                          //   padding: EdgeInsets.only(right: 18.w),
-                          //   child: Row(
-                          //     children: [
-                          //       GestureDetector(
-                          //         onTap: () {},
-                          //         child: Container(
-                          //           height: 33.h,
-                          //           width: 50.w,
-                          //           decoration: BoxDecoration(
-                          //               color: Colors.green,
-                          //               borderRadius: BorderRadius.all(
-                          //                   Radius.circular(8.r))),
-                          //           child: Center(
-                          //             child: Text(
-                          //               'ON',
-                          //               style: TextStyle(
-                          //                   color: Colors.white,
-                          //                   fontSize: 18.sp,
-                          //                   fontWeight: FontWeight.bold),
-                          //             ),
-                          //           ),
-                          //         ),
-                          //       ),
-                          //       SizedBox(
-                          //         width: 5.w,
-                          //       ),
-                          //       GestureDetector(
-                          //         onTap: () {},
-                          //         child: Container(
-                          //           height: 33.h,
-                          //           width: 50.w,
-                          //           decoration: BoxDecoration(
-                          //               color: Colors.redAccent,
-                          //               borderRadius: BorderRadius.all(
-                          //                   Radius.circular(8.r))),
-                          //           child: Center(
-                          //             child: Text(
-                          //               'OFF',
-                          //               style: TextStyle(
-                          //                   color: Colors.white,
-                          //                   fontSize: 18.sp,
-                          //                   fontWeight: FontWeight.bold),
-                          //             ),
-                          //           ),
-                          //         ),
-                          //       ),
-                          //     ],
-                          //   ),
-                          // )
                         ],
                       ),
                     ),
@@ -192,7 +150,7 @@ class Report extends StatelessWidget {
                 height: 15.h,
               ),
               Text(
-                'Task Record',
+                'பணி பதிவு',
                 style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w700),
               ),
               SizedBox(

@@ -59,6 +59,7 @@ class _HomePageState extends State<HomePage> {
                 const CustomText(inputText: "சமீபத்திய நடவடிக்கை"),
                 const SizedBox(height: 15),
                 ListView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemCount: 10,
                   itemBuilder: (BuildContext context, int index) {

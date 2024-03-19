@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iitm_app/weather/widgets/soilmoisture_graph.dart';
-import 'package:iitm_app/weather/widgets/time_builder.dart';
+import 'package:iitm_app/src/weather/widgets/soilmoisture_graph.dart';
+import 'package:iitm_app/src/weather/widgets/time_builder.dart';
 
 class SoilMoisture extends StatefulWidget {
   const SoilMoisture({super.key});
@@ -47,7 +47,7 @@ class _SoilMoistureState extends State<SoilMoisture> {
           Padding(
             padding: EdgeInsets.only(left: 23.w),
             child: const Text(
-              "Humidity",
+              "ஈரம்",
               style: TextStyle(
                 fontWeight: FontWeight.w600,
               ),
@@ -116,7 +116,11 @@ class DailySoilBuilder extends StatefulWidget {
 class _DailysoilBuilderState extends State<DailySoilBuilder> {
   final List<String> dailysoilpreport = ['16%', '20%', '30%'];
 
-  final List<String> soilreportcontent = ['Avg Humidity', 'Highest', 'Lowest'];
+  final List<String> soilreportcontent = [
+    'சராசரி ஈரம்',
+    'மிகக்குறைந்த',
+    'மிக உயர்ந்த',
+  ];
 
   @override
   Widget build(BuildContext context) {

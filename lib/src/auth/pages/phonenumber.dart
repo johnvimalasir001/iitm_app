@@ -25,7 +25,7 @@ class PhoneNumber extends StatelessWidget {
         ),
         centerTitle: true,
         title: const Text(
-          'Login Page',
+          'உள்நுழைவு',
           style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
         ),
         elevation: 0,
@@ -40,14 +40,14 @@ class PhoneNumber extends StatelessWidget {
                 const Padding(
                   padding: EdgeInsets.only(top: 20, bottom: 8, left: 4),
                   child: Text(
-                    'Enter Your Number',
+                    'உங்கள் எண்ணை நிரப்பவும்',
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                   ),
                 ),
                 TextField(
                   controller: phoneNumberController,
                   decoration: const InputDecoration(
-                    hintText: '  phone number',
+                    hintText: '  தொலைபேசி எண்',
                     prefixIcon: Icon(
                       Icons.phone,
                       color: Colors.blue,
@@ -66,7 +66,7 @@ class PhoneNumber extends StatelessWidget {
                     String phoneNumber = '+91${phoneNumberController.text}';
                     authController.updatePhoneNumber(phoneNumber);
                     await authController.sendOTP(); // Updated to sendOTP
-                     
+
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -85,7 +85,7 @@ class PhoneNumber extends StatelessWidget {
                     ),
                     child: const Center(
                       child: Text(
-                        'Get OTP',
+                        'OTP ஐப் பெறுங்கள்',
                         style: TextStyle(
                           fontSize: 18,
                           color: Colors.white,

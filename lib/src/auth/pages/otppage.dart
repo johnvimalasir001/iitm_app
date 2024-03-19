@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:iitm_app/src/auth/controller/auth_controller.dart';
+import 'package:iitm_app/src/auth/pages/userdetail.dart';
 import 'package:pinput/pinput.dart';
 
 class OTPPage extends StatelessWidget {
@@ -35,8 +36,8 @@ class OTPPage extends StatelessWidget {
         ),
         centerTitle: true,
         title: const Text(
-          'Verify OTP',
-          style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
+          'OTP-ஐ சரிபார்க்கவும்',
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
         ),
         elevation: 0,
       ),
@@ -50,8 +51,8 @@ class OTPPage extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.only(top: 10),
               child: Text(
-                'Enter the 6-Digit Key in your message',
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+                'உங்கள் தொலைபேசி செய்தியில் 6 இலக்க விசையை உள்ளிடவும்',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
               ),
             ),
             Padding(
@@ -110,7 +111,7 @@ class OTPPage extends StatelessWidget {
                 authController.resendOTP(phonenNumber, resendToken);
               },
               child: const Text(
-                'Resend OTP',
+                'OTP-ஐ மீண்டும் அனுப்பு',
                 style: TextStyle(
                   fontSize: 16,
                   color: Colors.blue,
@@ -119,6 +120,19 @@ class OTPPage extends StatelessWidget {
                 ),
               ),
             ),
+
+            Padding(
+              padding: const EdgeInsets.only(top: 200),
+              child: IconButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const UserDetails(),
+                        ));
+                  },
+                  icon: const Icon(Icons.add)),
+            )
           ],
         ),
       ),
