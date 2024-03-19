@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class DailyTempDetails extends StatelessWidget {
-  const DailyTempDetails({
+class ReportData extends StatelessWidget {
+  const ReportData({
     super.key,
-    required this.dailytempreport,
-    required this.tempreportcontent,
+    required this.dailyreport,
+    required this.dailyreportcontent,
+    required this.reportcolor,
   });
 
-  final String dailytempreport, tempreportcontent;
+  final String dailyreport, dailyreportcontent;
+  final reportcolor;
 
   @override
   Widget build(BuildContext context) {
@@ -18,19 +20,19 @@ class DailyTempDetails extends StatelessWidget {
         height: 40.h,
         width: 105.w,
         decoration: BoxDecoration(
-            color: Colors.orange.shade50,
+            color: reportcolor,
             borderRadius: BorderRadius.all(Radius.circular(10.r))),
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(10.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                dailytempreport,
+                dailyreport,
                 style: TextStyle(fontSize: 26.sp, fontWeight: FontWeight.bold),
               ),
               Text(
-                tempreportcontent,
+                dailyreportcontent,
                 style: TextStyle(
                   fontSize: 9.sp,
                 ),

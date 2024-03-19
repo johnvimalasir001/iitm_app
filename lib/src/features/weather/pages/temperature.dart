@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:iitm_app/src/features/weather/widgets/dailytemp_builder.dart';
-import 'package:iitm_app/src/features/weather/widgets/graph.dart';
-import 'package:iitm_app/src/features/weather/widgets/time_builder.dart';
+import 'package:iitm_app/weather/widgets/dailytemp_builder.dart';
+import 'package:iitm_app/weather/widgets/graph.dart';
+import 'package:iitm_app/weather/widgets/time_builder.dart';
 
 class Temperature extends StatefulWidget {
   const Temperature({super.key});

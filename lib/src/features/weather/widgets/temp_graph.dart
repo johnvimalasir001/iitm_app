@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class HumidityGraph extends StatelessWidget {
-  const HumidityGraph({
+class Graph extends StatelessWidget {
+  const Graph({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 244.h,
+      height: 240.h,
       width: double.infinity.w,
       child: Padding(
         padding: EdgeInsets.all(20.h),
@@ -31,27 +31,27 @@ class HumidityGraph extends StatelessWidget {
                             child: const Text('12 AM'),
                           );
                         case 1:
-                          return const Text('1');
+                          return const Text('1 AM');
                         case 2:
-                          return const Text('2:00');
+                          return const Text('2:00 AM');
                         case 3:
-                          return const Text('3:00');
+                          return const Text('3:00 AM');
                         case 4:
-                          return const Text('4:00');
+                          return const Text('4:00 AM');
                         case 5:
-                          return const Text('5:00');
+                          return const Text('5:00 AM');
                         case 6:
-                          return const Text('6:00');
+                          return const Text('6:00 AM');
                         case 7:
-                          return const Text('7:00');
+                          return const Text('7:00 AM');
                         case 8:
-                          return const Text('8:00');
+                          return const Text('8:00 AM');
                         case 9:
-                          return const Text('9:00');
+                          return const Text('9:00 AM');
                         case 10:
-                          return const Text('10:00');
+                          return const Text('10:00 AM');
                         case 12:
-                          return const Text('11:00');
+                          return const Text('11:00 AM');
                         case 13:
                           return const Text('12 PM');
                         case 14:
@@ -93,7 +93,7 @@ class HumidityGraph extends StatelessWidget {
                 ],
                 isCurved: true,
                 barWidth: 3,
-                color: Colors.blue,
+                color: Colors.orange,
                 dotData: const FlDotData(show: false),
                 belowBarData: BarAreaData(show: false),
               ),

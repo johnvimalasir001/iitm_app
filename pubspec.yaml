@@ -45,11 +45,6 @@ dependencies:
   cloud_firestore: ^4.13.6
   location: ^5.0.3
   fl_chart: ^0.66.2
-  geocoding: ^3.0.0
-  geolocator: ^11.0.0
-  flutter_geocoder: ^0.2.2-nullsafety
-  http: ^1.2.1
-  weather: ^3.1.1
 
 dev_dependencies:
   flutter_test:

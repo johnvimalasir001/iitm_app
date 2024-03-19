@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class HumidityGraph extends StatelessWidget {
-  const HumidityGraph({
+class SoilMoistureGraph extends StatelessWidget {
+  const SoilMoistureGraph({
     super.key,
   });
 
@@ -93,7 +93,7 @@ class HumidityGraph extends StatelessWidget {
                 ],
                 isCurved: true,
                 barWidth: 3,
-                color: Colors.blue,
+                color: const Color.fromRGBO(0, 213, 130, 1),
                 dotData: const FlDotData(show: false),
                 belowBarData: BarAreaData(show: false),
               ),
