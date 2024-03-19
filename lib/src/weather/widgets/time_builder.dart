@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iitm_app/weather/widgets/time.dart';
+import 'package:iitm_app/src/weather/widgets/time.dart';
 
 class TimeBuilder extends StatefulWidget {
   const TimeBuilder({super.key});

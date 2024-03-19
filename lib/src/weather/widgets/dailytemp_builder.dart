@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iitm_app/weather/widgets/dailytemp_details.dart';
+import 'package:iitm_app/src/weather/widgets/dailytemp_details.dart';
 
 class DailytempBuilder extends StatefulWidget {
   const DailytempBuilder({super.key});

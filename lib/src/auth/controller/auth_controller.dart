@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:iitm_app/auth/otppage.dart';
-import 'package:iitm_app/home/home.dart';
-import 'package:iitm_app/auth/widgets/userdetail.dart';
+import 'package:iitm_app/src/auth/pages/otppage.dart';
+import 'package:iitm_app/src/home/pages/home.dart';
+import 'package:iitm_app/src/auth/widgets/userdetail.dart';
 
 class AuthController extends GetxController {
   RxString phoneNumber = ''.obs;
@@ -34,7 +34,7 @@ class AuthController extends GetxController {
       // Check if the user already exists
       if (userCredential.additionalUserInfo!.isNewUser) {
         // Navigate to user details filling page
-        Get.to(const UserDetails());
+        Get.to( UserDetails());
       } else {
         // User already exists, navigate to home page
         Get.to(const HomePage());

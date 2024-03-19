@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:iitm_app/home/widgets/custom_text.dart';
-import 'package:iitm_app/weather/pages/humidity.dart';
-import 'package:iitm_app/weather/pages/soilmoisture.dart';
-import 'package:iitm_app/weather/pages/temperature.dart';
-import 'package:iitm_app/weather/widgets/app_bar.dart';
+import 'package:iitm_app/src/home/widgets/custom_text.dart';
+import 'package:iitm_app/src/weather/pages/humidity.dart';
+import 'package:iitm_app/src/weather/pages/soilmoisture.dart';
+import 'package:iitm_app/src/weather/pages/temperature.dart';
+import 'package:iitm_app/src/weather/widgets/app_bar.dart';
 
 class WeatherPage extends StatefulWidget {
   const WeatherPage({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:iitm_app/auth/controller/auth_controller.dart';
-import 'package:iitm_app/auth/otppage.dart';
+import 'package:iitm_app/src/auth/controller/auth_controller.dart';
+import 'package:iitm_app/src/auth/pages/otppage.dart';
 
 class PhoneNumber extends StatelessWidget {
   const PhoneNumber({super.key});

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iitm_app/weather/widgets/dailytemp_builder.dart';
-import 'package:iitm_app/weather/widgets/temp_graph.dart';
-
+import 'package:iitm_app/weather/widgets/graph.dart';
 import 'package:iitm_app/weather/widgets/time_builder.dart';
 
 class Temperature extends StatefulWidget {
@@ -14,40 +12,43 @@ class Temperature extends StatefulWidget {
 
 class _TemperatureState extends State<Temperature> {
   var tmp = 0x00B0;
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
+      backgroundColor: Colors.amber,
       // backgroundColor: Colors.amber,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15.w),
-            child: const TimeBuilder(),
+            padding: EdgeInsets.symmetric(horizontal: 15),
+            child: TimeBuilder(),
           ),
           Padding(
-            padding: EdgeInsets.only(left: 23.w),
+            padding: EdgeInsets.only(left: 23),
             child: Text(
               "16°",
               style: TextStyle(
-                  fontSize: 48.sp,
+                  fontSize: 48,
                   fontWeight: FontWeight.w600,
-                  color: Colors.orange),
+                  color: Colors.black54),
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(left: 23.w),
-            child: const Text(
+            padding: EdgeInsets.only(left: 23),
+            child: Text(
               "Current Temperature",
               style:
                   TextStyle(fontWeight: FontWeight.w600, color: Colors.black54),
             ),
           ),
-          const Graph(),
+          SizedBox(
+            height: 10,
+          ),
+          Graph(),
           Padding(
-            padding: EdgeInsets.only(top: 10.h, left: 10.w, right: 10.w),
-            child: const DailytempBuilder(),
+            padding: EdgeInsets.only(top: 40, left: 10, right: 10),
+            child: DailytempBuilder(),
           )
         ],
       ),

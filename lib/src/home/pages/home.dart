@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:iitm_app/home/widgets/current_working_status_card.dart';
-import 'package:iitm_app/home/widgets/custom_cards.dart';
-import 'package:iitm_app/home/widgets/custom_text.dart';
-import 'package:iitm_app/home/widgets/home_app_bar_widget.dart';
-import 'package:iitm_app/home/widgets/recent_activity_card.dart';
-import 'package:iitm_app/home/widgets/weather_card.dart';
+import 'package:iitm_app/src/home/widgets/current_working_status_card.dart';
+import 'package:iitm_app/src/home/widgets/custom_cards.dart';
+import 'package:iitm_app/src/home/widgets/custom_text.dart';
+import 'package:iitm_app/src/home/widgets/home_app_bar_widget.dart';
+import 'package:iitm_app/src/home/widgets/recent_activity_card.dart';
+import 'package:iitm_app/src/home/widgets/weather_card.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

@@ -5,4 +5,5 @@ class AppRouteNames {
   static String phoneNumberRoute = "/phoneNumber";
   static String expansionDetails = "/expansionDetails";
   static String reportroute = "/report";
+  static String mapRoutes = "/map";
 }
