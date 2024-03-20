@@ -2,8 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:iitm_app/core/routes/app_routes.dart';
-import 'package:iitm_app/core/routes/routes.dart';
+import 'package:iitm_app/src/core/routes/app_routes.dart';
+import 'package:iitm_app/src/core/routes/routes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
