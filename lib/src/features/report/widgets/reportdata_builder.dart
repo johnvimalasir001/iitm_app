@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iitm_app/report/widgets/report_data.dart';
+import 'package:iitm_app/src/features/report/widgets/report_data.dart';
 
 class ReportDataBuilder extends StatefulWidget {
   const ReportDataBuilder({super.key});

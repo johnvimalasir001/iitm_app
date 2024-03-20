@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iitm_app/src/features/home/widgets/custom_text.dart';
+import 'package:iitm_app/src/features/weather/controller/weather_controller.dart';
 import 'package:iitm_app/src/features/weather/pages/humidity.dart';
 import 'package:iitm_app/src/features/weather/pages/soilmoisture.dart';
 import 'package:iitm_app/src/features/weather/pages/temperature.dart';
@@ -15,6 +16,7 @@ class WeatherPage extends StatefulWidget {
 class _WeatherPageState extends State<WeatherPage>
     with TickerProviderStateMixin {
   late TabController tabController;
+  final WeatherController weatherController = WeatherController();
   @override
   void initState() {
     super.initState();
@@ -23,6 +25,7 @@ class _WeatherPageState extends State<WeatherPage>
       length: 3,
       vsync: this,
     );
+     
   }
 
   @override
@@ -68,7 +71,7 @@ class _WeatherPageState extends State<WeatherPage>
             Expanded(
               child: TabBarView(
                 controller: tabController,
-                children: const [
+                children:  [
                   Temperature(),
                   SoilMoisture(),
                   Humidity(),

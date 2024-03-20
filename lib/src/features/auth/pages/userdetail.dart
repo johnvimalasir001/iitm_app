@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:iitm_app/src/auth/controller/user_details_controller.dart';
-import 'package:iitm_app/src/auth/widgets/custom_button.dart';
-import 'package:iitm_app/src/auth/widgets/custom_textfield.dart';
-import 'package:iitm_app/src/auth/widgets/custom_title.dart';
-import 'package:iitm_app/src/auth/widgets/expansion.dart';
+import 'package:iitm_app/src/features/auth/controller/user_details_controller.dart';
+import 'package:iitm_app/src/features/auth/widgets/custom_button.dart';
+import 'package:iitm_app/src/features/auth/widgets/custom_textfield.dart';
+import 'package:iitm_app/src/features/auth/widgets/custom_title.dart';
+import 'package:iitm_app/src/features/auth/widgets/expansion.dart';
+import 'package:iitm_app/src/features/auth/widgets/landsize_custom_textfield.dart';
+import 'package:iitm_app/src/features/auth/widgets/user_location_container.dart';
+import 'package:iitm_app/src/features/map/controller/user_location_controller.dart';
+
 
 class UserDetails extends StatefulWidget {
   const UserDetails({super.key});
@@ -16,6 +19,7 @@ class UserDetails extends StatefulWidget {
 }
 
 class _UserDetailsState extends State<UserDetails> {
+  final LocationController locationController = LocationController();
   final TextEditingController firstNameController = TextEditingController();
 
   final TextEditingController lastNameController = TextEditingController();
@@ -24,11 +28,14 @@ class _UserDetailsState extends State<UserDetails> {
 
   final TextEditingController landSizeController = TextEditingController();
 
+  final TextEditingController userLocationController = TextEditingController();
+
   void texfieldClear() {
     firstNameController.clear();
     lastNameController.clear();
     emailController.clear();
     landSizeController.clear();
+    userLocationController.clear();
   }
 
   @override
@@ -143,23 +150,45 @@ class _UserDetailsState extends State<UserDetails> {
                     Padding(
                       padding: EdgeInsets.only(top: 5.h),
                       child: SizedBox(
-                          width: 190.w,
-                          child: CustomTextField(
-                            controller: landSizeController,
-                            fieldName: "Land Details",
-                            icon: const Icon(
-                              Icons.landscape,
-                            ),
-                          )),
+                        width: 190.w,
+                        child: LandsizeCustomTextField(
+                          controller: landSizeController,
+                          fieldName: "Land Details",
+                          icon: const Icon(
+                            Icons.landscape,
+                          ),
+                        ),
+                      ),
                     ),
                     MyDropdown(),
                   ],
                 ),
-                Padding(
-                    padding: EdgeInsets.only(top: 20.h),
+                const UserLocationContainer(),
+
+                // const CustomTitle(title: "User Location"),
+                // SizedBox(
+                //   height: 5.h,
+                // ),
+                // CustomTextField(
+                //   fieldName: "User Location",
+                //   controller: userLocationController,
+                //   icon: const Icon(
+                //     Icons.location_on,
+                //   ),
+                // ),
+
+                Obx(() {
+                  
+                  locationController.getCurrentLocation();
+                  String address = locationController.address.value;
+                  double lat = locationController.latitude.value;
+                  double lon = locationController.longitude.value;
+                  return Padding(
+                    padding: EdgeInsets.only(top: 15.h),
                     child: CustomElevatedButton(
                       fieldName: "Submit",
                       onPressed: () {
+                        print("demo address: ${address}");
                         userDetailsController.createUserDocument(
                           firstNameController.text,
                           lastNameController.text,
@@ -167,10 +196,15 @@ class _UserDetailsState extends State<UserDetails> {
                           userDetailsController.cropSelectedName,
                           landSizeController.text,
                           userDetailsController.selectedUnit,
+                          address,
+                          lat,
+                          lon,
                         );
                         texfieldClear();
                       },
-                    )),
+                    ),
+                  );
+                }),
               ],
             ),
           ),

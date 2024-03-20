@@ -63,25 +63,28 @@ class LoginPage extends StatelessWidget {
                     fontSize: 38.sp, fontWeight: FontWeight.w500, height: 1.h),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(top: 20.h),
-              child: const Center(
-                  child: Text(
-                'ஸ்மார்ட் வயர்லெஸ் சென்சார்கள் நெட்வொர்க்',
-                style: TextStyle(
-                    color: Colors.black54, fontWeight: FontWeight.w500),
-              )),
+            // Padding(
+            //   padding: EdgeInsets.only(top: 20.h),
+            //   child: const Center(
+            //       child: Text(
+            //     'ஸ்மார்ட் வயர்லெஸ் சென்சார்கள் நெட்வொர்க்',
+            //     style: TextStyle(
+            //         color: Colors.black54, fontWeight: FontWeight.w500),
+            //   )),
+            // ),
+            const SizedBox(
+              height: 10,
             ),
             const Center(
                 child: Text(
-              'நீர் விரயத்தை அகற்ற வடிவமைக்கப்பட்டுள்ளது',
+              'நீரின்றி அமையாது உலகெனின் யார்யார்க்கும் வான்இன்று அமையாது ஒழுக்கு',
               style:
                   TextStyle(color: Colors.black45, fontWeight: FontWeight.w500),
             )),
             Padding(
-              padding: EdgeInsets.only(top: 30.h),
+              padding: EdgeInsets.only(top: 20.h),
               child: CustomElevatedButton(
-                fieldName: "Get Started",
+                fieldName: "தொடங்கு",
                 onPressed: () {
                   Navigator.push(
                     context,
