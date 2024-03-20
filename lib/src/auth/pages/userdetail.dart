@@ -154,7 +154,10 @@ class _UserDetailsState extends State<UserDetails> {
                             ),
                           )),
                     ),
-                    MyDropdown(),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 28),
+                      child: MyDropdown(),
+                    ),
                   ],
                 ),
                 Padding(

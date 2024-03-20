@@ -35,9 +35,9 @@ class _WeatherCardState extends State<WeatherCard> {
       child: Container(
         padding: const EdgeInsets.all(15),
         width: double.infinity,
-        decoration: const BoxDecoration(
-          color: Colors.blue,
-          borderRadius: BorderRadius.all(
+        decoration: BoxDecoration(
+          color: Colors.blue.shade400,
+          borderRadius: const BorderRadius.all(
             Radius.circular(15),
           ),
         ),
@@ -50,7 +50,7 @@ class _WeatherCardState extends State<WeatherCard> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(
-                  height: 110,
+                  height: 100,
                   width: 200,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,7 +64,7 @@ class _WeatherCardState extends State<WeatherCard> {
                         ),
                       ),
                       SizedBox(
-                        height: 8,
+                        height: 6,
                       ),
                       Text(
                         "28°C",
@@ -75,12 +75,12 @@ class _WeatherCardState extends State<WeatherCard> {
                         ),
                       ),
                       SizedBox(
-                        height: 8,
+                        height: 5,
                       ),
                       Text(
                         "ஈரப்பதம் 82%",
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 17,
                           color: Colors.white,
                           fontWeight: FontWeight.w500,
                         ),
@@ -88,12 +88,15 @@ class _WeatherCardState extends State<WeatherCard> {
                     ],
                   ),
                 ),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: Image.asset(
-                    "assets/img/cloudy.png",
-                    height: 100,
-                    width: 100,
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Align(
+                    alignment: Alignment.centerRight,
+                    child: Image.asset(
+                      "assets/img/cloudy.png",
+                      height: 90,
+                      width: 90,
+                    ),
                   ),
                 ),
               ],

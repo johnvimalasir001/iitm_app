@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iitm_app/report/pages/report.dart';
 import 'package:iitm_app/src/home/pages/home.dart';
 import 'package:iitm_app/src/profile/pages/profile_page.dart';
 import 'package:iitm_app/src/weather/pages/weather.dart';
@@ -13,8 +14,8 @@ class ApplicationPage extends StatefulWidget {
 class _ApplicationPageState extends State<ApplicationPage> {
   List<Widget> pages = <Widget>[
     const HomePage(),
-    const WeatherPage(),
-    const ProfilePage()
+    const ProfilePage(),
+    Report(),
   ];
   int index = 0;
   @override
@@ -27,6 +28,8 @@ class _ApplicationPageState extends State<ApplicationPage> {
           fontWeight: FontWeight.w500,
           color: Colors.blue,
         ),
+        showUnselectedLabels: true,
+        unselectedLabelStyle: const TextStyle(color: Colors.black54),
         useLegacyColorScheme: false,
         items: [
           BottomNavigationBarItem(
@@ -36,17 +39,17 @@ class _ApplicationPageState extends State<ApplicationPage> {
               "assets/icons/home-100.png",
               "assets/icons/home-100-2.png",
             ),
-            label: "Home",
+            label: "வீடு",
           ),
           BottomNavigationBarItem(
-            icon: iconWidget(1, index, "assets/icons/cloud-computing (1).png",
-                "assets/icons/cloud-computing.png"),
-            label: "Weather",
+            icon: iconWidget(1, index, "assets/icons/openbook.jpg",
+                "assets/icons/openbook.jpg"),
+            label: "அறிக்கை",
           ),
           BottomNavigationBarItem(
             icon: iconWidget(2, index, "assets/icons/user-outline.png",
                 "assets/icons/user-filled.png"),
-            label: "Profile",
+            label: "சுயவிவரம்",
           ),
         ],
         currentIndex: index,

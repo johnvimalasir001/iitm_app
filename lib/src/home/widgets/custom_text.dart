@@ -12,8 +12,8 @@ class CustomText extends StatelessWidget {
     return Text(
       inputText,
       style: const TextStyle(
-        fontSize: 22,
-        fontWeight: FontWeight.w700,
+        fontSize: 19,
+        fontWeight: FontWeight.w600,
       ),
     );
   }
