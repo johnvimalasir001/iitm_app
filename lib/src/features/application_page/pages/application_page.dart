@@ -3,7 +3,6 @@ import 'package:iitm_app/src/features/home/pages/home.dart';
 import 'package:iitm_app/src/features/profile/pages/profile_page.dart';
 import 'package:iitm_app/src/features/report/pages/report.dart';
 
-
 class ApplicationPage extends StatefulWidget {
   const ApplicationPage({super.key});
 
