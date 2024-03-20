@@ -11,17 +11,28 @@ class WeatherAppBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const SizedBox(
+          SizedBox(
             width: 208,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  "H2O Smart",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context); // Use Navigator.pop to go back
+                  },
+                  child: const Icon(
+                    Icons.arrow_back_ios_new,
+                    size: 20,
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(left: 18),
+                  child: Text(
+                    "H2O Smart",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600),
+                  ),
                 )
               ],
             ),

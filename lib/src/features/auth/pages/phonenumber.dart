@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:iitm_app/src/features/auth/controller/auth_controller.dart';
-import 'package:iitm_app/src/features/auth/pages/otppage.dart';
-import 'package:iitm_app/src/features/auth/widgets/custom_button.dart';
+import 'package:iitm_app/src/auth/controller/auth_controller.dart';
+import 'package:iitm_app/src/auth/pages/otppage.dart';
 
 class PhoneNumber extends StatelessWidget {
   const PhoneNumber({super.key});
@@ -62,32 +61,39 @@ class PhoneNumber extends StatelessWidget {
                 const SizedBox(
                   height: 30,
                 ),
-                CustomElevatedButton(
-                  fieldName: "Get OTP",
-                  onPressed: () async {
-                    if (phoneNumberController.text.isEmpty) {
-                      Get.snackbar(
-                        "Error",
-                        "Please enter phone number to Login",
-                        snackPosition: SnackPosition.BOTTOM,
-                        backgroundColor: Colors.red,
-                        colorText: Colors.white,
-                      );
-                    } else {
-                      String phoneNumber = '+91${phoneNumberController.text}';
-                      authController.updatePhoneNumber(phoneNumber);
-                      await authController.sendOTP(); // Updated to sendOTP
+                GestureDetector(
+                  onTap: () async {
+                    String phoneNumber = '+91${phoneNumberController.text}';
+                    authController.updatePhoneNumber(phoneNumber);
+                    await authController.sendOTP(); // Updated to sendOTP
 
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => OTPPage(
-                            phonenNumber: phoneNumberController.text,
-                          ),
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => OTPPage(
+                          phonenNumber: phoneNumberController.text,
                         ),
-                      );
-                    }
+                      ),
+                    );
                   },
+                  child: Container(
+                    height: 70,
+                    width: double.infinity,
+                    decoration: const BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                    ),
+                    child: const Center(
+                      child: Text(
+                        'Get OTP',
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),

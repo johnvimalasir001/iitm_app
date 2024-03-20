@@ -39,7 +39,7 @@ class _RecentActivityCardState extends State<RecentActivityCard> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                  "Farming Community",
+                  "விவசாய சமுதாயம்",
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
@@ -52,16 +52,16 @@ class _RecentActivityCardState extends State<RecentActivityCard> {
                   text: const TextSpan(
                     children: [
                       TextSpan(
-                        text: "Public Group ",
-                        style: TextStyle(fontSize: 14, color: Colors.grey),
+                        text: "பொது குழு ",
+                        style: TextStyle(fontSize: 13, color: Colors.grey),
                       ),
                       TextSpan(
-                        text: " ",
-                        style: TextStyle(fontSize: 14, color: Colors.grey),
+                        text: "  ",
+                        style: TextStyle(fontSize: 13, color: Colors.grey),
                       ),
                       TextSpan(
-                        text: "128 Members",
-                        style: TextStyle(fontSize: 14, color: Colors.grey),
+                        text: "128 உறுப்பினர்கள்",
+                        style: TextStyle(fontSize: 13, color: Colors.grey),
                       ),
                     ],
                   ),
@@ -76,7 +76,7 @@ class _RecentActivityCardState extends State<RecentActivityCard> {
               border: Border.all(color: Colors.blue, width: 2),
             ),
             child: const Text(
-              "Gabung",
+              "சேர்க",
               style: TextStyle(color: Colors.blue),
             ),
           )

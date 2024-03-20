@@ -47,7 +47,7 @@ class _HumidityState extends State<Humidity> {
           Padding(
             padding: EdgeInsets.only(left: 23.w),
             child: const Text(
-              "Wet basis",
+              "ஈரமான அடிப்படை",
               style: TextStyle(
                 fontWeight: FontWeight.w600,
               ),
@@ -116,7 +116,11 @@ class DailyHumidityBuilder extends StatefulWidget {
 class _DailysoilBuilderState extends State<DailyHumidityBuilder> {
   final List<String> dailysoilreport = ['16%', '20%', '30%'];
 
-  final List<String> soilreportcontent = ['Avg Wet Basis', 'Highest', 'Lowest'];
+  final List<String> soilreportcontent = [
+    'சராசரி ஈரமான அடிப்படை',
+    'மிக உயர்ந்த',
+    'மிகக்குறைந்த'
+  ];
 
   @override
   Widget build(BuildContext context) {

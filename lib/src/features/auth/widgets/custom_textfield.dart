@@ -11,7 +11,7 @@ class CustomTextField extends StatelessWidget {
 
   final String fieldName;
   final TextEditingController controller;
-  final Icon icon;
+  final Widget icon;
 
   @override
   Widget build(BuildContext context) {
@@ -41,8 +41,8 @@ class CustomTextField extends StatelessWidget {
               contentPadding: EdgeInsets.all(10.r),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10.r),
-                borderSide: BorderSide(
-                  color: Colors.grey.shade300,
+                borderSide: const BorderSide(
+                  color: Colors.blue,
                 ),
               ),
             ),

@@ -45,7 +45,7 @@ class _WeatherPageState extends State<WeatherPage>
             ),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 15),
-              child: CustomText(inputText: "Weather Report"),
+              child: CustomText(inputText: "வானிலை அறிக்கை"),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -55,12 +55,12 @@ class _WeatherPageState extends State<WeatherPage>
                 indicatorColor: Colors.blue,
                 controller: tabController,
                 tabs: const [
-                  Tab(text: 'Temperature'),
+                  Tab(text: 'தட்பவெப்ப நிலை'),
                   Tab(
-                    text: 'Soil Moisture',
+                    text: 'மண்ணின் ஈரப்பதம்',
                   ),
                   Tab(
-                    text: 'Humidity',
+                    text: 'ஈரம்',
                   ),
                 ],
               ),
