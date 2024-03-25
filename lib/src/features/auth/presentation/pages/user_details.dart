@@ -3,12 +3,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:iitm_app/src/features/application_page/pages/application_page.dart';
 import 'package:iitm_app/src/features/auth/controller/user_details_controller.dart';
-import 'package:iitm_app/src/features/auth/widgets/custom_button.dart';
-import 'package:iitm_app/src/features/auth/widgets/custom_textfield.dart';
-import 'package:iitm_app/src/features/auth/widgets/custom_title.dart';
-import 'package:iitm_app/src/features/auth/widgets/expansion.dart';
-import 'package:iitm_app/src/features/auth/widgets/landsize_custom_textfield.dart';
-import 'package:iitm_app/src/features/auth/widgets/user_location_container.dart';
+import 'package:iitm_app/src/features/auth/presentation/widgets/custom_button.dart';
+import 'package:iitm_app/src/features/auth/presentation/widgets/custom_textfield.dart';
+import 'package:iitm_app/src/features/auth/presentation/widgets/custom_title.dart';
+import 'package:iitm_app/src/features/auth/presentation/widgets/expansion.dart';
+import 'package:iitm_app/src/features/auth/presentation/widgets/landsize_custom_textfield.dart';
+import 'package:iitm_app/src/features/auth/presentation/widgets/user_location_container.dart';
 import 'package:iitm_app/src/features/auth/controller/user_location_controller.dart';
 
 class UserDetails extends StatefulWidget {

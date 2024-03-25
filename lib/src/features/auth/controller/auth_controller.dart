@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:iitm_app/src/features/application_page/pages/application_page.dart';
-import 'package:iitm_app/src/features/auth/pages/otppage.dart';
-import 'package:iitm_app/src/features/auth/pages/userdetail.dart';
+import 'package:iitm_app/src/features/auth/presentation/pages/otp_page.dart';
+import 'package:iitm_app/src/features/auth/presentation/pages/user_details.dart';
 
 class AuthController extends GetxController {
+  String _verificationId = '';
+
+  //
   RxString phoneNumber = ''.obs;
   RxString otp = ''.obs;
 
@@ -19,12 +22,10 @@ class AuthController extends GetxController {
     otp.value = value;
   }
 
-  String get verificationId => _verificationId;
-
   Future<void> verifyOTP(String otp) async {
     try {
       PhoneAuthCredential phoneAuthCredential = PhoneAuthProvider.credential(
-        verificationId: verificationId,
+        verificationId: _verificationId,
         smsCode: otp,
       );
 
@@ -48,13 +49,11 @@ class AuthController extends GetxController {
       );
     } catch (e) {
       // Handle authentication failure
-      
+
       Get.snackbar('Error', 'Failed to verify OTP. Please try again.',
           snackPosition: SnackPosition.BOTTOM);
     }
   }
-
-  String _verificationId = '';
 
   Future<void> sendOTP() async {
     try {
@@ -66,7 +65,6 @@ class AuthController extends GetxController {
           Get.offNamed('/home');
         },
         verificationFailed: (FirebaseAuthException e) {
-          
           Get.snackbar(
             'Error',
             'Failed to verify phone number: ${e.message}',
@@ -75,6 +73,8 @@ class AuthController extends GetxController {
             colorText: Colors.white,
           );
         },
+
+        //
         codeSent: (String verificationId, int? resendToken) {
           _verificationId = verificationId;
           Get.snackbar(
@@ -92,7 +92,6 @@ class AuthController extends GetxController {
         forceResendingToken: null, // Provide forceResendingToken if necessary
       );
     } catch (e) {
-      
       Get.snackbar(
         'Error',
         'Failed to send OTP. Please try again.',
