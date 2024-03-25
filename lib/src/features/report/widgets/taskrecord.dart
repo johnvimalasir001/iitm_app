@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:iitm_app/src/features/report/pages/taskrecord_data.dart';
 
 class TaskRecord extends StatefulWidget {
   const TaskRecord({super.key, required this.recorddate});
@@ -15,7 +17,9 @@ class _TaskRecordState extends State<TaskRecord> {
     return Padding(
       padding: const EdgeInsets.only(top: 10),
       child: ListTile(
-        onTap: () {},
+        onTap: () {
+          Get.to(const TaskRecordData());
+        },
         selected: true,
         selectedTileColor: Colors.blue.shade50,
         title: Text(
