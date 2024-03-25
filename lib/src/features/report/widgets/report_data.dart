@@ -28,13 +28,13 @@ class ReportData extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                dailyreport,
+                "${dailyreport}C",
                 style: TextStyle(fontSize: 26.sp, fontWeight: FontWeight.bold),
               ),
               Text(
                 dailyreportcontent,
                 style: TextStyle(
-                  fontSize: 9.sp,
+                  fontSize: 7.sp,
                 ),
               ),
             ],

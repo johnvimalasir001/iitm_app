@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iitm_app/src/features/weather/models/weather_model.dart';
@@ -22,7 +21,7 @@ class Graph extends StatelessWidget {
           () {
             final List<MinuteData> minuteDataList =
                 Get.put(WeatherController()).minuteDataList;
-            // Extract temperature data from minuteDataList
+
             final List<double> temperatures = minuteDataList
                 .map((data) => data.values.temperature ?? 0.0)
                 .toList();
@@ -36,13 +35,12 @@ class Graph extends StatelessWidget {
                     sideTitles: SideTitles(
                       showTitles: true,
                       getTitlesWidget: (value, meta) {
-                        // Calculate current hour
                         final now = DateTime.now();
                         final currentHour = now.hour;
-                        // Calculate next 5 hours
+
                         final nextFiveHours =
                             List.generate(6, (index) => currentHour + index);
-                        // Customize this function to return your time labels based on the indices
+
                         if (value >= 0 && value < nextFiveHours.length) {
                           final hour = nextFiveHours[value.toInt()];
                           final formattedHour = DateFormat('ha').format(

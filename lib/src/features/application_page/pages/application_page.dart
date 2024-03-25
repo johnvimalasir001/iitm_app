@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iitm_app/src/features/home/pages/home.dart';
 import 'package:iitm_app/src/features/profile/pages/profile_page.dart';
-import 'package:iitm_app/src/features/weather/pages/weather.dart';
-
+import 'package:iitm_app/src/features/report/pages/report.dart';
 
 class ApplicationPage extends StatefulWidget {
   const ApplicationPage({super.key});
@@ -14,8 +13,8 @@ class ApplicationPage extends StatefulWidget {
 class _ApplicationPageState extends State<ApplicationPage> {
   List<Widget> pages = <Widget>[
     const HomePage(),
-    const ProfilePage(),
     Report(),
+    const ProfilePage(),
   ];
   int index = 0;
   @override

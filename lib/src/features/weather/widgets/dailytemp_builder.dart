@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:iitm_app/src/features/weather/widgets/dailytemp_details.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
 class DailytempBuilder extends StatefulWidget {
   const DailytempBuilder({super.key});
 
@@ -11,7 +10,7 @@ class DailytempBuilder extends StatefulWidget {
 }
 
 class _DailytempBuilderState extends State<DailytempBuilder> {
-  final List<String> dailytempreport = ['16°', '20°', '30°'];
+  final List<String> dailytempreport = ['16', '20', '30'];
 
   final List<String> tempreportcontent = [
     'சராசரி வெப்பநிலை ',
@@ -30,8 +29,9 @@ class _DailytempBuilderState extends State<DailytempBuilder> {
         itemCount: 3,
         itemBuilder: (context, index) {
           return DailyTempDetails(
-              dailytempreport: dailytempreport[index],
-              tempreportcontent: tempreportcontent[index]);
+            dailytempreport: dailytempreport[index],
+            tempreportcontent: tempreportcontent[index],
+          );
         },
       ),
     );

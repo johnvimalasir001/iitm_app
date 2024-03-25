@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iitm_app/src/features/weather/widgets/graph.dart';
+
+import 'package:iitm_app/src/features/weather/widgets/humidity_graph.dart';
 import 'package:iitm_app/src/features/weather/widgets/time_builder.dart';
 
 

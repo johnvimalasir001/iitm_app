@@ -18,7 +18,7 @@ class _ReportDataBuilderState extends State<ReportDataBuilder> {
 
   final List<String> dailyreportcontent = [
     'தட்பவெப்ப நிலை',
-    'மண் மொய்சூர்',
+    'மண் ஈரம்',
     'ஈரம்'
   ];
 

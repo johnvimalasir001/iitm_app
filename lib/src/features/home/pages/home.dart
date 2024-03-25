@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:iitm_app/src/home/widgets/current_working_status_card.dart';
-import 'package:iitm_app/src/home/widgets/custom_cards.dart';
-import 'package:iitm_app/src/home/widgets/custom_text.dart';
-import 'package:iitm_app/src/home/widgets/home_app_bar_widget.dart';
-import 'package:iitm_app/src/home/widgets/recent_activity_card.dart';
-import 'package:iitm_app/src/home/widgets/weather_card.dart';
+import 'package:iitm_app/src/features/home/widgets/custom_text.dart';
+import 'package:iitm_app/src/features/home/widgets/home_app_bar_widget.dart';
+import 'package:iitm_app/src/features/home/widgets/recent_activity_card.dart';
+import 'package:iitm_app/src/features/home/widgets/weather_card.dart';
+import 'package:iitm_app/src/features/report/widgets/todaytask.dart';
+import 'package:iitm_app/src/features/weather/pages/weather.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -36,28 +36,22 @@ class _HomePageState extends State<HomePage> {
                 const SizedBox(height: 15),
                 const CustomText(inputText: "இன்றைய வானிலை"),
                 const SizedBox(height: 15),
-                const WeatherCard(),
-                const SizedBox(height: 15),
-                const CurrentStatusCard(),
-                const SizedBox(height: 15),
-                const CustomText(inputText: "Commodities"),
-                const SizedBox(height: 10),
-                SizedBox(
-                  height: 120,
-                  child: ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: fieldName.length,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (BuildContext context, int index) {
-                      return CustomCard(
-                        cardName: fieldName[index],
-                        imgPath: imgPath[index],
-                      );
+                GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const WeatherPage(),
+                          ));
                     },
-                  ),
-                ),
-                const CustomText(inputText: "சமீபத்திய நடவடிக்கை"),
+                    child: const WeatherCard()),
                 const SizedBox(height: 15),
+                const CustomText(inputText: "இன்றைய டாஸ்க்"),
+                const SizedBox(height: 12),
+                const Todaytask(),
+                const SizedBox(height: 12),
+                const CustomText(inputText: "சமீபத்திய நடவடிக்கை"),
+                const SizedBox(height: 10),
                 ListView.builder(
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,

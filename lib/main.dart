@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:iitm_app/src/core/dependency_injection/injection.dart';
 import 'package:iitm_app/src/core/routes/app_routes.dart';
 import 'package:iitm_app/src/core/routes/routes.dart';
 
@@ -16,6 +17,10 @@ void main() async {
     ),
   );
   final AppRoutes appRoutes = AppRoutes();
+  final Injections injections = Injections();
+
+  // Dependency initialization
+  await injections.getControllersInjection();
   runApp(
     ScreenUtilInit(
       designSize: const Size(360, 690),
@@ -25,7 +30,7 @@ void main() async {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           routes: appRoutes.getRoutes(),
-          initialRoute: AppRouteNames.loginRoute,
+          initialRoute: AppRouteNames.navBarRoute,
         );
       },
     ),
