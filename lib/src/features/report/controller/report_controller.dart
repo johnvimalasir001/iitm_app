@@ -13,7 +13,8 @@ class ReportController extends GetxController {
   final RxString taskTitle = "".obs;
   final RxString taskActivity = "".obs;
   final RxString date = "".obs;
-  final RxString time = "".obs;
+  final RxString startTime = "".obs;
+  final RxString endTime = "".obs;
   final RxBool remaindMe = false.obs;
   final RxString description = "".obs;
 
@@ -21,27 +22,52 @@ class ReportController extends GetxController {
     String taskTitle,
     String taskActivity,
     String date,
-    String time,
+    String startTime,
+    String endTime,
     bool remaindMe,
     String description,
   ) async {
     try {
       User? user = auth.currentUser;
       if (user != null) {
-        CollectionReference users = firestore.collection('tasks');
+        CollectionReference tasks = firestore.collection('tasks');
 
-        await users.doc(user.uid).set({
-          'taskTitle ': taskTitle,
-          'taskActivity': taskActivity,
-          'date': date,
-          'time': time,
-          'remaindMe': remaindMe,
-          'description': description,
-        });
+        DocumentSnapshot docSnapshot = await tasks.doc(user.uid).get();
+
+        if (docSnapshot.exists) {
+          List<dynamic> currentTasks =
+              (docSnapshot.data() as Map<String, dynamic>)['tasks'] ?? [];
+
+          currentTasks.add({
+            'taskTitle': taskTitle,
+            'taskActivity': taskActivity,
+            'date': date,
+            'startTime': startTime,
+            'endTime': endTime,
+            'remaindMe': remaindMe,
+            'description': description,
+          });
+
+          await tasks.doc(user.uid).update({'tasks': currentTasks});
+        } else {
+          await tasks.doc(user.uid).set({
+            'tasks': [
+              {
+                'taskTitle': taskTitle,
+                'taskActivity': taskActivity,
+                'date': date,
+                'startTime': startTime,
+                'endTime': endTime,
+                'remaindMe': remaindMe,
+                'description': description,
+              }
+            ]
+          });
+        }
       } else {
         Get.snackbar(
           "Error",
-          "Unable to create New Task",
+          "User not authenticated. Unable to create new task.",
           snackPosition: SnackPosition.BOTTOM,
           backgroundColor: Colors.red,
           colorText: Colors.white,
@@ -50,7 +76,7 @@ class ReportController extends GetxController {
     } catch (e) {
       Get.snackbar(
         "Failure",
-        "Error creating New Task: $e",
+        "Error creating new task: $e",
         snackPosition: SnackPosition.BOTTOM,
         backgroundColor: Colors.red,
         colorText: Colors.white,

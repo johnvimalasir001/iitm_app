@@ -10,7 +10,7 @@ class ReportData extends StatelessWidget {
   });
 
   final String dailyreport, dailyreportcontent;
-  final reportcolor;
+  final Color reportcolor;
 
   @override
   Widget build(BuildContext context) {

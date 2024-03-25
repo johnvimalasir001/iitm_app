@@ -6,6 +6,7 @@ import 'package:iitm_app/src/features/auth/presentation/widgets/expansion.dart';
 import 'package:iitm_app/src/core/routes/app_routes.dart';
 import 'package:iitm_app/src/features/home/pages/home.dart';
 import 'package:iitm_app/src/features/auth/presentation/pages/user_details.dart';
+import 'package:iitm_app/src/features/report/pages/report.dart';
 import 'package:iitm_app/src/features/weather/pages/weather.dart';
 
 class AppRoutes {
@@ -17,5 +18,6 @@ class AppRoutes {
         AppRouteNames.phoneNumberRoute: (context) => const PhoneNumber(),
         AppRouteNames.expansionDetails: (context) => MyDropdown(),
         AppRouteNames.weatherPageRoute: (context) => const WeatherPage(),
+        AppRouteNames.reportroute: (context) => ReportPage(),
       };
 }

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 import 'package:flutter_geocoder/geocoder.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
@@ -26,12 +27,10 @@ class LocationController extends GetxController {
       target: userPosition,
       zoom: postion.value.zoom,
     );
-    print("${postion.value}");
   }
 
   void updateMarkerPosition(LatLng newPosition) {
     userMarker.value = userMarker.value.copyWith(positionParam: newPosition);
-    print("${userMarker.value}");
   }
 
   Future getCurrentLocation() async {
@@ -67,12 +66,8 @@ class LocationController extends GetxController {
         if (addresses.isNotEmpty) {
           address.value = addresses.first.addressLine ?? "";
         } else {
-          print("No address found for the coordinates");
+          log("No address found for the coordinates");
         }
-
-        print("latidue: ${latitude.value}");
-        print("Longitude: ${longitude.value}");
-        print("address: $address");
         update();
       },
     );
@@ -84,9 +79,6 @@ class LocationController extends GetxController {
     var location = await locationFromAddress(address);
     latitude.value = location[0].latitude;
     longitude.value = location[0].longitude;
-
-    print("Search :$latitude");
-    print("Search :$longitude");
   }
 
   void coordinateToAddress() async {
@@ -95,9 +87,8 @@ class LocationController extends GetxController {
         await Geocoder.local.findAddressesFromCoordinates(coordinates);
     if (addresses.isNotEmpty) {
       address.value = addresses.first.addressLine ?? "";
-      print("address: ${address.value}");
     } else {
-      print("No address found for the coordinates");
+      log("No address found for the coordinates");
     }
   }
 }

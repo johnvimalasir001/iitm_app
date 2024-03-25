@@ -25,7 +25,6 @@ class _WeatherPageState extends State<WeatherPage>
       length: 3,
       vsync: this,
     );
-     
   }
 
   @override
@@ -71,7 +70,7 @@ class _WeatherPageState extends State<WeatherPage>
             Expanded(
               child: TabBarView(
                 controller: tabController,
-                children:  [
+                children: const [
                   Temperature(),
                   SoilMoisture(),
                   Humidity(),

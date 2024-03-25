@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 class MinuteData {
   String time;
   MinuteValues values;
@@ -52,7 +54,7 @@ class MinuteValues {
         visibility: (json['visibility'] ?? 0) as int?,
       );
     } catch (e) {
-      print("error: $e");
+      log("error: $e");
     }
     return MinuteValues(
       temperature: 90.0,

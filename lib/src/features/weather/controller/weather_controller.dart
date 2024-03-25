@@ -23,11 +23,11 @@ class WeatherController extends GetxController {
         userDataContrller.userDetails[0].latitude!,
         userDataContrller.userDetails[0].longitude!,
       );
-      print("object");
+      
       minuteDataList.assignAll(data);
-      print(data);
+     
     } catch (e) {
-      print('Error fetching weather data: $e');
+      throw Exception('Error fetching weather data: $e');
     }
   }
 }

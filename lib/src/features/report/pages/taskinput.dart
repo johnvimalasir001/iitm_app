@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:iitm_app/src/features/report/controller/report_controller.dart';
+import 'package:iitm_app/src/features/report/function/date_formate.dart';
+import 'package:iitm_app/src/features/report/widgets/time_selecting_dialog.dart';
 
 class TaskManagement extends StatefulWidget {
   const TaskManagement({super.key});
@@ -132,28 +134,37 @@ class _TaskManagementState extends State<TaskManagement> {
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Padding(
-                            padding: EdgeInsets.only(top: 2.h, left: 5.w),
-                            child: SizedBox(
-                              height: 40.h,
-                              width: 110.w,
-                              child: const Center(
-                                child: TextField(
-                                  decoration: InputDecoration(
-                                      hintText: 'date',
-                                      hintStyle: TextStyle(
-                                        fontWeight: FontWeight.w700,
-                                      ),
-                                      border: InputBorder.none),
+                          Obx(
+                            () => Padding(
+                              padding: EdgeInsets.only(top: 2.h, left: 5.w),
+                              child: SizedBox(
+                                height: 40.h,
+                                width: 110.w,
+                                child: Center(
+                                  child: Text(reportController.date.value),
                                 ),
                               ),
                             ),
                           ),
-                          Padding(
-                            padding: EdgeInsets.only(left: 5.w),
-                            child: Icon(
-                              Icons.keyboard_arrow_down_outlined,
-                              size: 20.sp,
+                          GestureDetector(
+                            onTap: () async {
+                              var selectedDate = await showDatePicker(
+                                  context: context,
+                                  firstDate: DateTime.now(),
+                                  lastDate: DateTime.now()
+                                      .add(const Duration(days: 7)));
+                              if (selectedDate != null) {
+                                reportController.date.value =
+                                    formatDate(selectedDate);
+                              }
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.only(left: 5.w),
+                              child: Icon(
+                                Icons.calendar_today_sharp,
+                                size: 20.sp,
+                                color: Colors.blue,
+                              ),
                             ),
                           )
                         ],
@@ -163,46 +174,42 @@ class _TaskManagementState extends State<TaskManagement> {
                       padding: EdgeInsets.only(left: 20.w),
                       child: Container(
                         height: 48.h,
-                        width: 150.w,
+                        width: 155.w,
                         decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black),
-                            borderRadius: BorderRadius.circular(10.r),
-                            color: Colors.white),
+                          borderRadius: BorderRadius.circular(10.r),
+                          border: Border.all(color: Colors.black),
+                        ),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.only(top: 2, left: 5),
-                              child: SizedBox(
-                                height: 40.h,
-                                width: 98.w,
-                                child: const Center(
-                                  child: TextField(
-                                    decoration: InputDecoration(
-                                        hintText: 'time',
-                                        hintStyle: TextStyle(
-                                          fontWeight: FontWeight.w700,
-                                        ),
-                                        border: InputBorder.none),
+                            Obx(
+                              () => Padding(
+                                padding: EdgeInsets.only(top: 2.h, left: 5.w),
+                                child: SizedBox(
+                                  height: 40.h,
+                                  width: 110.w,
+                                  child: Center(
+                                    child: Text(reportController
+                                            .startTime.value.isEmpty
+                                        ? ""
+                                        : "${reportController.startTime.value} to ${reportController.endTime.value}"),
                                   ),
                                 ),
                               ),
                             ),
-                            PopupMenuButton<String>(
-                              color: Colors.white,
-                              icon: const Icon(Icons.keyboard_arrow_down),
-                              onSelected: (String item) {},
-                              itemBuilder: (BuildContext context) => [
-                                const PopupMenuItem(
-                                  value: "",
-                                  child: Text("AM"),
+                            GestureDetector(
+                              onTap: () async {
+                                timeSelector(context);
+                              },
+                              child: Padding(
+                                padding: EdgeInsets.only(left: 5.w),
+                                child: Icon(
+                                  Icons.timer_outlined,
+                                  size: 20.sp,
+                                  color: Colors.blue,
                                 ),
-                                const PopupMenuItem(
-                                  value: "",
-                                  child: Text("PM"),
-                                ),
-                              ],
-                            ),
+                              ),
+                            )
                           ],
                         ),
                       ),
@@ -261,8 +268,11 @@ class _TaskManagementState extends State<TaskManagement> {
                 height: 100.h,
                 width: double.infinity.w,
                 decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black),
-                    borderRadius: BorderRadius.all(Radius.circular(10.r))),
+                  border: Border.all(color: Colors.black),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10.r),
+                  ),
+                ),
                 child: Padding(
                   padding: EdgeInsets.only(left: 10.w),
                   child: TextField(
@@ -281,8 +291,9 @@ class _TaskManagementState extends State<TaskManagement> {
                         reportController.createNewTask(
                             taskTitleController.text,
                             taskActivityController.text,
-                            "25-03-2024",
-                            "10:18",
+                            reportController.date.value,
+                            reportController.startTime.value,
+                            reportController.endTime.value,
                             reportController.remaindMe.value,
                             descriptionController.text);
                         clear();

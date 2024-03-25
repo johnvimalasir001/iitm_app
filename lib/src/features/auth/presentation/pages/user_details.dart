@@ -190,7 +190,6 @@ class _UserDetailsState extends State<UserDetails> {
                     child: CustomElevatedButton(
                       fieldName: "Submit",
                       onPressed: () async {
-                        print("demo address: ${address}");
                         await userDetailsController.createUserDocument(
                           firstNameController.text,
                           lastNameController.text,
@@ -207,7 +206,8 @@ class _UserDetailsState extends State<UserDetails> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => ApplicationPage()));
+                                builder: (BuildContext context) =>
+                                    const ApplicationPage()));
                       },
                     ),
                   );
