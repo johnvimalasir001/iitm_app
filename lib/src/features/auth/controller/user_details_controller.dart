@@ -9,8 +9,8 @@ final FirebaseFirestore firestore = FirebaseFirestore.instance;
 final FirebaseAuth auth = FirebaseAuth.instance;
 
 class UserDetailsController extends GetxController {
-  String selectedUnit = 'Unit'; // Initial value for the selected unit
-  String cropSelectedName = 'Crop Name';
+  String selectedUnit = 'அலகு'; // Initial value for the selected unit
+  String cropSelectedName = 'பயிர் பெயர்';
 
   final RxString firstName = ''.obs;
   final RxString lastName = ''.obs;
@@ -42,7 +42,6 @@ class UserDetailsController extends GetxController {
     String address,
     double latitude,
     double longitude,
-
   ) async {
     try {
       User? user = auth.currentUser;
@@ -57,8 +56,8 @@ class UserDetailsController extends GetxController {
           'landSize': landSize,
           'unit': unit,
           'address': address,
-          'latitdue':latitude,
-          'longitude':longitude,
+          'latitdue': latitude,
+          'longitude': longitude,
         });
       } else {
         Get.snackbar(

@@ -10,7 +10,6 @@ import 'package:iitm_app/src/features/auth/widgets/landsize_custom_textfield.dar
 import 'package:iitm_app/src/features/auth/widgets/user_location_container.dart';
 import 'package:iitm_app/src/features/map/controller/user_location_controller.dart';
 
-
 class UserDetails extends StatefulWidget {
   const UserDetails({super.key});
 
@@ -57,7 +56,7 @@ class _UserDetailsState extends State<UserDetails> {
         ),
         centerTitle: true,
         title: Text(
-          'User Details',
+          'பாவனையாளர் விபரங்கள்',
           style: TextStyle(fontSize: 22.sp, fontWeight: FontWeight.w600),
         ),
         elevation: 0,
@@ -70,27 +69,27 @@ class _UserDetailsState extends State<UserDetails> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CustomTextField(
-                  fieldName: "First Name",
+                  fieldName: "முதல் பெயர்",
                   controller: firstNameController,
                   icon: const Icon(
                     Icons.person,
                   ),
                 ),
                 CustomTextField(
-                  fieldName: "Last Name",
+                  fieldName: "கடைசி பெயர்",
                   controller: lastNameController,
                   icon: const Icon(
                     Icons.person,
                   ),
                 ),
                 CustomTextField(
-                  fieldName: "Email Address",
+                  fieldName: "மின்னஞ்சல் முகவரி",
                   controller: emailController,
                   icon: const Icon(
                     Icons.email,
                   ),
                 ),
-                const CustomTitle(title: "Crop Name"),
+                const CustomTitle(title: "பயிர் பெயர்"),
                 Padding(
                   padding: EdgeInsets.only(top: 5.h, bottom: 10.h),
                   child: Container(
@@ -113,30 +112,30 @@ class _UserDetailsState extends State<UserDetails> {
                           ListTile(
                             onTap: () {
                               userDetailsController
-                                  .updateCropSelectedUnit('Paddy');
+                                  .updateCropSelectedUnit('நெற்பயிர்');
                             },
-                            title: const Text('Paddy'),
+                            title: const Text('நெற்பயிர்'),
                           ),
                           ListTile(
                             onTap: () {
                               userDetailsController
-                                  .updateCropSelectedUnit('Wheet');
+                                  .updateCropSelectedUnit('கோதுமை');
                             },
-                            title: const Text('Wheet'),
+                            title: const Text('கோதுமை'),
                           ),
                           ListTile(
                             onTap: () {
                               userDetailsController
-                                  .updateCropSelectedUnit('Chick peas');
+                                  .updateCropSelectedUnit(' பட்டாணி');
                             },
-                            title: const Text('Chick peas'),
+                            title: const Text(' பட்டாணி'),
                           ),
                           ListTile(
                             onTap: () {
                               userDetailsController
-                                  .updateCropSelectedUnit('Kidney beans');
+                                  .updateCropSelectedUnit('சிறுநீரக பீன்ஸ்');
                             },
-                            title: const Text('Kidney beans'),
+                            title: const Text('சிறுநீரக பீன்ஸ்'),
                           ),
                         ],
                       ),
@@ -153,17 +152,14 @@ class _UserDetailsState extends State<UserDetails> {
                         width: 190.w,
                         child: LandsizeCustomTextField(
                           controller: landSizeController,
-                          fieldName: "Land Details",
+                          fieldName: "நில விவரங்கள்",
                           icon: const Icon(
                             Icons.landscape,
                           ),
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 28),
-                      child: MyDropdown(),
-                    ),
+                    MyDropdown(),
                   ],
                 ),
                 const UserLocationContainer(),
@@ -181,7 +177,6 @@ class _UserDetailsState extends State<UserDetails> {
                 // ),
 
                 Obx(() {
-                  
                   locationController.getCurrentLocation();
                   String address = locationController.address.value;
                   double lat = locationController.latitude.value;
@@ -189,9 +184,9 @@ class _UserDetailsState extends State<UserDetails> {
                   return Padding(
                     padding: EdgeInsets.only(top: 15.h),
                     child: CustomElevatedButton(
-                      fieldName: "Submit",
+                      fieldName: "சமர்ப்பிக்க",
                       onPressed: () {
-                        print("demo address: ${address}");
+                        print("demo address: $address");
                         userDetailsController.createUserDocument(
                           firstNameController.text,
                           lastNameController.text,

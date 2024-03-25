@@ -13,8 +13,9 @@ class ApplicationPage extends StatefulWidget {
 class _ApplicationPageState extends State<ApplicationPage> {
   List<Widget> pages = <Widget>[
     const HomePage(),
-    const ProfilePage(),
     Report(),
+    const ProfilePage(),
+    
   ];
   int index = 0;
   @override

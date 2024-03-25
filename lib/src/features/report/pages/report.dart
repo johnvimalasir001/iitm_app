@@ -157,6 +157,7 @@ class Report extends StatelessWidget {
                 height: 5.h,
               ),
               ListView.builder(
+                physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 scrollDirection: Axis.vertical,
                 itemCount: 6,

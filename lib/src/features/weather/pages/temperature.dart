@@ -4,8 +4,9 @@ import 'package:iitm_app/src/features/weather/widgets/temp_graph.dart';
 import 'package:iitm_app/src/features/weather/widgets/time_builder.dart';
 
 class Temperature extends StatefulWidget {
-  
-  const Temperature({super.key, });
+  const Temperature({
+    super.key,
+  });
 
   @override
   State<Temperature> createState() => _TemperatureState();
@@ -15,7 +16,7 @@ class _TemperatureState extends State<Temperature> {
   var tmp = 0x00B0;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       // backgroundColor: Colors.amber,
       // backgroundColor: Colors.amber,
       body: Column(

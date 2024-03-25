@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+import 'package:iitm_app/src/features/report/pages/report.dart';
 
 class TaskManagement extends StatefulWidget {
   const TaskManagement({super.key});
@@ -30,8 +31,8 @@ class _TaskManagementState extends State<TaskManagement> {
         ),
         centerTitle: true,
         title: Text(
-          'Create a new task',
-          style: TextStyle(fontSize: 22.sp, fontWeight: FontWeight.w600),
+          'புதிய பணியை உருவாக்கு',
+          style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w600),
         ),
         elevation: 0,
       ),
@@ -45,9 +46,9 @@ class _TaskManagementState extends State<TaskManagement> {
               Padding(
                 padding: EdgeInsets.only(top: 10.h, bottom: 8.w),
                 child: Text(
-                  'Task Title',
+                  'பணி தலைப்பு',
                   style:
-                      TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w600),
+                      TextStyle(fontSize: 17.sp, fontWeight: FontWeight.w600),
                 ),
               ),
               Container(
@@ -60,16 +61,18 @@ class _TaskManagementState extends State<TaskManagement> {
                   padding: EdgeInsets.only(left: 10.w),
                   child: const TextField(
                     decoration: InputDecoration(
-                        hintText: 'Write here', border: InputBorder.none),
+                        hintStyle: TextStyle(fontSize: 15),
+                        hintText: 'இங்கே எழுதுங்க',
+                        border: InputBorder.none),
                   ),
                 ),
               ),
               Padding(
                 padding: EdgeInsets.only(top: 14.h, bottom: 8.h),
                 child: Text(
-                  'Task activity',
+                  'பணி செயல்பாடு',
                   style:
-                      TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w600),
+                      TextStyle(fontSize: 17.sp, fontWeight: FontWeight.w600),
                 ),
               ),
               Container(
@@ -82,32 +85,34 @@ class _TaskManagementState extends State<TaskManagement> {
                   padding: EdgeInsets.only(left: 10.w),
                   child: const TextField(
                     decoration: InputDecoration(
-                        hintText: 'Write here', border: InputBorder.none),
+                        hintStyle: TextStyle(fontSize: 15),
+                        hintText: 'இங்கே எழுதுங்க',
+                        border: InputBorder.none),
                   ),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(top: 10.h),
+                padding: EdgeInsets.only(top: 13.h),
                 child: Row(
                   children: [
                     Text(
-                      'Date',
+                      'தேதி',
                       style: TextStyle(
-                          fontSize: 18.sp, fontWeight: FontWeight.w600),
+                          fontSize: 17.sp, fontWeight: FontWeight.w600),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(left: 150.w),
+                      padding: EdgeInsets.only(left: 130.w),
                       child: Text(
-                        'Time',
+                        'நேரம்',
                         style: TextStyle(
-                            fontSize: 18.sp, fontWeight: FontWeight.w600),
+                            fontSize: 17.sp, fontWeight: FontWeight.w600),
                       ),
                     ),
                   ],
                 ),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(vertical: 10.h),
+                padding: EdgeInsets.symmetric(vertical: 7.h),
                 child: Row(
                   children: [
                     Container(
@@ -128,9 +133,10 @@ class _TaskManagementState extends State<TaskManagement> {
                               child: const Center(
                                 child: TextField(
                                   decoration: InputDecoration(
-                                      hintText: 'date',
+                                      hintText: 'தேதி',
                                       hintStyle: TextStyle(
                                         fontWeight: FontWeight.w700,
+                                        fontSize: 15,
                                       ),
                                       border: InputBorder.none),
                                 ),
@@ -167,10 +173,10 @@ class _TaskManagementState extends State<TaskManagement> {
                                 child: const Center(
                                   child: TextField(
                                     decoration: InputDecoration(
-                                        hintText: 'time',
+                                        hintText: 'நேரம்',
                                         hintStyle: TextStyle(
-                                          fontWeight: FontWeight.w700,
-                                        ),
+                                            fontWeight: FontWeight.w700,
+                                            fontSize: 15),
                                         border: InputBorder.none),
                                   ),
                                 ),
@@ -199,7 +205,7 @@ class _TaskManagementState extends State<TaskManagement> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(top: 10.h),
+                padding: EdgeInsets.only(top: 15.h),
                 child: Container(
                   height: 50.h,
                   width: double.infinity.w,
@@ -212,13 +218,13 @@ class _TaskManagementState extends State<TaskManagement> {
                       Padding(
                         padding: EdgeInsets.only(left: 10.w),
                         child: Text(
-                          'Remainder me daily',
+                          'தினமும் எனக்கு நினைவூட்டு',
                           style: TextStyle(
-                              fontSize: 18.sp, fontWeight: FontWeight.w400),
+                              fontSize: 15.sp, fontWeight: FontWeight.w400),
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(left: 80.w),
+                        padding: EdgeInsets.only(left: 30.w),
                         child: Switch(
                           value: light,
                           activeColor: Colors.red,
@@ -237,9 +243,9 @@ class _TaskManagementState extends State<TaskManagement> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
+                padding: const EdgeInsets.symmetric(vertical: 14),
                 child: Text(
-                  'Description',
+                  'விரித்துரைத்தல்',
                   style:
                       TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w600),
                 ),
@@ -254,22 +260,27 @@ class _TaskManagementState extends State<TaskManagement> {
                   padding: EdgeInsets.only(left: 10.w),
                   child: const TextField(
                     decoration: InputDecoration(
-                        hintText: 'Write here', border: InputBorder.none),
+                        hintText: 'இங்கே எழுதுங்க', border: InputBorder.none),
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 38),
-                child: Container(
-                  height: 55.h,
-                  width: double.infinity.w,
-                  decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.all(Radius.circular(8.r))),
-                  child: Center(
-                    child: Text(
-                      'Create',
-                      style: TextStyle(color: Colors.white, fontSize: 18.sp),
+              GestureDetector(
+                onTap: () {
+                  Get.back();
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 38),
+                  child: Container(
+                    height: 55.h,
+                    width: double.infinity.w,
+                    decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.all(Radius.circular(8.r))),
+                    child: Center(
+                      child: Text(
+                        'உருவாக்கு',
+                        style: TextStyle(color: Colors.white, fontSize: 18.sp),
+                      ),
                     ),
                   ),
                 ),
