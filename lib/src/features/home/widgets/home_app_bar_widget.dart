@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:iitm_app/src/features/auth/controller/user_data_controller.dart';
 
@@ -46,7 +45,7 @@ class HomeAppBar extends StatelessWidget {
                           ),
                         ),
                         SizedBox(
-                          width: 160.w,
+                          width: 160,
                           child: Text(
                             userDataController.userDetails[0].firstName!,
                             style: const TextStyle(

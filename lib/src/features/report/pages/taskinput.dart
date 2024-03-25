@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+import 'package:iitm_app/src/features/report/controller/report_controller.dart';
 
 class TaskManagement extends StatefulWidget {
   const TaskManagement({super.key});
@@ -11,7 +11,17 @@ class TaskManagement extends StatefulWidget {
 }
 
 class _TaskManagementState extends State<TaskManagement> {
-  bool light = false;
+  final ReportController reportController = Get.find();
+  final TextEditingController taskTitleController = TextEditingController();
+  final TextEditingController taskActivityController = TextEditingController();
+  final TextEditingController descriptionController = TextEditingController();
+
+  void clear() {
+    taskActivityController.clear();
+    taskTitleController.clear();
+    descriptionController.clear();
+    reportController.remaindMe.value = false;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,8 +68,9 @@ class _TaskManagementState extends State<TaskManagement> {
                     borderRadius: BorderRadius.all(Radius.circular(10.r))),
                 child: Padding(
                   padding: EdgeInsets.only(left: 10.w),
-                  child: const TextField(
-                    decoration: InputDecoration(
+                  child: TextField(
+                    controller: taskTitleController,
+                    decoration: const InputDecoration(
                         hintText: 'Write here', border: InputBorder.none),
                   ),
                 ),
@@ -80,8 +91,9 @@ class _TaskManagementState extends State<TaskManagement> {
                     borderRadius: BorderRadius.all(Radius.circular(10.r))),
                 child: Padding(
                   padding: EdgeInsets.only(left: 10.w),
-                  child: const TextField(
-                    decoration: InputDecoration(
+                  child: TextField(
+                    controller: taskActivityController,
+                    decoration: const InputDecoration(
                         hintText: 'Write here', border: InputBorder.none),
                   ),
                 ),
@@ -217,21 +229,22 @@ class _TaskManagementState extends State<TaskManagement> {
                               fontSize: 18.sp, fontWeight: FontWeight.w400),
                         ),
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 80.w),
-                        child: Switch(
-                          value: light,
-                          activeColor: Colors.red,
-                          thumbColor: MaterialStateProperty.resolveWith<Color>(
-                            (states) => Colors.white,
+                      Obx(() {
+                        return Padding(
+                          padding: EdgeInsets.only(left: 80.w),
+                          child: Switch(
+                            value: reportController.remaindMe.value,
+                            activeColor: Colors.red,
+                            thumbColor:
+                                MaterialStateProperty.resolveWith<Color>(
+                              (states) => Colors.white,
+                            ),
+                            onChanged: (bool value) {
+                              reportController.remaindMe.value = value;
+                            },
                           ),
-                          onChanged: (bool value) {
-                            setState(() {
-                              light = value;
-                            });
-                          },
-                        ),
-                      ),
+                        );
+                      })
                     ],
                   ),
                 ),
@@ -252,27 +265,50 @@ class _TaskManagementState extends State<TaskManagement> {
                     borderRadius: BorderRadius.all(Radius.circular(10.r))),
                 child: Padding(
                   padding: EdgeInsets.only(left: 10.w),
-                  child: const TextField(
-                    decoration: InputDecoration(
+                  child: TextField(
+                    controller: descriptionController,
+                    decoration: const InputDecoration(
                         hintText: 'Write here', border: InputBorder.none),
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 38),
-                child: Container(
-                  height: 55.h,
-                  width: double.infinity.w,
-                  decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.all(Radius.circular(8.r))),
-                  child: Center(
-                    child: Text(
-                      'Create',
-                      style: TextStyle(color: Colors.white, fontSize: 18.sp),
+              Obx(
+                () {
+                  return Padding(
+                    padding: const EdgeInsets.only(top: 38),
+                    child: GestureDetector(
+                      onTap: () {
+                        reportController.createNewTask(
+                            taskTitleController.text,
+                            taskActivityController.text,
+                            "25-03-2024",
+                            "10:18",
+                            reportController.remaindMe.value,
+                            descriptionController.text);
+                        clear();
+                      },
+                      child: Container(
+                        height: 55.h,
+                        width: double.infinity.w,
+                        decoration: BoxDecoration(
+                          color: reportController.buttonColor.value,
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(8.r),
+                          ),
+                        ),
+                        child: Center(
+                          child: Text(
+                            'Create',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18.sp,
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
-                ),
+                  );
+                },
               ),
             ],
           ),
