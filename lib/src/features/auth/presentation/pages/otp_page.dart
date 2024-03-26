@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:iitm_app/src/features/auth/controller/auth_controller.dart';
-
-import 'package:iitm_app/src/features/auth/presentation/pages/user_details.dart';
-
 import 'package:pinput/pinput.dart';
 
 class OTPPage extends StatelessWidget {

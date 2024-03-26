@@ -50,7 +50,7 @@ class HomeAppBar extends StatelessWidget {
                     SizedBox(
                       width: 160,
                       child: Text(
-                       "John",
+                        userDataController.userDetails[0].firstName.toString(),
                         style: const TextStyle(
                           fontWeight: FontWeight.w700,
                           fontSize: 18,

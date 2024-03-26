@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iitm_app/src/features/home/widgets/custom_text.dart';
 import 'package:iitm_app/src/features/weather/controller/weather_controller.dart';
 import 'package:iitm_app/src/features/weather/pages/humidity.dart';
