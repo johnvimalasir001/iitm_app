@@ -1,3 +1,6 @@
+
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -20,7 +23,7 @@ class UserDetails extends StatefulWidget {
 }
 
 class _UserDetailsState extends State<UserDetails> {
-  final LocationController locationController = LocationController();
+  final LocationController locationController = Get.find();
   final TextEditingController firstNameController = TextEditingController();
 
   final TextEditingController lastNameController = TextEditingController();
@@ -187,10 +190,11 @@ class _UserDetailsState extends State<UserDetails> {
                     padding: EdgeInsets.only(top: 15.h),
                     child: CustomElevatedButton(
                       fieldName: "சமர்ப்பிக்க",
-                      onPressed: () async {
-                       
-                        
-                        await userDetailsController.createUserDocument(
+                      onPressed: () {
+                        log("demo longitude: $lon");
+                        log("demo latitude: $lat");
+                        log("demo address: $address");
+                        userDetailsController.createUserDocument(
                           firstNameController.text,
                           lastNameController.text,
                           emailController.text,
@@ -207,7 +211,7 @@ class _UserDetailsState extends State<UserDetails> {
                             context,
                             MaterialPageRoute(
                                 builder: (BuildContext context) =>
-                                    const ApplicationPage()));
+                                    const ApplicationPage(),),);
                       },
                     ),
                   );

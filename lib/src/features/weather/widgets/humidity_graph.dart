@@ -76,7 +76,7 @@ class HumidityGraph extends StatelessWidget {
                     ),
                     isCurved: true,
                     barWidth: 3,
-                    color: Colors.orange,
+                    color: Colors.blue,
                     dotData: const FlDotData(show: false),
                     belowBarData: BarAreaData(show: false),
                   ),

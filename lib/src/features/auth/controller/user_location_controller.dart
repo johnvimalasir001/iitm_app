@@ -59,12 +59,15 @@ class LocationController extends GetxController {
         latitude.value = value.latitude;
         longitude.value = value.longitude;
         isLoading.value = false;
+        log("latitdue: ${latitude.value}");
+        log("longitude: ${longitude.value}");
 
         final coordinates = Coordinates(value.latitude, value.longitude);
         var addresses =
             await Geocoder.local.findAddressesFromCoordinates(coordinates);
         if (addresses.isNotEmpty) {
           address.value = addresses.first.addressLine ?? "";
+          log("address: ${address.value}");
         } else {
           log("No address found for the coordinates");
         }

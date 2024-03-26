@@ -17,6 +17,10 @@ class ReportController extends GetxController {
   final RxString endTime = "".obs;
   final RxBool remaindMe = false.obs;
   final RxString description = "".obs;
+ 
+
+
+
 
   Future<void> createNewTask(
     String taskTitle,

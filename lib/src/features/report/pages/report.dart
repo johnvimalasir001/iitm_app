@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:iitm_app/src/features/report/pages/taskinput.dart';
 import 'package:iitm_app/src/features/report/widgets/reportdata_builder.dart';
 import 'package:iitm_app/src/features/report/widgets/taskrecord.dart';
-import 'package:iitm_app/src/features/report/widgets/todaytask_record.dart';
+import 'package:iitm_app/src/features/report/widgets/today_task_container.dart';
 
 class ReportPage extends StatelessWidget {
   ReportPage({super.key});
@@ -32,7 +31,7 @@ class ReportPage extends StatelessWidget {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.deepPurple,
         onPressed: () {
           Navigator.push(
               context,
@@ -41,7 +40,10 @@ class ReportPage extends StatelessWidget {
               ));
         },
         shape: const CircleBorder(),
-        child: const Icon(Icons.add),
+        child: const Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
       ),
       body: SingleChildScrollView(
         child: SafeArea(
@@ -52,7 +54,7 @@ class ReportPage extends StatelessWidget {
             children: [
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 10.h),
-                child: const ReportDataBuilder(),
+                child: ReportDataBuilder(),
               ),
               Text(
                 'இன்றைய டாஸ்க்',
@@ -61,7 +63,11 @@ class ReportPage extends StatelessWidget {
                     fontWeight: FontWeight.w700,
                     color: Colors.black),
               ),
-              const TodayTaskRecord(),
+              const TodayTaskContainer(
+                  taskTitle: 'டாஸ்க் 1',
+                  taskActivity: 'மோட்டாரை ஆன்/ஆஃப் செய்யவும்',
+                  date: "20-03-2024",
+                  time: "12:30 pm"),
               SizedBox(
                 height: 15.h,
               ),
@@ -87,6 +93,4 @@ class ReportPage extends StatelessWidget {
       ),
     );
   }
-
-  void _onDismissed() {}
 }

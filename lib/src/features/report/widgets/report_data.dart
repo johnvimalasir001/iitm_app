@@ -3,11 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ReportData extends StatelessWidget {
   const ReportData({
-    super.key,
+    Key? key,
     required this.dailyreport,
     required this.dailyreportcontent,
     required this.reportcolor,
-  });
+  }) : super(key: key);
 
   final String dailyreport, dailyreportcontent;
   final Color reportcolor;
@@ -15,32 +15,41 @@ class ReportData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(5.0),
+      padding: EdgeInsets.all(5.w),
       child: Container(
         height: 40.h,
         width: 105.w,
         decoration: BoxDecoration(
-            color: reportcolor,
-            borderRadius: BorderRadius.all(Radius.circular(10.r))),
+          color: reportcolor,
+          borderRadius: BorderRadius.circular(10.r),
+        ),
         child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: EdgeInsets.all(10.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "${dailyreport}C",
-                style: TextStyle(fontSize: 26.sp, fontWeight: FontWeight.bold),
+                '$dailyreport${getUnit()}',
+                style: TextStyle(fontSize: 22.sp, fontWeight: FontWeight.w500),
               ),
               Text(
                 dailyreportcontent,
-                style: TextStyle(
-                  fontSize: 7.sp,
-                ),
+                style: TextStyle(fontSize: 10.sp),
               ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  String getUnit() {
+    if (dailyreportcontent == 'வெப்ப நிலை') {
+      return '°C';
+    } else if (dailyreportcontent == 'மண் ஈரம்') {
+      return '%';
+    } else {
+      return '%';
+    }
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:iitm_app/src/features/report/controller/report_controller.dart';
@@ -234,12 +233,12 @@ class _TaskManagementState extends State<TaskManagement> {
                         child: Text(
                           'தினமும் எனக்கு நினைவூட்டு',
                           style: TextStyle(
-                              fontSize: 15.sp, fontWeight: FontWeight.w400),
+                              fontSize: 14.sp, fontWeight: FontWeight.w400),
                         ),
                       ),
                       Obx(() {
                         return Padding(
-                          padding: EdgeInsets.only(left: 20.w),
+                          padding: EdgeInsets.only(left: 25.w),
                           child: Switch(
                             value: reportController.remaindMe.value,
                             activeColor: Colors.red,

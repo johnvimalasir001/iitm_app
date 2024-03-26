@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:iitm_app/src/features/auth/controller/auth_controller.dart';
-
-import 'package:iitm_app/src/features/auth/presentation/pages/user_details.dart';
-
 import 'package:pinput/pinput.dart';
 
 class OTPPage extends StatelessWidget {
@@ -83,30 +80,6 @@ class OTPPage extends StatelessWidget {
                   },
                 ),
               ),
-              const SizedBox(
-                height: 10,
-              ),
-              // GestureDetector(
-              //   onTap: () {
-        
-              //   },
-              //   child: Container(
-              //     height: 70,
-              //     width: double.infinity,
-              //     decoration: const BoxDecoration(
-              //         color: Colors.blue,
-              //         borderRadius: BorderRadius.all(Radius.circular(10))),
-              //     child: const Center(
-              //       child: Text(
-              //         'Verify',
-              //         style: TextStyle(
-              //             fontSize: 18,
-              //             color: Colors.white,
-              //             fontWeight: FontWeight.w700),
-              //       ),
-              //     ),
-              //   ),
-              // ),
               const SizedBox(height: 20),
               GestureDetector(
                 onTap: () {
@@ -122,19 +95,6 @@ class OTPPage extends StatelessWidget {
                   ),
                 ),
               ),
-        
-              Padding(
-                padding: const EdgeInsets.only(top: 200),
-                child: IconButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const UserDetails(),
-                          ));
-                    },
-                    icon: const Icon(Icons.add)),
-              )
             ],
           ),
         ),

@@ -20,16 +20,15 @@ class WeatherController extends GetxController {
   void fetchData() async {
     try {
       await userDataContrller.getUserDetails();
-      
+
       var data = await FetchWeatherData().fetchData(
         userDataContrller.userDetails[0].latitude!,
         userDataContrller.userDetails[0].longitude!,
       );
-      
+
       minuteDataList.assignAll(data);
-     
     } catch (e) {
-       log('Error fetching weather data: $e');
+      log("Error fetching weather data: $e");
     }
   }
 }
