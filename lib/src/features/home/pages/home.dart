@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iitm_app/src/features/home/widgets/todaytask.dart';
@@ -7,7 +6,6 @@ import 'package:iitm_app/src/features/home/widgets/custom_text.dart';
 import 'package:iitm_app/src/features/home/widgets/home_app_bar_widget.dart';
 import 'package:iitm_app/src/features/home/widgets/weather_card.dart';
 import 'package:iitm_app/src/features/weather/pages/weather.dart';
-
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -36,40 +34,43 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const HomeAppBar(),
-                const SizedBox(height: 15),
+                const SizedBox(height: 13),
                 const CustomText(inputText: "இன்றைய வானிலை"),
-                const SizedBox(height: 15),
+                const SizedBox(height: 13),
                 GestureDetector(
                     onTap: () {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) =>  WeatherPage(),
+                            builder: (context) => const WeatherPage(),
                           ));
                     },
-                    child:  WeatherCard()),
+                    child: const WeatherCard()),
                 const SizedBox(height: 15),
                 Container(
-                  height: 55.h,
+                  height: 50.h,
                   width: double.infinity,
-                  color: Colors.blue.shade50,
+                  decoration: BoxDecoration(
+                      color: Colors.blue.shade50,
+                      borderRadius:
+                          const BorderRadius.all(Radius.circular(10))),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(left: 5),
+                        padding: const EdgeInsets.only(left: 10),
                         child: Text('மோட்டார் சுவிட்ச்',
-                            style: TextStyle(fontSize: 18.sp)),
+                            style: TextStyle(fontSize: 17.sp)),
                       ),
                       Row(
                         children: [
                           Padding(
-                            padding: EdgeInsets.only(right: 15.w),
+                            padding: EdgeInsets.only(right: 10.w),
                             child: GestureDetector(
                               onTap: () {},
                               child: Container(
-                                height: 32.h,
-                                width: 50.w,
+                                height: 30.h,
+                                width: 45.w,
                                 decoration: BoxDecoration(
                                     color: Colors.green,
                                     borderRadius: BorderRadius.all(
@@ -85,12 +86,12 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(right: 10.w),
+                            padding: EdgeInsets.only(right: 15.w),
                             child: GestureDetector(
                               onTap: () {},
                               child: Container(
-                                height: 32.h,
-                                width: 50.w,
+                                height: 30.h,
+                                width: 45.w,
                                 decoration: BoxDecoration(
                                     color: Colors.red,
                                     borderRadius: BorderRadius.all(
@@ -114,7 +115,17 @@ class _HomePageState extends State<HomePage> {
 
                 const CustomText(inputText: "இன்றைய டாஸ்க்"),
                 const SizedBox(height: 12),
-                const Todaytask(),
+                const Todaytask(
+                  title: 'மோட்டார் 1 இயங்குகிறது',
+                  time: '10:00 AM - 12:00 PM',
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                const Todaytask(
+                  title: 'மோட்டர் 2 இயங்கும்',
+                  time: '4:00 PM - 6:00 PM',
+                ),
                 const SizedBox(height: 12),
                 const Row(
                   children: [
@@ -125,12 +136,12 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: 8),
                 Row(
                   children: [
                     Container(
                       height: 70.h,
-                      width: 105.w,
+                      width: 118.w,
                       decoration: BoxDecoration(
                           color: Colors.green.shade50,
                           borderRadius:
@@ -148,7 +159,7 @@ class _HomePageState extends State<HomePage> {
                             Text(
                               'மண் ஈரம்',
                               style: TextStyle(
-                                fontSize: 11.sp,
+                                fontSize: 13.sp,
                               ),
                             ),
                           ],
@@ -159,7 +170,7 @@ class _HomePageState extends State<HomePage> {
                       padding: const EdgeInsets.only(left: 50),
                       child: Container(
                         height: 70.h,
-                        width: 115.w,
+                        width: 118.w,
                         decoration: BoxDecoration(
                             color: Colors.green.shade50,
                             borderRadius:
@@ -191,7 +202,7 @@ class _HomePageState extends State<HomePage> {
                               Text(
                                 'நீர் ஓட்டம்',
                                 style: TextStyle(
-                                  fontSize: 12.sp,
+                                  fontSize: 13.sp,
                                 ),
                               ),
                             ],

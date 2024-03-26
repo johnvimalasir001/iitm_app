@@ -21,10 +21,10 @@ class WeatherController extends GetxController {
     try {
       await userDataContrller.getUserDetails();
 
-      var data = await FetchWeatherData().fetchData(
-        userDataContrller.userDetails[0].latitude!,
-        userDataContrller.userDetails[0].longitude!,
-      );
+      var data = await FetchWeatherData().fetchData(10.416541, 77.900532
+          // userDataContrller.userDetails[0].latitude!,
+          // userDataContrller.userDetails[0].longitude!,
+          );
 
       minuteDataList.assignAll(data);
     } catch (e) {

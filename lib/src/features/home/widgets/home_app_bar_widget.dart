@@ -47,11 +47,11 @@ class HomeAppBar extends StatelessWidget {
                         fontSize: 14,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 160,
                       child: Text(
-                        userDataController.userDetails[0].firstName.toString(),
-                        style: const TextStyle(
+                        'john',
+                        style: TextStyle(
                           fontWeight: FontWeight.w700,
                           fontSize: 18,
                         ),
