@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iitm_app/src/features/home/widgets/custom_text.dart';
 import 'package:iitm_app/src/features/weather/controller/weather_controller.dart';
 import 'package:iitm_app/src/features/weather/pages/humidity.dart';
@@ -49,23 +50,20 @@ class _WeatherPageState extends State<WeatherPage>
               padding: EdgeInsets.symmetric(horizontal: 15),
               child: CustomText(inputText: "வானிலை அறிக்கை"),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: TabBar(
-                padding: const EdgeInsets.all(10),
-                labelColor: Colors.black,
-                indicatorColor: Colors.blue,
-                controller: tabController,
-                tabs: const [
-                  Tab(text: 'தட்பவெப்ப நிலை'),
-                  Tab(
-                    text: 'மண்ணின் ஈரப்பதம்',
-                  ),
-                  Tab(
-                    text: 'ஈரம்',
-                  ),
-                ],
-              ),
+            TabBar(
+              padding: const EdgeInsets.all(10),
+              labelColor: Colors.black,
+              indicatorColor: Colors.blue,
+              controller: tabController,
+              tabs: const [
+                Tab(text: 'வெப்ப நிலை'),
+                Tab(
+                  text: 'மண் ஈரம்',
+                ),
+                Tab(
+                  text: 'ஈரப்பதம்',
+                ),
+              ],
             ),
             Expanded(
               child: TabBarView(

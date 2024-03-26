@@ -8,6 +8,10 @@ class HomeAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final UserDataController userDataController = Get.find();
+    final hour = DateTime.now().hour;
+
+    String greeting = _getGreeting(hour);
+
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: Row(
@@ -33,27 +37,28 @@ class HomeAppBar extends StatelessWidget {
                     width: 40,
                   ),
                 ),
-                const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "காலை வணக்கம்",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w400,
-                          fontSize: 14,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      greeting,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 14,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 160,
+                      child: Text(
+                       "John",
+                        style: const TextStyle(
+                          fontWeight: FontWeight.w700,
+                          fontSize: 18,
                         ),
                       ),
-                      SizedBox(
-                        width: 160,
-                        child: Text(
-                          "John",
-                          style: TextStyle(
-                            fontWeight: FontWeight.w700,
-                            fontSize: 18,
-                          ),
-                        ),
-                      ),
-                    ])
+                    ),
+                  ],
+                )
               ],
             ),
           ),
@@ -62,14 +67,26 @@ class HomeAppBar extends StatelessWidget {
       ),
     );
   }
+
+  String _getGreeting(int hour) {
+    if (hour < 12) {
+      return 'காலை வணக்கம்';
+    } else if (hour < 17) {
+      return 'மதிய வணக்கம்';
+    } else {
+      return 'மாலை வணக்கம்';
+    }
+  }
 }
 
 class NotificationIconCustom extends StatelessWidget {
   const NotificationIconCustom(
-      {super.key, required this.onTap, this.height, this.width});
+      {Key? key, required this.onTap, this.height, this.width})
+      : super(key: key);
   final void Function() onTap;
   final double? height;
   final double? width;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
