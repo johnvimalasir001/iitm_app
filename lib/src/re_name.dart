@@ -17,7 +17,7 @@ class RootApp extends StatelessWidget {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           routes: AppRoutes.getRoutes(),
-          initialRoute: AppRouteNames.navBarRoute,
+          initialRoute: AppRouteNames.loginRoute,
         );
       },
     );

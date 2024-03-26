@@ -68,7 +68,7 @@ class _TaskRecordDataState extends State<TaskRecordData> {
                           fontSize: 18.sp, fontWeight: FontWeight.w500),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 40),
+                      padding: EdgeInsets.only(left: 40.w),
                       child: Text(
                         '16/03/2024',
                         style: TextStyle(
@@ -88,7 +88,7 @@ class _TaskRecordDataState extends State<TaskRecordData> {
                           fontSize: 18.sp, fontWeight: FontWeight.w500),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 40),
+                      padding: EdgeInsets.only(left: 40.w),
                       child: Text(
                         '10:00 AM - 12:00 PM',
                         style: TextStyle(
@@ -98,43 +98,7 @@ class _TaskRecordDataState extends State<TaskRecordData> {
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  left: 118,
-                ),
-                child: Row(
-                  children: [
-                    Container(
-                      height: 40,
-                      width: 50,
-                      decoration: const BoxDecoration(
-                          color: Colors.green,
-                          borderRadius: BorderRadius.all(Radius.circular(10))),
-                      child: const Center(
-                          child: Text(
-                        'ON',
-                        style: TextStyle(fontSize: 18, color: Colors.white),
-                      )),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 70),
-                      child: Container(
-                        height: 40,
-                        width: 50,
-                        decoration: const BoxDecoration(
-                            color: Colors.red,
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10))),
-                        child: const Center(
-                            child: Text(
-                          'OFF',
-                          style: TextStyle(fontSize: 18, color: Colors.white),
-                        )),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              
               Padding(
                 padding: EdgeInsets.only(bottom: 8.w, top: 18),
                 child: Text(
@@ -144,10 +108,10 @@ class _TaskRecordDataState extends State<TaskRecordData> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 40),
+                padding: EdgeInsets.only(left: 40.w),
                 child: SizedBox(
-                  height: 200,
-                  width: double.infinity,
+                  height: 200.h,
+                  width: double.infinity.w,
                   child: Text(
                     'ஒரு பயிர் என்பது ஒரு தாவரம் அல்லது தாவர தயாரிப்பு ஆகும், இது இலாபத்திற்காக அல்லது வாழ்வாதாரத்திற்காக வளர்க்கப்பட்டு அறுவடை செய்யப்படலாம். ',
                     style:

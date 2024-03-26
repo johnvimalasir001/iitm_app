@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:iitm_app/src/features/report/pages/taskrecord_data.dart';
+import 'package:iitm_app/src/features/report/widgets/taskrecord_data.dart';
 
 class TaskRecord extends StatefulWidget {
   const TaskRecord({super.key, required this.recorddate});

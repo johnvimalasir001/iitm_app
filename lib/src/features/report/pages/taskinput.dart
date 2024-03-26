@@ -71,11 +71,10 @@ class _TaskManagementState extends State<TaskManagement> {
                     borderRadius: BorderRadius.all(Radius.circular(10.r))),
                 child: Padding(
                   padding: EdgeInsets.only(left: 10.w),
-                  child: const TextField(
-                    decoration: InputDecoration(
-                        hintStyle: TextStyle(fontSize: 15),
-                        hintText: 'இங்கே எழுதுங்க',
-                        border: InputBorder.none),
+                  child: TextField(
+                    controller: taskTitleController,
+                    decoration: const InputDecoration(
+                        hintText: 'Write here', border: InputBorder.none),
                   ),
                 ),
               ),
@@ -95,11 +94,10 @@ class _TaskManagementState extends State<TaskManagement> {
                     borderRadius: BorderRadius.all(Radius.circular(10.r))),
                 child: Padding(
                   padding: EdgeInsets.only(left: 10.w),
-                  child: const TextField(
-                    decoration: InputDecoration(
-                        hintStyle: TextStyle(fontSize: 15),
-                        hintText: 'இங்கே எழுதுங்க',
-                        border: InputBorder.none),
+                  child: TextField(
+                    controller: taskActivityController,
+                    decoration: const InputDecoration(
+                        hintText: 'Write here', border: InputBorder.none),
                   ),
                 ),
               ),
@@ -185,49 +183,34 @@ class _TaskManagementState extends State<TaskManagement> {
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.only(top: 2, left: 5),
-                              child: SizedBox(
-                                height: 40.h,
-                                width: 98.w,
-                                child: const Center(
-                                  child: TextField(
-                                    decoration: InputDecoration(
-                                        hintText: 'நேரம்',
-                                        hintStyle: TextStyle(
-                                            fontWeight: FontWeight.w700,
-                                            fontSize: 15),
-                                        border: InputBorder.none),
-                            // Obx(
-                            //   () => Padding(
-                            //     padding: EdgeInsets.only(top: 2.h, left: 5.w),
-                            //     child: SizedBox(
-                            //       height: 40.h,
-                            //       width: 110.w,
-                            //       child: Center(
-                            //         child: Text(reportController
-                            //                 .startTime.value.isEmpty
-                            //             ? ""
-                            //             : "${reportController.startTime.value} to ${reportController.endTime.value}"),
-                            //       ),
-                            //     ),
-                            //   ),
-                            // ),
-                            // GestureDetector(
-                            //   onTap: () async {
-                            //     timeSelector(context);
-                            //   },
-                            //   child: Padding(
-                            //     padding: EdgeInsets.only(left: 5.w),
-                            //     child: Icon(
-                            //       Icons.timer_outlined,
-                            //       size: 20.sp,
-                            //       color: Colors.blue,
-                            //     ),
-                            //   ),
+                            Obx(
+                              () => Padding(
+                                padding: EdgeInsets.only(top: 2.h, left: 5.w),
+                                child: SizedBox(
+                                  height: 40.h,
+                                  width: 110.w,
+                                  child: Center(
+                                    child: Text(reportController
+                                            .startTime.value.isEmpty
+                                        ? ""
+                                        : "${reportController.startTime.value} to ${reportController.endTime.value}"),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () async {
+                                timeSelector(context);
+                              },
+                              child: Padding(
+                                padding: EdgeInsets.only(left: 5.w),
+                                child: Icon(
+                                  Icons.timer_outlined,
+                                  size: 20.sp,
+                                  color: Colors.blue,
+                                ),
+                              ),
                             )
-                                )
-                              ))
                           ],
                         ),
                       ),
@@ -256,7 +239,7 @@ class _TaskManagementState extends State<TaskManagement> {
                       ),
                       Obx(() {
                         return Padding(
-                          padding: EdgeInsets.only(left: 80.w),
+                          padding: EdgeInsets.only(left: 20.w),
                           child: Switch(
                             value: reportController.remaindMe.value,
                             activeColor: Colors.red,

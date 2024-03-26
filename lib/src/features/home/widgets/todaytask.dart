@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:iitm_app/src/features/auth/presentation/pages/user_details.dart';
+import 'package:iitm_app/src/features/home/widgets/todaytask_dialog.dart';
+import 'package:iitm_app/src/features/home/widgets/weather_dialog.dart';
+import 'package:iitm_app/src/features/report/function/date_formate.dart';
 
 class Todaytask extends StatelessWidget {
   const Todaytask({
@@ -14,59 +20,92 @@ class Todaytask extends StatelessWidget {
           context: context,
           builder: (BuildContext context) {
             return AlertDialog(
+              actions: [
+                Row(
+                  children: [
+                    GestureDetector(
+                        onTap: () {
+                          Get.to(const UserDetails());
+                        },
+                        child: Text(
+                          'Modify',
+                          style: TextStyle(fontSize: 18.sp),
+                        )),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 160),
+                      child: GestureDetector(
+                          onTap: () {
+                            Get.back();
+                          },
+                          child: Text(
+                            'OK',
+                            style: TextStyle(fontSize: 18.sp),
+                          )),
+                    ),
+                  ],
+                ),
+              ],
               title: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Row(
-                    children: [
-                      Text(
-                        'Today Weather',
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 20),
-                        child: Text(
-                          '28°C',
-                          style: TextStyle(fontSize: 23, color: Colors.blue),
-                        ),
-                      ),
-                    ],
+                  Text(
+                    formatDate(DateTime.now()),
+                    style: TextStyle(
+                        fontSize: 17.sp,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.black54),
+                  ),
+                  Divider(
+                    thickness: 0.3.h,
+                  ),
+                  const WeatherDialog(
+                    weather: 'Weather',
+                    degree: '30',
+                    color: Colors.orange,
+                  ),
+                  const WeatherDialog(
+                    weather: 'Soil Moisure',
+                    degree: '28',
+                    color: Colors.green,
+                  ),
+                  const WeatherDialog(
+                    weather: 'Humidity',
+                    degree: '11.24',
+                    color: Colors.blue,
+                  ),
+                  Divider(
+                    thickness: 0.3.h,
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 5),
+                    padding: EdgeInsets.only(top: 10.h),
                     child: Text(
-                      'மோட்டார் 1 இயங்குகிறது',
+                      'Today Task',
                       style: TextStyle(
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.black,
-                      ),
+                          fontSize: 21.sp, fontWeight: FontWeight.w600),
                     ),
                   ),
+                  SizedBox(
+                    height: 5.h,
+                  ),
                   Padding(
-                    padding: EdgeInsets.only(left: 2.w, top: 5),
-                    child: Row(
-                      children: [
-                        Text(
-                          'காலத்தொடர்ச்சி:',
-                          style: TextStyle(
-                            fontSize: 12.sp,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black54,
-                          ),
-                        ),
-                        SizedBox(width: 10.w),
-                        Text(
-                          '10:00 AM - 12:00 PM',
-                          style: TextStyle(
-                            fontSize: 12.sp,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black54,
-                          ),
-                        ),
-                      ],
+                    padding: EdgeInsets.only(top: 4.h),
+                    child: const TodayTaskDialog(
+                      number: '1',
+                      time: '10:00 AM -12:00 PM',
                     ),
+                  ),
+                  Divider(
+                    thickness: 0.3.h,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 8.h),
+                    child: const TodayTaskDialog(
+                      number: '1',
+                      time: '4:00 PM -6:00 PM',
+                    ),
+                  ),
+                  const Divider(
+                    thickness: 0.3,
                   ),
                 ],
               ),

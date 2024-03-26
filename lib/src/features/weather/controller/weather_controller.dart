@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:get/get.dart';
 import 'package:iitm_app/src/core/api/api_fetch.dart';
 import 'package:iitm_app/src/features/auth/controller/user_data_controller.dart';
@@ -27,7 +29,7 @@ class WeatherController extends GetxController {
       minuteDataList.assignAll(data);
      
     } catch (e) {
-      throw Exception('Error fetching weather data: $e');
+       log('Error fetching weather data: $e');
     }
   }
 }
