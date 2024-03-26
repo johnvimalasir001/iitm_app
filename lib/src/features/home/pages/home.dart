@@ -1,10 +1,22 @@
+
 import 'package:flutter/material.dart';
+<<<<<<<<< Temporary merge branch 1:lib/src/features/home/pages/home.dart
+import 'package:iitm_app/src/features/home/widgets/current_working_status_card.dart';
+import 'package:iitm_app/src/features/home/widgets/custom_cards.dart';
 import 'package:iitm_app/src/features/home/widgets/custom_text.dart';
 import 'package:iitm_app/src/features/home/widgets/home_app_bar_widget.dart';
 import 'package:iitm_app/src/features/home/widgets/recent_activity_card.dart';
 import 'package:iitm_app/src/features/home/widgets/weather_card.dart';
-import 'package:iitm_app/src/features/report/widgets/todaytask.dart';
-import 'package:iitm_app/src/features/weather/pages/weather.dart';
+=========
+import 'package:iitm_app/report/widgets/taskrecord.dart';
+import 'package:iitm_app/report/widgets/todaytask.dart';
+import 'package:iitm_app/src/home/widgets/current_working_status_card.dart';
+import 'package:iitm_app/src/home/widgets/custom_cards.dart';
+import 'package:iitm_app/src/home/widgets/custom_text.dart';
+import 'package:iitm_app/src/home/widgets/home_app_bar_widget.dart';
+import 'package:iitm_app/src/home/widgets/recent_activity_card.dart';
+import 'package:iitm_app/src/home/widgets/weather_card.dart';
+>>>>>>>>> Temporary merge branch 2:lib/src/home/pages/home.dart
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

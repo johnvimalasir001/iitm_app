@@ -19,7 +19,7 @@ class _TemperatureState extends State<Temperature> {
   var tmp = 0x00B0;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       // backgroundColor: Colors.amber,
       // backgroundColor: Colors.amber,
       body: Column(
