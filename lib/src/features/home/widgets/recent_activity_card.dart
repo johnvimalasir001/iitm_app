@@ -29,13 +29,6 @@ class _RecentActivityCardState extends State<RecentActivityCard> {
               child: Image.network(
                   "https://img.lovepik.com/element/45012/7042.png_860.png"),
             ),
-            // CircleAvatar(
-            //   radius: 25,
-            //   child: Image.network(
-            //     "https://media.istockphoto.com/id/1328004520/photo/healthy-young-soybean-crop-in-field-at-dawn.jpg?b=1&s=612x612&w=0&k=20&c=ykRpAJ3UwQpgV4kXs9aWcpqQ6RMuasUWZo9LHEHztew=",
-            //     fit: BoxFit.fill,
-            //   ),
-            // ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: Column(

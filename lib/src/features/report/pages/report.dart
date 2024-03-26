@@ -5,8 +5,8 @@ import 'package:iitm_app/src/features/report/pages/taskinput.dart';
 import 'package:iitm_app/src/features/report/widgets/reportdata_builder.dart';
 import 'package:iitm_app/src/features/report/widgets/taskrecord.dart';
 
-class Report extends StatelessWidget {
-  Report({super.key});
+class ReportPage extends StatelessWidget {
+  ReportPage({super.key});
 
   final List<String> recorddate = [
     '16/3/2024',

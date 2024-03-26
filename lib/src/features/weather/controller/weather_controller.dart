@@ -4,7 +4,7 @@ import 'package:iitm_app/src/features/auth/controller/user_data_controller.dart'
 import 'package:iitm_app/src/features/weather/models/weather_model.dart';
 
 class WeatherController extends GetxController {
-  final UserDataController userDataContrller = Get.put(UserDataController());
+  final UserDataController userDataContrller = Get.find();
 
   final minuteDataList = <MinuteData>[].obs;
 
@@ -18,14 +18,16 @@ class WeatherController extends GetxController {
   void fetchData() async {
     try {
       await userDataContrller.getUserDetails();
+      
       var data = await FetchWeatherData().fetchData(
-          userDataContrller.userDetails[0].latitude!,
-          userDataContrller.userDetails[0].longitude!,
-          );
+        userDataContrller.userDetails[0].latitude!,
+        userDataContrller.userDetails[0].longitude!,
+      );
+      
       minuteDataList.assignAll(data);
-      print(data);
+     
     } catch (e) {
-      print('Error fetching weather data: $e');
+      throw Exception('Error fetching weather data: $e');
     }
   }
 }

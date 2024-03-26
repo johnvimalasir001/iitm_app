@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class HumidityGraph extends StatelessWidget {
-  const HumidityGraph({
+class HumidityGraphs extends StatelessWidget {
+  const HumidityGraphs({
     super.key,
   });
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:iitm_app/src/features/auth/widgets/custom_title.dart';
-import 'package:iitm_app/src/features/map/controller/user_location_controller.dart';
+import 'package:iitm_app/src/features/auth/presentation/widgets/custom_title.dart';
+import 'package:iitm_app/src/features/auth/controller/user_location_controller.dart';
 
 class UserLocationContainer extends StatelessWidget {
   const UserLocationContainer({super.key});

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 class MinuteData {
   String time;
   MinuteValues values;
@@ -24,7 +26,7 @@ class MinuteValues {
   double? windDirection;
   double? windGust;
   double? pressureSurfaceLevel;
-  double? visibility;
+  int? visibility;
 
   MinuteValues({
     this.temperature,
@@ -39,16 +41,31 @@ class MinuteValues {
   });
 
   factory MinuteValues.fromJson(Map<String, dynamic> json) {
+    try {
+      return MinuteValues(
+        temperature: (json['temperature'] ?? 0.0) as double?,
+        temperatureApparent: (json['temperatureApparent'] ?? 0.0) as double?,
+        humidity: (json['humidity'] ?? 0.0) as double?,
+        dewPoint: (json['dewPoint'] ?? 0.0) as double?,
+        windSpeed: (json['windSpeed'] ?? 0.0) as double?,
+        windDirection: (json['windDirection'] ?? 0.0) as double?,
+        windGust: (json['windGust'] ?? 0.0) as double?,
+        pressureSurfaceLevel: (json['pressureSurfaceLevel'] ?? 0.0) as double,
+        visibility: (json['visibility'] ?? 0) as int?,
+      );
+    } catch (e) {
+      log("error: $e");
+    }
     return MinuteValues(
-      temperature: json['temperature']?.toDouble(), // Convert int to double
-      temperatureApparent: json['temperatureApparent']?.toDouble(),
-      humidity: json['humidity']?.toDouble(),
-      dewPoint: json['dewPoint']?.toDouble(),
-      windSpeed: json['windSpeed']?.toDouble(),
-      windDirection: json['windDirection']?.toDouble(),
-      windGust: json['windGust']?.toDouble(),
-      pressureSurfaceLevel: json['pressureSurfaceLevel']?.toDouble(),
-      visibility: json['visibility']?.toDouble(),
+      temperature: 90.0,
+      temperatureApparent: 90.0,
+      humidity: 90.0,
+      dewPoint: 90.0,
+      windSpeed: 90.0,
+      windDirection: 90.0,
+      windGust: 90.0,
+      pressureSurfaceLevel: 90.0,
+      visibility: 90,
     );
   }
 }

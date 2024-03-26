@@ -23,13 +23,13 @@ class UserDetailsController extends GetxController {
   final RxDouble longitude = 0.0.obs;
 
   void updateSelectedUnit(String item) {
-    selectedUnit = item; // Update the selected unit
-    update(); // Update the UI
+    selectedUnit = item; 
+    update(); 
   }
 
   void updateCropSelectedUnit(String cropName) {
-    cropSelectedName = cropName; // Update the selected unit
-    update(); // Update the UI
+    cropSelectedName = cropName; 
+    update(); 
   }
 
   Future<void> createUserDocument(

@@ -6,6 +6,7 @@ import 'package:iitm_app/src/features/home/widgets/custom_text.dart';
 import 'package:iitm_app/src/features/home/widgets/home_app_bar_widget.dart';
 import 'package:iitm_app/src/features/home/widgets/recent_activity_card.dart';
 import 'package:iitm_app/src/features/home/widgets/weather_card.dart';
+import 'package:iitm_app/src/features/weather/pages/weather.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -37,7 +38,15 @@ class _HomePageState extends State<HomePage> {
                 const SizedBox(height: 15),
                 const CustomText(inputText: "இன்றைய வானிலை"),
                 const SizedBox(height: 15),
-                const WeatherCard(),
+                GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const WeatherPage(),
+                          ));
+                    },
+                    child: const WeatherCard()),
                 const SizedBox(height: 15),
                 const CustomText(inputText: "இன்றைய டாஸ்க்"),
                 const SizedBox(height: 12),

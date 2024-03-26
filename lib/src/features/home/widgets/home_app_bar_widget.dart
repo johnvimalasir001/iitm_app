@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:iitm_app/src/features/auth/controller/user_data_controller.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final UserDataController userDataController = Get.find();
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: Row(
@@ -31,27 +34,26 @@ class HomeAppBar extends StatelessWidget {
                   ),
                 ),
                 const Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "காலை வணக்கம்",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 14,
-                      ),
-                    ),
-                    SizedBox(
-                      width: 160,
-                      child: Text(
-                        "Raffialdo Bayu",
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "காலை வணக்கம்",
                         style: TextStyle(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 18,
+                          fontWeight: FontWeight.w400,
+                          fontSize: 14,
                         ),
                       ),
-                    )
-                  ],
-                )
+                      SizedBox(
+                        width: 160,
+                        child: Text(
+                          "John",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 18,
+                          ),
+                        ),
+                      ),
+                    ])
               ],
             ),
           ),

@@ -11,15 +11,14 @@ class WeatherCard extends StatefulWidget {
 }
 
 class _WeatherCardState extends State<WeatherCard> {
-  final WeatherController weatherController = WeatherController();
-  final UserDataController userDataController = UserDataController();
-  var tmp = 0x00B0;
+  final WeatherController weatherController = Get.find();
+  final UserDataController userDataController = Get.find();
 
   @override
   void initState() {
     super.initState();
-    userDataController.getUserDetails();
-    weatherController.fetchData();
+    // userDataController.getUserDetails();
+    // weatherController.fetchData();
   }
 
   @override
@@ -27,8 +26,11 @@ class _WeatherCardState extends State<WeatherCard> {
     return Obx(() {
       if (weatherController.minuteDataList.isEmpty) {
         weatherController.fetchData();
-        return const CircularProgressIndicator(
-          backgroundColor: Colors.blue,
+        return const Center(
+          child: CircularProgressIndicator(
+            color: Colors.white,
+            backgroundColor: Colors.blue,
+          ),
         );
       } else {
         return Container(

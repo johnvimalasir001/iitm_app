@@ -27,7 +27,7 @@ class UserDataController extends GetxController {
         userDetails.add(
             UserDetailModel.fromJson(document.data() as Map<String, dynamic>));
 
-        log(userDetails.toString());
+        
 
         update();
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:iitm_app/src/features/auth/controller/user_details_controller.dart';
-import 'package:iitm_app/src/features/auth/widgets/custom_title.dart';
+import 'package:iitm_app/src/features/auth/presentation/widgets/custom_title.dart';
 
 class MyDropdown extends StatelessWidget {
   final UserDetailsController controller = Get.put(UserDetailsController());
