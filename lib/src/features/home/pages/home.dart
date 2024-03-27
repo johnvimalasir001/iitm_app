@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iitm_app/src/features/home/widgets/todaytask.dart';
@@ -7,7 +6,6 @@ import 'package:iitm_app/src/features/home/widgets/custom_text.dart';
 import 'package:iitm_app/src/features/home/widgets/home_app_bar_widget.dart';
 import 'package:iitm_app/src/features/home/widgets/weather_card.dart';
 import 'package:iitm_app/src/features/weather/pages/weather.dart';
-
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -44,10 +42,10 @@ class _HomePageState extends State<HomePage> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) =>  WeatherPage(),
+                            builder: (context) => const WeatherPage(),
                           ));
                     },
-                    child:  WeatherCard()),
+                    child: const WeatherCard()),
                 const SizedBox(height: 15),
                 Container(
                   height: 55.h,

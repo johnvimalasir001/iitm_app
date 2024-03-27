@@ -52,7 +52,7 @@ class _WeatherPageState extends State<WeatherPage>
             TabBar(
               padding: const EdgeInsets.all(10),
               labelColor: Colors.black,
-              indicatorColor: Colors.blue,
+              indicatorColor: _tabColor(tabController),
               controller: tabController,
               tabs: const [
                 Tab(text: 'வெப்ப நிலை'),
@@ -78,5 +78,22 @@ class _WeatherPageState extends State<WeatherPage>
         ),
       ),
     );
+  }
+
+  Color _tabColor(TabController controller) {
+    print("Controller index: ${controller.index}");
+    if (controller.index == 0) {
+      print("Returning red");
+      return Colors.red;
+    } else if (controller.index == 1) {
+      print("Returning green");
+      return Colors.green;
+    } else if (controller.index == 2) {
+      print("Returning blue");
+      return Colors.blue;
+    } else {
+      print("Returning black");
+      return Colors.black;
+    }
   }
 }

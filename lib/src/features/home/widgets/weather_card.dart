@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iitm_app/src/features/auth/controller/user_data_controller.dart';
+import 'package:iitm_app/src/features/report/function/date_formate.dart';
 import 'package:iitm_app/src/features/weather/controller/weather_controller.dart';
 
 class WeatherCard extends StatefulWidget {
@@ -17,15 +18,14 @@ class _WeatherCardState extends State<WeatherCard> {
   @override
   void initState() {
     super.initState();
-    // userDataController.getUserDetails();
-    // weatherController.fetchData();
+    
   }
 
   @override
   Widget build(BuildContext context) {
     return Obx(() {
       if (weatherController.minuteDataList.isEmpty) {
-        weatherController.fetchData();
+        weatherController.fetchHourData();
         return const Center(
           child: CircularProgressIndicator(
             color: Colors.white,
@@ -56,9 +56,9 @@ class _WeatherCardState extends State<WeatherCard> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
-                          "தமிழ்நாடு 19-03-2024",
-                          style: TextStyle(
+                        Text(
+                          "தமிழ்நாடு ${formatDate(DateTime.now())}",
+                          style: const TextStyle(
                             fontSize: 14,
                             color: Colors.white,
                             fontWeight: FontWeight.w400,
