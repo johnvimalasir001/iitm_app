@@ -9,6 +9,7 @@ import 'package:iitm_app/src/features/voice_assistent.dart/tts_voice.dart';
 import 'package:iitm_app/src/features/home/pages/home.dart';
 import 'package:iitm_app/src/features/auth/presentation/pages/user_details.dart';
 import 'package:iitm_app/src/features/report/pages/report.dart';
+import 'package:iitm_app/src/features/voice_assistent.dart/voice_command.dart';
 import 'package:iitm_app/src/features/voice_assistent.dart/voice_to_text.dart';
 import 'package:iitm_app/src/features/weather/pages/weather.dart';
 
@@ -24,5 +25,6 @@ class AppRoutes {
         AppRouteNames.reportroute: (context) => ReportPage(),
         AppRouteNames.voice: (context) => const VoiceTest(),
         AppRouteNames.voicetotext: (context) => const VoiceToText(),
+        AppRouteNames.vicecommand: (context) => const VoiceCommand(),
       };
 }
