@@ -39,7 +39,7 @@ class FieldWaterflowContainer extends StatelessWidget {
             Text(
               'வயல் நீர்வரத்து',
               style: TextStyle(
-                fontSize: 14.sp,
+                fontSize: 12.sp,
               ),
             ),
           ],
