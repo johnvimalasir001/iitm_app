@@ -53,10 +53,10 @@ class _HomePageState extends State<HomePage> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) =>  WeatherPage(),
+                            builder: (context) => const WeatherPage(),
                           ));
                     },
-                    child:  WeatherCard()),
+                    child: const WeatherCard()),
                 const SizedBox(height: 15),
                 Container(
                   height: 50.h,
