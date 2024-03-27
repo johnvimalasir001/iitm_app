@@ -48,6 +48,7 @@ class Todaytask extends StatelessWidget {
                   ],
                 ),
               ],
+              backgroundColor: Colors.white,
               title: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

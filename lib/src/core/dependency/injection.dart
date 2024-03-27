@@ -5,6 +5,7 @@ import 'package:iitm_app/src/features/auth/controller/auth_controller.dart';
 import 'package:iitm_app/src/features/auth/controller/user_data_controller.dart';
 import 'package:iitm_app/src/features/auth/controller/user_details_controller.dart';
 import 'package:iitm_app/src/features/auth/controller/user_location_controller.dart';
+import 'package:iitm_app/src/features/home/controller/switch_controller.dart';
 import 'package:iitm_app/src/features/report/controller/report_controller.dart';
 import 'package:iitm_app/src/features/weather/controller/weather_controller.dart';
 
@@ -21,6 +22,7 @@ class DependencyInjection {
     Get.put(LocationController());
     Get.put(WeatherController());
     Get.put(ReportController());
+    Get.put(HomeController());
   }
 
   static Future<void> initialise() async {

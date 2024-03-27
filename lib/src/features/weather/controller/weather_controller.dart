@@ -21,7 +21,7 @@ class WeatherController extends GetxController {
     try {
       await userDataContrller.getUserDetails();
 
-      var data = await FetchWeatherData().fetchData(10.416541, 77.900532
+      var data = await FetchWeatherData().fetchData(12.416541, 76.900532
           // userDataContrller.userDetails[0].latitude!,
           // userDataContrller.userDetails[0].longitude!,
           );

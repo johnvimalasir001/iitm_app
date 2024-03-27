@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:iitm_app/src/features/application_page/pages/application_page.dart';
 import 'package:iitm_app/src/features/auth/presentation/pages/login_page.dart';
@@ -8,6 +10,7 @@ import 'package:iitm_app/src/features/voice_assistent.dart/tts_voice.dart';
 import 'package:iitm_app/src/features/home/pages/home.dart';
 import 'package:iitm_app/src/features/auth/presentation/pages/user_details.dart';
 import 'package:iitm_app/src/features/report/pages/report.dart';
+import 'package:iitm_app/src/features/voice_assistent.dart/voice_to_text.dart';
 import 'package:iitm_app/src/features/weather/pages/weather.dart';
 
 class AppRoutes {
@@ -21,5 +24,6 @@ class AppRoutes {
         AppRouteNames.weatherPageRoute: (context) => const WeatherPage(),
         AppRouteNames.reportroute: (context) => ReportPage(),
         AppRouteNames.voice: (context) => const VoiceTest(),
+        AppRouteNames.voicetotext: (context) => const VoiceToText(),
       };
 }
