@@ -1,14 +1,14 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:iitm_app/src/features/weather/models/weather_model.dart';
+import 'package:iitm_app/src/features/weather/models/hour_weather_model.dart.dart';
 import 'package:iitm_app/src/features/weather/controller/weather_controller.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 
-class Graph extends StatelessWidget {
-  const Graph({Key? key}) : super(key: key);
+class HourTempGraph extends StatelessWidget {
+  const HourTempGraph({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class Graph extends StatelessWidget {
         padding: EdgeInsets.all(20.h),
         child: Obx(
           () {
-            final List<MinuteData> minuteDataList =
+            final List<HourData> minuteDataList =
                 Get.put(WeatherController()).minuteDataList;
 
             final List<double> temperatures = minuteDataList

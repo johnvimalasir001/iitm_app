@@ -1,34 +1,34 @@
 import 'dart:developer';
 
-class MinuteData {
+class HourData {
   String time;
-  MinuteValues values;
+  HourValues values;
 
-  MinuteData({
+  HourData({
     required this.time,
     required this.values,
   });
 
-  factory MinuteData.fromJson(Map<String, dynamic> json) {
-    return MinuteData(
+  factory HourData.fromJson(Map<String, dynamic> json) {
+    return HourData(
       time: json['time'],
-      values: MinuteValues.fromJson(json['values']),
+      values: HourValues.fromJson(json['values']),
     );
   }
 }
 
-class MinuteValues {
+class HourValues {
   double? temperature;
   double? humidity;
 
-  MinuteValues({
+  HourValues({
     this.temperature,
     this.humidity,
   });
 
-  factory MinuteValues.fromJson(Map<String, dynamic> json) {
+  factory HourValues.fromJson(Map<String, dynamic> json) {
     try {
-      return MinuteValues(
+      return HourValues(
         temperature: json['temperature'] is int
             ? (json['temperature'] as int).toDouble()
             : json['temperature'] as double?,
@@ -39,7 +39,7 @@ class MinuteValues {
     } catch (e) {
       log("error on weather model: $e");
     }
-    return MinuteValues(
+    return HourValues(
       temperature: 90.0,
       humidity: 90.0,
     );

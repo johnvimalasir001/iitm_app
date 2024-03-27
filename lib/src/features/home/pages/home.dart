@@ -47,16 +47,16 @@ class _HomePageState extends State<HomePage> {
                 const HomeAppBar(),
                 const SizedBox(height: 13),
                 const CustomText(inputText: "இன்றைய வானிலை"),
-                const SizedBox(height: 13),
-                // GestureDetector(
-                //     onTap: () {
-                //       Navigator.push(
-                //           context,
-                //           MaterialPageRoute(
-                //             builder: (context) => const WeatherPage(),
-                //           ));
-                //     },
-                //     child: const WeatherCard()),
+                const SizedBox(height: 15),
+                GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>  WeatherPage(),
+                          ));
+                    },
+                    child:  WeatherCard()),
                 const SizedBox(height: 15),
                 Container(
                   height: 50.h,

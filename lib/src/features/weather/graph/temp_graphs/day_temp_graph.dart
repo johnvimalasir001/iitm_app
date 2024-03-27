@@ -1,14 +1,14 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:iitm_app/src/features/weather/models/hour_weather_model.dart.dart';
+import 'package:iitm_app/src/features/weather/models/day_weather_model.dart';
 import 'package:iitm_app/src/features/weather/controller/weather_controller.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 
-class HumidityGraph extends StatelessWidget {
-  const HumidityGraph({Key? key}) : super(key: key);
+class DayTempGraph extends StatelessWidget {
+  const DayTempGraph({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,11 +19,11 @@ class HumidityGraph extends StatelessWidget {
         padding: EdgeInsets.all(20.h),
         child: Obx(
           () {
-            final List<HourData> minuteDataList =
-                Get.put(WeatherController()).minuteDataList;
+            final List<DayData> minuteDataList =
+                Get.put(WeatherController()).dailyDataList;
 
-            final List<double> humidity = minuteDataList
-                .map((data) => data.values.humidity ?? 0.0)
+            final List<double> temperatures = minuteDataList
+                .map((data) => data.values.temperatureAvg ?? 0.0)
                 .toList();
 
             return LineChart(
@@ -36,15 +36,15 @@ class HumidityGraph extends StatelessWidget {
                       showTitles: true,
                       getTitlesWidget: (value, meta) {
                         final now = DateTime.now();
-                        final currentHour = now.hour;
+                        final currentDay = now.day;
 
-                        final nextFiveHours =
-                            List.generate(6, (index) => currentHour + index);
+                        final nextFiveDays =
+                            List.generate(6, (index) => currentDay + index);
 
-                        if (value >= 0 && value < nextFiveHours.length) {
-                          final hour = nextFiveHours[value.toInt()];
-                          final formattedHour = DateFormat('ha').format(
-                              DateTime(now.year, now.month, now.day, hour));
+                        if (value >= 0 && value < nextFiveDays.length) {
+                          final days = nextFiveDays[value.toInt()];
+                          final formattedHour = DateFormat('').format(
+                              DateTime(now.year, now.month, now.day, days));
                           return Text(formattedHour);
                         } else {
                           return const Text("");
@@ -66,17 +66,19 @@ class HumidityGraph extends StatelessWidget {
                 ),
                 minX: 0,
                 maxX: 5,
-                minY: humidity.isNotEmpty ? humidity.reduce(min) - 2 : 0,
-                maxY: humidity.isNotEmpty ? humidity.reduce(max) + 2 : 10,
+                minY:
+                    temperatures.isNotEmpty ? temperatures.reduce(min) - 2 : 0,
+                maxY:
+                    temperatures.isNotEmpty ? temperatures.reduce(max) + 2 : 10,
                 lineBarsData: [
                   LineChartBarData(
                     spots: List.generate(
-                      humidity.length,
-                      (index) => FlSpot(index.toDouble(), humidity[index]),
+                      temperatures.length,
+                      (index) => FlSpot(index.toDouble(), temperatures[index]),
                     ),
                     isCurved: true,
                     barWidth: 3,
-                    color: Colors.blue,
+                    color: Colors.orange,
                     dotData: const FlDotData(show: false),
                     belowBarData: BarAreaData(show: false),
                   ),
