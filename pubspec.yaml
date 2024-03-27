@@ -51,7 +51,6 @@ dependencies:
   flutter_tts: ^4.0.2
   speech_to_text: ^6.6.0
   firebase_database: ^10.4.11
-  firebase_database: ^10.4.11
   speech_to_text: ^6.6.0
 
 dev_dependencies:
