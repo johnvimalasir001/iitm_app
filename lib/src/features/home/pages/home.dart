@@ -3,16 +3,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/get_instance.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
-import 'package:iitm_app/src/features/home/controller/switch_controller.dart';
+import 'package:iitm_app/src/features/home/controller/home_controller.dart';
+import 'package:iitm_app/src/features/home/controller/realtimedatabase_controller.dart';
 import 'package:iitm_app/src/features/home/widgets/field_waterflow_container.dart';
 import 'package:iitm_app/src/features/home/widgets/home_soilmoisure_container.dart';
 import 'package:iitm_app/src/features/home/widgets/todaytask.dart';
-
 import 'package:iitm_app/src/features/home/widgets/custom_text.dart';
 import 'package:iitm_app/src/features/home/widgets/home_app_bar_widget.dart';
 import 'package:iitm_app/src/features/home/widgets/waterflow_container.dart';
 import 'package:iitm_app/src/features/home/widgets/weather_card.dart';
-import 'package:iitm_app/src/features/report/controller/report_controller.dart';
 import 'package:iitm_app/src/features/weather/pages/weather.dart';
 
 class HomePage extends StatefulWidget {
@@ -23,19 +22,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<String> fieldName = ['வானிலை', 'நீரோட்டம்', 'வெப்பநிலை', 'ஈரப்பதம்'];
-  List<String> imgPath = [
-    "assets/img/cloudy.png",
-    "assets/img/cloudy.png",
-    "assets/img/cloudy.png",
-    "assets/img/cloudy.png",
-  ];
-
   final HomeController homeController = Get.find();
+  final RealtimeDataController realtimeDataController = Get.find();
 
   @override
   Widget build(BuildContext context) {
-    bool light = false;
     return Scaffold(
       body: SingleChildScrollView(
         child: SafeArea(
@@ -77,7 +68,7 @@ class _HomePageState extends State<HomePage> {
                         return Padding(
                           padding: const EdgeInsets.only(right: 50),
                           child: Switch(
-                            value: homeController.switchbutton.value,
+                            value: homeController.switchButton.value,
                             activeColor: Colors.green.shade600,
                             inactiveTrackColor: Colors.red,
                             thumbColor:
@@ -85,7 +76,8 @@ class _HomePageState extends State<HomePage> {
                               (states) => Colors.white,
                             ),
                             onChanged: (bool value) {
-                              homeController.switchbutton.value = value;
+                              // Toggle the switch directly using the controller
+                              homeController.toggleSwitch(value);
                             },
                           ),
                         );
@@ -112,18 +104,22 @@ class _HomePageState extends State<HomePage> {
                 const CustomText(inputText: "அறிக்கை"),
                 //
                 const SizedBox(height: 8),
-                const Row(
-                  children: [
-                    HomeSoilMoisureContainer(),
-                    Padding(
-                      padding: EdgeInsets.only(left: 10),
-                      child: WaterflowContainer(),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 15),
-                      child: FieldWaterflowContainer(),
-                    ),
-                  ],
+                Padding(
+                  padding: EdgeInsets.only(bottom: 20.0.h),
+                  child: const Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      HomeSoilMoisureContainer(),
+                      Padding(
+                        padding: EdgeInsets.only(left: 10),
+                        child: WaterflowContainer(),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 15),
+                        child: FieldWaterflowContainer(),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),

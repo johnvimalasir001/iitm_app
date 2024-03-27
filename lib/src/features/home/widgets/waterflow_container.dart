@@ -17,6 +17,7 @@ class WaterflowContainer extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
@@ -41,7 +42,7 @@ class WaterflowContainer extends StatelessWidget {
               child: Text(
                 'நீர் ஓட்டம்',
                 style: TextStyle(
-                  fontSize: 15.sp,
+                  fontSize: 13.sp,
                 ),
               ),
             ),

@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:iitm_app/src/features/application_page/pages/application_page.dart';
 import 'package:iitm_app/src/features/auth/presentation/pages/login_page.dart';
@@ -24,6 +26,6 @@ class AppRoutes {
         AppRouteNames.reportroute: (context) => ReportPage(),
         AppRouteNames.voice: (context) => const VoiceTest(),
         AppRouteNames.voicetotext: (context) => const VoiceToText(),
-        AppRouteNames.vicecommand: (context) => const VoiceCommand(),
+>>>>>>>>> Temporary merge branch 2
       };
 }

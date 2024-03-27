@@ -17,6 +17,7 @@ class HomeSoilMoisureContainer extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
@@ -28,7 +29,7 @@ class HomeSoilMoisureContainer extends StatelessWidget {
               child: Text(
                 'மண் ஈரம்',
                 style: TextStyle(
-                  fontSize: 15.sp,
+                  fontSize: 13.sp,
                 ),
               ),
             ),
