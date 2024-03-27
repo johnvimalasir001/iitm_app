@@ -9,4 +9,5 @@ class AppRouteNames {
   static String weatherPageRoute = "/weatherpage";
   static String voice = "/voice";
   static String dummy = "/dummy";
+  static String voicetotext = "/voicetotext";
 }

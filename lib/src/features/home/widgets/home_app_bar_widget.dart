@@ -50,7 +50,7 @@ class HomeAppBar extends StatelessWidget {
                     const SizedBox(
                       width: 160,
                       child: Text(
-                        "John",
+                        'john',
                         style: TextStyle(
                           fontWeight: FontWeight.w700,
                           fontSize: 18,

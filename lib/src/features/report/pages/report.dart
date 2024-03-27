@@ -1,9 +1,13 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_tts/flutter_tts.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:iitm_app/src/features/report/pages/taskinput.dart';
 import 'package:iitm_app/src/features/report/widgets/reportdata_builder.dart';
 import 'package:iitm_app/src/features/report/widgets/taskrecord.dart';
 import 'package:iitm_app/src/features/report/widgets/today_task_container.dart';
+import 'package:iitm_app/src/features/voice_assistent.dart/voice_to_text.dart';
 
 class ReportPage extends StatelessWidget {
   ReportPage({super.key});
@@ -16,6 +20,18 @@ class ReportPage extends StatelessWidget {
     '20/3/2024',
     '21/3/2024',
   ];
+
+  Future<void> speak(String text) async {
+    FlutterTts flutterTts = FlutterTts();
+    await flutterTts.setLanguage('en-US'); // Set language (optional)
+    await flutterTts.setPitch(1); // Set pitch (optional)
+    await flutterTts.speak(text);
+  }
+
+  String title = 'டாஸ்க் 1',
+      activity = 'மோட்டாரை ஆன்/ஆஃப் செய்யவும்',
+      date = "20-03-2024",
+      time = "12:30 pm";
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +52,7 @@ class ReportPage extends StatelessWidget {
           Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const TaskManagement(),
+                builder: (context) =>  TaskManagement(),
               ));
         },
         shape: const CircleBorder(),
@@ -63,11 +79,17 @@ class ReportPage extends StatelessWidget {
                     fontWeight: FontWeight.w700,
                     color: Colors.black),
               ),
-              const TodayTaskContainer(
-                  taskTitle: 'டாஸ்க் 1',
-                  taskActivity: 'மோட்டாரை ஆன்/ஆஃப் செய்யவும்',
-                  date: "20-03-2024",
-                  time: "12:30 pm"),
+              GestureDetector(
+                onDoubleTap: () {
+                  // Speak task information when tapped
+                  speak('$title. $activity. Date: $date. Time: $time.');
+                },
+                child: TodayTaskContainer(
+                    taskTitle: title,
+                    taskActivity: activity,
+                    date: date,
+                    time: time),
+              ),
               SizedBox(
                 height: 15.h,
               ),

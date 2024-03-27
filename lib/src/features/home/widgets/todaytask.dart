@@ -8,8 +8,11 @@ import 'package:iitm_app/src/features/home/widgets/weather_dialog.dart';
 import 'package:iitm_app/src/features/report/function/date_formate.dart';
 
 class Todaytask extends StatelessWidget {
+  final String title, time;
   const Todaytask({
     super.key,
+    required this.title,
+    required this.time,
   });
 
   @override
@@ -45,6 +48,7 @@ class Todaytask extends StatelessWidget {
                   ],
                 ),
               ],
+              backgroundColor: Colors.white,
               title: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -114,7 +118,7 @@ class Todaytask extends StatelessWidget {
         );
       },
       child: Container(
-        height: 55.h,
+        height: 60.h,
         width: double.infinity.w,
         decoration: BoxDecoration(
           color: Colors.blue.shade50,
@@ -126,9 +130,9 @@ class Todaytask extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsets.only(left: 17.w, top: 11),
+                padding: EdgeInsets.only(left: 17.w, top: 7),
                 child: Text(
-                  'மோட்டார் 1 இயங்குகிறது',
+                  title,
                   style: TextStyle(
                     fontSize: 16.sp,
                     fontWeight: FontWeight.w500,
@@ -150,7 +154,7 @@ class Todaytask extends StatelessWidget {
                     ),
                     SizedBox(width: 10.w),
                     Text(
-                      '10:00 AM - 12:00 PM',
+                      time,
                       style: TextStyle(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w500,

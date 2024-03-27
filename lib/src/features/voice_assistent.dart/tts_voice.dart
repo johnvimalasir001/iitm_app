@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
-import 'package:iitm_app/src/features/dummy/input_text.dart';
+import 'package:iitm_app/src/features/voice_assistent.dart/input_text.dart';
 
 class VoiceTest extends StatefulWidget {
   const VoiceTest({super.key});
@@ -21,9 +21,15 @@ class _VoiceTestState extends State<VoiceTest> {
 
   void initTts() {
     flutterTts.getVoices.then((value) {
+      flutterTts.setVolume(1);
+      flutterTts.setPitch(1);
       try {
         List<Map> voices = List<Map>.from(value);
-        voices = voices.where((voice) => voice["name"].contains("en")).toList();
+        voices = voices
+            .where((voice) =>
+                voice["name"].contains("ta") && voice["name"].contains("male"))
+            .toList();
+        print(voices);
 
         setState(() {
           currentVoice = voices.first;
@@ -37,7 +43,6 @@ class _VoiceTestState extends State<VoiceTest> {
 
   void setVoice(Map voice) {
     flutterTts.setVoice({"name": voice["name"], "locale": voice["locale"]});
-    flutterTts.setVolume(1);
   }
 
   @override
