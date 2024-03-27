@@ -25,6 +25,6 @@ class AppRoutes {
         AppRouteNames.reportroute: (context) => ReportPage(),
         AppRouteNames.voice: (context) => const VoiceTest(),
         AppRouteNames.voicetotext: (context) => const VoiceToText(),
-        AppRouteNames.vicecommand: (context) => const VoiceCommand(),
+        AppRouteNames.voicecommand: (context) => const VoiceCommand(),
       };
 }
