@@ -14,7 +14,7 @@ class ReportDataBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 70.h,
+      height: 80.h,
       width: double.infinity.w,
       child: ListView.builder(
         physics: const BouncingScrollPhysics(),
@@ -26,8 +26,7 @@ class ReportDataBuilder extends StatelessWidget {
                   .toString()
               : '35.8';
           String? soil = homeController.moistureData.value.isNotEmpty
-              ? homeController.moistureData.value
-                  .toString()
+              ? homeController.moistureData.value.toString()
               : '10';
           String? hum = weatherController.minuteDataList.isNotEmpty
               ? weatherController.minuteDataList[0].values.humidity.toString()

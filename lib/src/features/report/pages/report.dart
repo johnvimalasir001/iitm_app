@@ -21,8 +21,8 @@ class ReportPage extends StatelessWidget {
 
   Future<void> speak(String text) async {
     FlutterTts flutterTts = FlutterTts();
-    await flutterTts.setLanguage('en-US'); 
-    await flutterTts.setPitch(1); 
+    await flutterTts.setLanguage('en-US');
+    await flutterTts.setPitch(1);
     await flutterTts.speak(text);
   }
 
@@ -35,6 +35,7 @@ class ReportPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: Container(),
         centerTitle: true,
         title: Text(
           'reportTitle'.tr,
@@ -45,7 +46,7 @@ class ReportPage extends StatelessWidget {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: Colors.blue,
         onPressed: () {
           Navigator.push(
               context,

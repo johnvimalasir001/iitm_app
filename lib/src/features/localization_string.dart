@@ -81,6 +81,12 @@ class LocalizationString extends Translations {
           'profileTitle': 'Profile',
           'editiProfile': 'Edit profile',
           'logout': 'Logout',
+          'descriptionContent':
+              'A crop is a plant or plant product that can be grown and harvested for profit or for subsistence. ',
+          'setting': 'Setting',
+          'userManagement': 'User Management',
+          'Information': 'Information',
+          'language': 'Language',
         },
         'ta_IN': {
           'appName': 'ஸ்மார்ட் க்ரோ',
@@ -162,6 +168,12 @@ class LocalizationString extends Translations {
           'profileTitle': 'சுயவிவரம்',
           'editiProfile': 'சுயவிவரத்தைத் திருத்தவும்',
           'logout': 'வெளியேறு',
+          'descriptionContent':
+              'ஒரு பயிர் என்பது ஒரு தாவரம் அல்லது தாவர தயாரிப்பு ஆகும், இது இலாபத்திற்காக அல்லது வாழ்வாதாரத்திற்காக வளர்க்கப்பட்டு அறுவடை செய்யப்படலாம்.',
+          'setting': 'அமைப்புகள்',
+          'userManagement': 'பயனர் மேலாண்மை',
+          'Information': 'தெரிவிப்பு',
+          'language': 'மொழி'
         },
         'hi_IN': {
           'greeting1': 'शुभ प्रभात',
@@ -216,6 +228,12 @@ class LocalizationString extends Translations {
           'avgHumidity': 'औसत आर्द्रता',
           'minHumidity': 'न्यूनतम',
           'maxHumidity': 'अधिक',
+          'descriptionContent':
+              'एक फसल एक पौधा या पौधा उत्पाद है जिसे लाभ के लिए या निर्वाह के लिए उगाया और काटा जा सकता है।',
+          'setting': 'सेटिंग',
+          'userManagement': 'उपयोगकर्ता प्रबंधन',
+          'Information': 'जानकारीपूर्ण',
+          'language': 'भाषा'
         },
       };
 }
