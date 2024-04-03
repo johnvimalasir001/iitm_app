@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:iitm_app/src/core/routes/app_routes.dart';
-import 'package:iitm_app/src/features/auth/presentation/pages/language_selection_page.dart';
 import 'package:iitm_app/src/features/auth/presentation/pages/mobile_number.dart';
 import 'package:iitm_app/src/features/auth/presentation/widgets/custom_button.dart';
 

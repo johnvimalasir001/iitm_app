@@ -10,13 +10,13 @@ class ProfileBuilder extends StatefulWidget {
 }
 
 class _ProfileBuilderState extends State<ProfileBuilder> {
-  
   final List profilecomponentname = [
     'அமைப்புகள்',
     'பயனர் மேலாண்மை',
     'தெரிவிப்பு',
     'logout'.tr
   ];
+
 
   final List profilecomponenticon = [
     Icons.settings,

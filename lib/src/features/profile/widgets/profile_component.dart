@@ -9,9 +9,11 @@ class ProfileComponent extends StatelessWidget {
     super.key,
     required this.icons,
     required this.componentname,
+
   });
   final IconData icons;
   final String componentname;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -22,6 +24,7 @@ class ProfileComponent extends StatelessWidget {
                 await SharedPreferences.getInstance();
             preferences.setBool('loginStatus', false);
             Get.to(() => const LoginPage());
+            
           },
           leading: Container(
             height: 40,
