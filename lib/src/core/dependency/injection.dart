@@ -5,13 +5,8 @@ import 'package:iitm_app/src/features/auth/controller/auth_controller.dart';
 import 'package:iitm_app/src/features/auth/controller/user_data_controller.dart';
 import 'package:iitm_app/src/features/auth/controller/user_details_controller.dart';
 import 'package:iitm_app/src/features/auth/controller/user_location_controller.dart';
-<<<<<<<<< Temporary merge branch 1
 import 'package:iitm_app/src/features/home/controller/realtimedatabase_controller.dart';
-import 'package:iitm_app/src/features/home/controller/switch_controller.dart';
-=========
 import 'package:iitm_app/src/features/home/controller/home_controller.dart';
-import 'package:iitm_app/src/features/home/controller/realtimedatabase_controller.dart';
->>>>>>>>> Temporary merge branch 2
 import 'package:iitm_app/src/features/report/controller/report_controller.dart';
 import 'package:iitm_app/src/features/weather/controller/weather_controller.dart';
 
