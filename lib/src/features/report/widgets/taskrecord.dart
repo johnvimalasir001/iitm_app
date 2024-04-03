@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:iitm_app/src/features/report/widgets/taskrecord_data.dart';
 
 class TaskRecord extends StatefulWidget {
   const TaskRecord({super.key, required this.recorddate});
@@ -15,11 +17,13 @@ class _TaskRecordState extends State<TaskRecord> {
     return Padding(
       padding: const EdgeInsets.only(top: 10),
       child: ListTile(
-        onTap: () {},
+        onTap: () {
+          Get.to(const TaskRecordData());
+        },
         selected: true,
         selectedTileColor: Colors.blue.shade50,
         title: Text(
-          'மோட்டாரை ஆன்/ஆஃப் செய்யவும்',
+          'reportActivity'.tr,
           style: TextStyle(
               color: Colors.black87,
               fontSize: 13.sp,
@@ -56,7 +60,7 @@ class _TaskRecordState extends State<TaskRecord> {
                 borderRadius: const BorderRadius.all(Radius.circular(10))),
             child: Center(
               child: Text(
-                'முடிந்தது',
+                'completed'.tr,
                 style: TextStyle(
                     color: Colors.green,
                     fontSize: 12.sp,

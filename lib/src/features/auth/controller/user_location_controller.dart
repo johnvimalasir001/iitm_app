@@ -1,11 +1,14 @@
 import 'dart:async';
+import 'dart:developer';
 import 'package:flutter_geocoder/geocoder.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:translator/translator.dart';
 
 class LocationController extends GetxController {
+  final translator = GoogleTranslator();
   RxDouble latitude = 0.0.obs;
   RxDouble longitude = 0.0.obs;
   RxString address = "".obs;
@@ -26,12 +29,10 @@ class LocationController extends GetxController {
       target: userPosition,
       zoom: postion.value.zoom,
     );
-    print("${postion.value}");
   }
 
   void updateMarkerPosition(LatLng newPosition) {
     userMarker.value = userMarker.value.copyWith(positionParam: newPosition);
-    print("${userMarker.value}");
   }
 
   Future getCurrentLocation() async {
@@ -60,19 +61,23 @@ class LocationController extends GetxController {
         latitude.value = value.latitude;
         longitude.value = value.longitude;
         isLoading.value = false;
+        log("latitdue: ${latitude.value}");
+        log("longitude: ${longitude.value}");
 
         final coordinates = Coordinates(value.latitude, value.longitude);
         var addresses =
             await Geocoder.local.findAddressesFromCoordinates(coordinates);
         if (addresses.isNotEmpty) {
-          address.value = addresses.first.addressLine ?? "";
-        } else {
-          print("No address found for the coordinates");
-        }
+          translator
+              .translate(addresses.first.addressLine!, from: 'en', to: 'en')
+              .then((result) {
+            address.value = result.toString();
+          });
 
-        print("latidue: ${latitude.value}");
-        print("Longitude: ${longitude.value}");
-        print("address: $address");
+          log("address: ${address.value}");
+        } else {
+          log("No address found for the coordinates");
+        }
         update();
       },
     );
@@ -84,9 +89,6 @@ class LocationController extends GetxController {
     var location = await locationFromAddress(address);
     latitude.value = location[0].latitude;
     longitude.value = location[0].longitude;
-
-    print("Search :$latitude");
-    print("Search :$longitude");
   }
 
   void coordinateToAddress() async {
@@ -95,9 +97,8 @@ class LocationController extends GetxController {
         await Geocoder.local.findAddressesFromCoordinates(coordinates);
     if (addresses.isNotEmpty) {
       address.value = addresses.first.addressLine ?? "";
-      print("address: ${address.value}");
     } else {
-      print("No address found for the coordinates");
+      log("No address found for the coordinates");
     }
   }
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iitm_app/src/features/weather/controller/weather_controller.dart';
 import 'package:iitm_app/src/features/weather/widgets/dailytemp_builder.dart';
-import 'package:iitm_app/src/features/weather/widgets/temp_graph.dart';
+import 'package:iitm_app/src/features/weather/graph/temp_graphs/hour_temp_graph.dart.dart';
 import 'package:iitm_app/src/features/weather/widgets/time_builder.dart';
 
 class Temperature extends StatefulWidget {
@@ -32,7 +32,7 @@ class _TemperatureState extends State<Temperature> {
           Padding(
               padding: const EdgeInsets.only(left: 23),
               child: Obx(() {
-                weatherController.fetchData();
+                // weatherController.fetchData();
                 var temp =
                     weatherController.minuteDataList[0].values.temperature;
                 return Text(
@@ -43,18 +43,18 @@ class _TemperatureState extends State<Temperature> {
                       color: Colors.black54),
                 );
               })),
-          const Padding(
-            padding: EdgeInsets.only(left: 23),
+          Padding(
+            padding: const EdgeInsets.only(left: 23),
             child: Text(
-              "தற்போதைய வெப்பநிலை",
-              style:
-                  TextStyle(fontWeight: FontWeight.w600, color: Colors.black54),
+              "tempReportTitle".tr,
+              style: const TextStyle(
+                  fontWeight: FontWeight.w600, color: Colors.black54),
             ),
           ),
           const SizedBox(
             height: 10,
           ),
-          const Graph(),
+          const HourTempGraph(),
           const Padding(
             padding: EdgeInsets.only(top: 40, left: 10, right: 10),
             child: DailytempBuilder(),

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:iitm_app/src/features/weather/controller/weather_controller.dart';
 
 import 'package:iitm_app/src/features/weather/widgets/humidity_graph.dart';
 import 'package:iitm_app/src/features/weather/widgets/time_builder.dart';
-
 
 class Humidity extends StatefulWidget {
   const Humidity({super.key});
@@ -28,13 +29,15 @@ class _HumidityState extends State<Humidity> {
             padding: EdgeInsets.only(left: 23.w),
             child: Row(
               children: [
-                Text(
-                  "11.52%",
-                  style: TextStyle(
-                      fontSize: 44.sp,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.blue.shade500),
-                ),
+                GetBuilder<WeatherController>(builder: (controller) {
+                  return Text(
+                    "${controller.minuteDataList[0].values.humidity.toString()}%",
+                    style: TextStyle(
+                        fontSize: 44.sp,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.blue.shade500),
+                  );
+                }),
                 SizedBox(
                   width: 10.w,
                 ),
@@ -47,9 +50,9 @@ class _HumidityState extends State<Humidity> {
           ),
           Padding(
             padding: EdgeInsets.only(left: 23.w),
-            child: const Text(
-              "ஈரமான அடிப்படை",
-              style: TextStyle(
+            child: Text(
+              "humdityTitle".tr,
+              style: const TextStyle(
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -79,7 +82,7 @@ class DailyHumidityDetails extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(5.0),
       child: Container(
-        height: 40.h,
+        // height: 40.h,
         width: 105.w,
         decoration: BoxDecoration(
             color: Colors.blue.shade50,
@@ -118,15 +121,15 @@ class _DailysoilBuilderState extends State<DailyHumidityBuilder> {
   final List<String> dailysoilreport = ['16%', '20%', '30%'];
 
   final List<String> soilreportcontent = [
-    'சராசரி ஈரமான அடிப்படை',
-    'மிக உயர்ந்த',
-    'மிகக்குறைந்த'
+    'avgHumidity'.tr,
+    'minHumidity'.tr,
+    'maxHumidity'.tr,
   ];
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 76.h,
+      height: 77.h,
       width: double.infinity.w,
       child: ListView.builder(
         physics: const BouncingScrollPhysics(),

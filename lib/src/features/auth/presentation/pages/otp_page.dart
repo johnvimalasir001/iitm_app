@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:iitm_app/src/features/auth/controller/auth_controller.dart';
-
-import 'package:iitm_app/src/features/auth/presentation/pages/user_details.dart';
-
 import 'package:pinput/pinput.dart';
 
 class OTPPage extends StatelessWidget {
@@ -36,82 +33,70 @@ class OTPPage extends StatelessWidget {
           ),
         ),
         centerTitle: true,
-        title: const Text(
-          'OTP-ஐ சரிபார்க்கவும்',
+        title:  Text(
+          'OtpTitle'.tr,
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
         ),
         elevation: 0,
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15),
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 10,
-            ),
-            const Padding(
-              padding: EdgeInsets.only(top: 10),
-              child: Text(
-                'உங்கள் தொலைபேசி செய்தியில் 6 இலக்க விசையை உள்ளிடவும்',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 10,
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 20.h),
-              child: Pinput(
-                controller: otpController,
-                length: 6,
-                showCursor: true,
-                defaultPinTheme: PinTheme(
-                  width: 80.w,
-                  height: 45.h,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10.r),
-                    border: Border.all(
-                      color: Colors.black38,
+               Padding(
+                padding: EdgeInsets.only(top: 10),
+                child: Text(
+                  'otpDescription'.tr,
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 20.h),
+                child: Pinput(
+                  controller: otpController,
+                  length: 6,
+                  showCursor: true,
+                  defaultPinTheme: PinTheme(
+                    width: 80.w,
+                    height: 45.h,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.r),
+                      border: Border.all(
+                        color: Colors.black38,
+                      ),
+                    ),
+                    textStyle: TextStyle(
+                      fontSize: 20.sp,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
-                  textStyle: TextStyle(
-                    fontSize: 20.sp,
+                  onCompleted: (value) {
+                    String otp = otpController.text;
+                    authController.verifyOTP(otp);
+                  },
+                ),
+              ),
+              const SizedBox(height: 20),
+              GestureDetector(
+                onTap: () {
+                  authController.resendOTP(phonenNumber, resendToken);
+                },
+                child:  Text(
+                  'otpResnd'.tr,
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.blue,
                     fontWeight: FontWeight.w600,
+                    decoration: TextDecoration.none,
                   ),
                 ),
-                onCompleted: (value) {
-                  String otp = otpController.text;
-                  authController.verifyOTP(otp);
-                },
               ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            GestureDetector(
-              onTap: () {
-                authController.resendOTP(phonenNumber, resendToken);
-              },
-              child: const Text(
-                'OTP-ஐ மீண்டும் அனுப்பு',
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.blue,
-                  fontWeight: FontWeight.w600,
-                  decoration: TextDecoration.none,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 200),
-              child: IconButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const UserDetails(),
-                        ));
-                  },
-                  icon: const Icon(Icons.add)),
-            )
-          ],
+            ],
+          ),
         ),
       ),
     );

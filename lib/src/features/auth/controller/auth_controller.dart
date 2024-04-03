@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:iitm_app/src/features/application_page/pages/application_page.dart';
 import 'package:iitm_app/src/features/auth/presentation/pages/otp_page.dart';
 import 'package:iitm_app/src/features/auth/presentation/pages/user_details.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthController extends GetxController {
   String _verificationId = '';
@@ -38,7 +39,9 @@ class AuthController extends GetxController {
         // Navigate to user details filling page
         Get.to(const UserDetails());
       } else {
-        // User already exists, navigate to home page
+          SharedPreferences prefs =await
+    SharedPreferences.getInstance() ;
+        await prefs.setBool('loginStatus', true);
         Get.to(const ApplicationPage());
       }
 

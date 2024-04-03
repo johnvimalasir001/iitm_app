@@ -29,7 +29,7 @@ class UserDetailModel {
       return UserDetailModel(
         firstName: json['firstName'] as String?,
         lastName: json['lastName'] as String?,
-        email: json['email'] as String?,
+        email: json['userEmail'] as String?,
         cropName: json['cropName'] as String?,
         landSize: json['landSize'] as String?,
         unit: json['unit'] as String?,

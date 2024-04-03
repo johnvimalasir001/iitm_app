@@ -1,7 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:iitm_app/src/features/weather/models/weather_model.dart';
+import 'package:iitm_app/src/features/weather/models/hour_weather_model.dart.dart';
 import 'package:iitm_app/src/features/weather/controller/weather_controller.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,7 +19,7 @@ class HumidityGraph extends StatelessWidget {
         padding: EdgeInsets.all(20.h),
         child: Obx(
           () {
-            final List<MinuteData> minuteDataList =
+            final List<HourData> minuteDataList =
                 Get.put(WeatherController()).minuteDataList;
 
             final List<double> humidity = minuteDataList
@@ -76,7 +76,7 @@ class HumidityGraph extends StatelessWidget {
                     ),
                     isCurved: true,
                     barWidth: 3,
-                    color: Colors.orange,
+                    color: Colors.blue,
                     dotData: const FlDotData(show: false),
                     belowBarData: BarAreaData(show: false),
                   ),
