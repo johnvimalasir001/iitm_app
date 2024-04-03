@@ -9,7 +9,7 @@ class TimeBuilder extends StatefulWidget {
 }
 
 class _TimeBuilderState extends State<TimeBuilder> {
-  final List<String> time = ['24மணி', '1வாரம்', '1மாதம்'];
+  final List<String> time = ['24Hours', '1Weak', '1Month'];
 
   @override
   Widget build(BuildContext context) {

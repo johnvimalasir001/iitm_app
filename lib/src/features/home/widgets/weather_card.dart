@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:iitm_app/src/features/auth/controller/user_data_controller.dart';
 import 'package:iitm_app/src/features/report/function/date_formate.dart';
@@ -18,7 +19,6 @@ class _WeatherCardState extends State<WeatherCard> {
   @override
   void initState() {
     super.initState();
-    
   }
 
   @override
@@ -57,7 +57,7 @@ class _WeatherCardState extends State<WeatherCard> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "தமிழ்நாடு ${formatDate(DateTime.now())}",
+                          "TamilNadu ${formatDate(DateTime.now())}",
                           style: const TextStyle(
                             fontSize: 14,
                             color: Colors.white,
@@ -78,13 +78,28 @@ class _WeatherCardState extends State<WeatherCard> {
                         const SizedBox(
                           height: 8,
                         ),
-                        Text(
-                          "ஈரப்பதம் ${weatherController.minuteDataList[0].values.humidity} %",
-                          style: const TextStyle(
-                            fontSize: 18,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500,
-                          ),
+                        Row(
+                          children: [
+                            Text(
+                              "weatherCardHumidity".tr,
+                              style: const TextStyle(
+                                fontSize: 18,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 5.h,
+                            ),
+                            Text(
+                              "${weatherController.minuteDataList[0].values.humidity}%",
+                              style: const TextStyle(
+                                fontSize: 18,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
@@ -103,9 +118,9 @@ class _WeatherCardState extends State<WeatherCard> {
                 thickness: 1,
                 color: Colors.white,
               ),
-              const Text(
-                "பூச்சிக்கொல்லி மருந்துகளை பயன்படுத்த இன்று நல்ல நாள்",
-                style: TextStyle(
+              Text(
+                "weatherCardSuggestion".tr,
+                style: const TextStyle(
                   fontSize: 14,
                   color: Colors.white,
                   fontWeight: FontWeight.w400,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iitm_app/src/features/weather/widgets/dailytemp_details.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -13,9 +14,9 @@ class _DailytempBuilderState extends State<DailytempBuilder> {
   final List<String> dailytempreport = ['16', '20', '30'];
 
   final List<String> tempreportcontent = [
-    'சராசரி வெப்பநிலை ',
-    'மிகக்குறைந்த',
-    'மிக உயர்ந்த'
+    'avgTemp'.tr,
+    'minTemp'.tr,
+    'maxTemp'.tr
   ];
 
   @override

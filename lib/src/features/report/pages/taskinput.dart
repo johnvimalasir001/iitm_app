@@ -44,7 +44,7 @@ class _TaskManagementState extends State<TaskManagement> {
         ),
         centerTitle: true,
         title: Text(
-          'புதிய பணியை உருவாக்கு',
+          'taskInputTitle'.tr,
           style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w600),
         ),
         elevation: 0,
@@ -59,7 +59,7 @@ class _TaskManagementState extends State<TaskManagement> {
               Padding(
                 padding: EdgeInsets.only(top: 10.h, bottom: 8.w),
                 child: Text(
-                  'பணி தலைப்பு',
+                  'taskInput1'.tr,
                   style:
                       TextStyle(fontSize: 17.sp, fontWeight: FontWeight.w600),
                 ),
@@ -82,7 +82,7 @@ class _TaskManagementState extends State<TaskManagement> {
               Padding(
                 padding: EdgeInsets.only(top: 14.h, bottom: 8.h),
                 child: Text(
-                  'பணி செயல்பாடு',
+                  'workActivity'.tr,
                   style:
                       TextStyle(fontSize: 17.sp, fontWeight: FontWeight.w600),
                 ),
@@ -107,14 +107,14 @@ class _TaskManagementState extends State<TaskManagement> {
                 child: Row(
                   children: [
                     Text(
-                      'தேதி',
+                      'date'.tr,
                       style: TextStyle(
                           fontSize: 17.sp, fontWeight: FontWeight.w600),
                     ),
                     Padding(
                       padding: EdgeInsets.only(left: 130.w),
                       child: Text(
-                        'நேரம்',
+                        'time'.tr,
                         style: TextStyle(
                             fontSize: 17.sp, fontWeight: FontWeight.w600),
                       ),
@@ -233,7 +233,7 @@ class _TaskManagementState extends State<TaskManagement> {
                       Padding(
                         padding: EdgeInsets.only(left: 10.w),
                         child: Text(
-                          'தினமும் எனக்கு நினைவூட்டு',
+                          'remind'.tr,
                           style: TextStyle(
                               fontSize: 14.sp, fontWeight: FontWeight.w400),
                         ),
@@ -262,7 +262,7 @@ class _TaskManagementState extends State<TaskManagement> {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 14),
                 child: Text(
-                  'விரித்துரைத்தல்',
+                  'description'.tr,
                   style:
                       TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w600),
                 ),
@@ -312,7 +312,7 @@ class _TaskManagementState extends State<TaskManagement> {
                         ),
                         child: Center(
                           child: Text(
-                            'Create',
+                            'createButton'.tr,
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 18.sp,

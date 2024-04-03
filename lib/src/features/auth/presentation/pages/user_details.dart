@@ -1,19 +1,17 @@
-
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:iitm_app/src/features/application_page/pages/application_page.dart';
 import 'package:iitm_app/src/features/auth/controller/user_details_controller.dart';
-
 import 'package:iitm_app/src/features/auth/presentation/widgets/custom_button.dart';
-import 'package:iitm_app/src/features/auth/presentation/widgets/custom_textfield.dart';
 import 'package:iitm_app/src/features/auth/presentation/widgets/custom_title.dart';
+import 'package:iitm_app/src/features/auth/presentation/widgets/custom_user_detail.dart';
 import 'package:iitm_app/src/features/auth/presentation/widgets/expansion.dart';
 import 'package:iitm_app/src/features/auth/presentation/widgets/landsize_custom_textfield.dart';
 import 'package:iitm_app/src/features/auth/presentation/widgets/user_location_container.dart';
 import 'package:iitm_app/src/features/auth/controller/user_location_controller.dart';
+import 'package:iitm_app/src/features/home/controller/voice_command_controller.dart';
 
 class UserDetails extends StatefulWidget {
   const UserDetails({super.key});
@@ -33,6 +31,8 @@ class _UserDetailsState extends State<UserDetails> {
   final TextEditingController landSizeController = TextEditingController();
 
   final TextEditingController userLocationController = TextEditingController();
+  final VoiceCommandController voiceCommandController =
+      VoiceCommandController();
 
   void texfieldClear() {
     firstNameController.clear();
@@ -61,7 +61,7 @@ class _UserDetailsState extends State<UserDetails> {
         ),
         centerTitle: true,
         title: Text(
-          'பாவனையாளர் விபரங்கள்',
+          'userTitle'.tr,
           style: TextStyle(fontSize: 22.sp, fontWeight: FontWeight.w600),
         ),
         elevation: 0,
@@ -73,28 +73,68 @@ class _UserDetailsState extends State<UserDetails> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomTextField(
-                  fieldName: "முதல் பெயர்",
-                  controller: firstNameController,
-                  icon: const Icon(
-                    Icons.person,
-                  ),
-                ),
-                CustomTextField(
-                  fieldName: "கடைசி பெயர்",
-                  controller: lastNameController,
-                  icon: const Icon(
-                    Icons.person,
-                  ),
-                ),
-                CustomTextField(
-                  fieldName: "மின்னஞ்சல் முகவரி",
-                  controller: emailController,
-                  icon: const Icon(
-                    Icons.email,
-                  ),
-                ),
-                const CustomTitle(title: "பயிர் பெயர்"),
+                Obx(() {
+                  firstNameController.text =
+                      voiceCommandController.firstName.value;
+
+                  return CustomUserDetailForm(
+                    fieldName: "firstName".tr,
+                    controller: firstNameController,
+                    icon: const Icon(
+                      Icons.person,
+                    ),
+                    secondIcon: const Icon(
+                      Icons.mic,
+                      color: Colors.blue,
+                    ),
+                    function: () {
+                      voiceCommandController.listen(
+                        "Enter your first name",
+                      );
+                    },
+                  );
+                }),
+                Obx(() {
+                  lastNameController.text =
+                      voiceCommandController.lastName.value;
+
+                  return CustomUserDetailForm(
+                    fieldName: "lastName".tr,
+                    controller: lastNameController,
+                    icon: const Icon(
+                      Icons.person,
+                    ),
+                    secondIcon: const Icon(
+                      Icons.mic,
+                      color: Colors.blue,
+                    ),
+                    function: () {
+                      voiceCommandController.listen(
+                        "Enter your last name",
+                      );
+                    },
+                  );
+                }),
+                Obx(() {
+                  String inputText = voiceCommandController.email.value;
+                  emailController.text = inputText;
+                  return CustomUserDetailForm(
+                      fieldName: "email".tr,
+                      controller: emailController,
+                      icon: const Icon(
+                        Icons.email,
+                      ),
+                      secondIcon: const Icon(
+                        Icons.mic,
+                        color: Colors.blue,
+                      ),
+                      function: () {
+                        voiceCommandController.listen(
+                          "Enter your email address",
+                        );
+                      });
+                }),
+                CustomTitle(title: "cropName".tr),
                 Padding(
                   padding: EdgeInsets.only(top: 5.h, bottom: 10.h),
                   child: Container(
@@ -117,30 +157,30 @@ class _UserDetailsState extends State<UserDetails> {
                           ListTile(
                             onTap: () {
                               userDetailsController
-                                  .updateCropSelectedUnit('நெற்பயிர்');
+                                  .updateCropSelectedUnit('paddy'.tr);
                             },
-                            title: const Text('நெற்பயிர்'),
+                            title: Text('paddy'.tr),
                           ),
                           ListTile(
                             onTap: () {
                               userDetailsController
-                                  .updateCropSelectedUnit('கோதுமை');
+                                  .updateCropSelectedUnit('wheat'.tr);
                             },
-                            title: const Text('கோதுமை'),
+                            title: Text('wheat'.tr),
                           ),
                           ListTile(
                             onTap: () {
                               userDetailsController
-                                  .updateCropSelectedUnit(' பட்டாணி');
+                                  .updateCropSelectedUnit('peas'.tr);
                             },
-                            title: const Text(' பட்டாணி'),
+                            title: Text('peas'.tr),
                           ),
                           ListTile(
                             onTap: () {
                               userDetailsController
-                                  .updateCropSelectedUnit('சிறுநீரக பீன்ஸ்');
+                                  .updateCropSelectedUnit('kidneyBeans'.tr);
                             },
-                            title: const Text('சிறுநீரக பீன்ஸ்'),
+                            title: Text('kidneyBeans'.tr),
                           ),
                         ],
                       ),
@@ -157,7 +197,7 @@ class _UserDetailsState extends State<UserDetails> {
                         width: 190.w,
                         child: LandsizeCustomTextField(
                           controller: landSizeController,
-                          fieldName: "நில விவரங்கள்",
+                          fieldName: "landDetails".tr,
                           icon: const Icon(
                             Icons.landscape,
                           ),
@@ -168,28 +208,16 @@ class _UserDetailsState extends State<UserDetails> {
                   ],
                 ),
                 const UserLocationContainer(),
-
-                // const CustomTitle(title: "User Location"),
-                // SizedBox(
-                //   height: 5.h,
-                // ),
-                // CustomTextField(
-                //   fieldName: "User Location",
-                //   controller: userLocationController,
-                //   icon: const Icon(
-                //     Icons.location_on,
-                //   ),
-                // ),
-
                 Obx(() {
                   locationController.getCurrentLocation();
                   String address = locationController.address.value;
                   double lat = locationController.latitude.value;
                   double lon = locationController.longitude.value;
+
                   return Padding(
                     padding: EdgeInsets.only(top: 15.h),
                     child: CustomElevatedButton(
-                      fieldName: "சமர்ப்பிக்க",
+                      fieldName: "submitButton".tr,
                       onPressed: () {
                         log("demo longitude: $lon");
                         log("demo latitude: $lat");
@@ -204,14 +232,18 @@ class _UserDetailsState extends State<UserDetails> {
                           address,
                           lat,
                           lon,
+                          true,
                         );
 
                         texfieldClear();
+
                         Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (BuildContext context) =>
-                                    const ApplicationPage(),),);
+                          context,
+                          MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                const ApplicationPage(),
+                          ),
+                        );
                       },
                     ),
                   );

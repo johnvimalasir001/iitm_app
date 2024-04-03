@@ -14,13 +14,13 @@ class MyDropdown extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const CustomTitle(title: "அலகு "),
+        CustomTitle(title: "landUnit".tr),
         const SizedBox(
           height: 8,
         ),
         Container(
           height: 39.h,
-          width: 100.w,
+          width: 120.w,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             border: Border.all(color: Colors.black),
@@ -45,17 +45,17 @@ class MyDropdown extends StatelessWidget {
                   controller.updateSelectedUnit(item);
                 },
                 itemBuilder: (BuildContext context) => [
-                  const PopupMenuItem(
-                    value: "Cent",
-                    child: Text("Cent"),
+                  PopupMenuItem(
+                    value: "cent".tr,
+                    child: Text("cent".tr),
                   ),
-                  const PopupMenuItem(
-                    value: "Sqft",
-                    child: Text("Sqft"),
+                  PopupMenuItem(
+                    value: "sqft".tr,
+                    child: Text("sqft".tr),
                   ),
-                  const PopupMenuItem(
-                    value: "Acre",
-                    child: Text("Acre"),
+                  PopupMenuItem(
+                    value: "acres".tr,
+                    child: Text("acres".tr),
                   ),
                 ],
               ),

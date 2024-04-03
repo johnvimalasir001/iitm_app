@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:iitm_app/src/features/home/controller/home_controller.dart';
 
 class WaterflowContainer extends StatelessWidget {
   const WaterflowContainer({
@@ -8,6 +10,7 @@ class WaterflowContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final HomeController homeController = Get.find();
     return Container(
       height: 78.h,
       width: 100.w,
@@ -22,11 +25,15 @@ class WaterflowContainer extends StatelessWidget {
           children: [
             Row(
               children: [
-                Text(
-                  '2',
-                  style:
-                      TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
-                ),
+                Obx(() {
+                  homeController.fetchMotorWaterFlowData();
+                  String value = homeController.waterFlow.value.toString();
+                  return Text(
+                   value,
+                    style:
+                        TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
+                  );
+                }),
                 Padding(
                   padding: const EdgeInsets.only(left: 8, top: 5),
                   child: Text(
@@ -40,7 +47,7 @@ class WaterflowContainer extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 4),
               child: Text(
-                'நீர் ஓட்டம்',
+                'titleMotorFlow'.tr,
                 style: TextStyle(
                   fontSize: 13.sp,
                 ),

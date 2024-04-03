@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iitm_app/src/features/profile/widgets/profile_component.dart';
 
 class ProfileBuilder extends StatefulWidget {
@@ -9,11 +10,12 @@ class ProfileBuilder extends StatefulWidget {
 }
 
 class _ProfileBuilderState extends State<ProfileBuilder> {
+  
   final List profilecomponentname = [
     'அமைப்புகள்',
     'பயனர் மேலாண்மை',
     'தெரிவிப்பு',
-    'வெளியேறு'
+    'logout'.tr
   ];
 
   final List profilecomponenticon = [

@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:iitm_app/src/features/voice_assistent.dart/voice_to_text.dart';
-import 'package:iitm_app/src/features/weather/pages/report.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 
 class VoiceCommand extends StatefulWidget {
   const VoiceCommand({super.key});
 
   @override
-  _VoiceCommandState createState() => _VoiceCommandState();
+  VoiceCommandState createState() => VoiceCommandState();
 }
 
-class _VoiceCommandState extends State<VoiceCommand> {
+class VoiceCommandState extends State<VoiceCommand> {
   late stt.SpeechToText _speech;
   bool _isListening = false;
   String _text = '';

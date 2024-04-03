@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:iitm_app/src/features/Notification/presentation/pages/notification.dart';
 import 'package:iitm_app/src/features/application_page/pages/application_page.dart';
 import 'package:iitm_app/src/features/auth/presentation/pages/login_page.dart';
 import 'package:iitm_app/src/features/auth/presentation/pages/mobile_number.dart';
@@ -17,14 +17,15 @@ class AppRoutes {
   static Map<String, WidgetBuilder> getRoutes() => <String, WidgetBuilder>{
         AppRouteNames.navBarRoute: (context) => const ApplicationPage(),
         AppRouteNames.loginRoute: (context) => const LoginPage(),
-        AppRouteNames.homeRoute: (context) => const HomePage(),
+        AppRouteNames.homeRoute: (context) =>  HomePage(),
         AppRouteNames.userDetailsroute: (context) => const UserDetails(),
         AppRouteNames.phoneNumberRoute: (context) => const PhoneNumber(),
         AppRouteNames.expansionDetails: (context) => MyDropdown(),
-        AppRouteNames.weatherPageRoute: (context) => const WeatherPage(),
+        AppRouteNames.weatherPageRoute: (context) =>  WeatherPage(),
         AppRouteNames.reportroute: (context) => ReportPage(),
         AppRouteNames.voice: (context) => const VoiceTest(),
         AppRouteNames.voicetotext: (context) => const VoiceToText(),
         AppRouteNames.voicecommand: (context) => const VoiceCommand(),
+        AppRouteNames.notification: (context) => NotificationPage(),
       };
 }

@@ -15,21 +15,21 @@ class DependencyInjection {
     await Services.initialiseFireBase();
   }
 
-  //
   static Future<void> getControllersInjection() async {
-    Get.put(UserDataController());
-    Get.put(AuthController());
-    Get.put(UserDetailsController());
-    Get.put(LocationController());
-    Get.put(WeatherController());
-    Get.put(ReportController());
-    Get.put(RealtimeDataController());
-    Get.put(HomeController());
+    Get.lazyPut(() => AuthController());
+    Get.lazyPut(() => UserDataController());
+    Get.lazyPut(() => UserDetailsController());
+    Get.lazyPut(() => LocationController());
+    Get.lazyPut(() => WeatherController());
+    Get.lazyPut(() => ReportController());
+    Get.lazyPut(() => RealtimeDataController());
+    Get.lazyPut(() => HomeController());
   }
 
   static Future<void> initialise() async {
     WidgetsFlutterBinding.ensureInitialized();
     await initialiseFireBase();
     await getControllersInjection();
+    
   }
 }
