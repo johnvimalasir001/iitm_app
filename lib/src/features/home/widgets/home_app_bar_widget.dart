@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:iitm_app/src/features/Notification/presentation/pages/notification.dart';
 import 'package:iitm_app/src/features/auth/controller/user_data_controller.dart';
 
 class HomeAppBar extends StatelessWidget {
@@ -47,22 +48,29 @@ class HomeAppBar extends StatelessWidget {
                         fontSize: 14,
                       ),
                     ),
-                    const SizedBox(
-                      width: 160,
-                      child: Text(
-                        'john',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 18,
+                    Obx(() {
+                      userDataController.getUserDetails();
+                      String name =
+                          userDataController.userDetails[0].firstName!;
+                      return SizedBox(
+                        width: 160,
+                        child: Text(
+                          name,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 18,
+                          ),
                         ),
-                      ),
-                    ),
+                      );
+                    }),
                   ],
-                )
+                ),
               ],
             ),
           ),
-          NotificationIconCustom(onTap: () {}),
+          NotificationIconCustom(onTap: () {
+            Get.to(() => NotificationPage());
+          },),
         ],
       ),
     );
@@ -70,11 +78,11 @@ class HomeAppBar extends StatelessWidget {
 
   String _getGreeting(int hour) {
     if (hour < 12) {
-      return 'காலை வணக்கம்';
+      return 'greeting1'.tr;
     } else if (hour < 17) {
-      return 'மதிய வணக்கம்';
+      return 'greeting2'.tr;
     } else {
-      return 'மாலை வணக்கம்';
+      return 'greeting3'.tr;
     }
   }
 }

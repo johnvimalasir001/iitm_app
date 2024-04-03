@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:iitm_app/src/features/auth/controller/user_data_controller.dart';
 import 'package:iitm_app/src/features/profile/widgets/profile_builder.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -9,6 +11,7 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  final UserDataController userDataController = Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,8 +25,8 @@ class _ProfilePageState extends State<ProfilePage> {
           iconSize: 16,
         ),
         centerTitle: true,
-        title: const Text(
-          'பக்கத்தோற்ற வடிவம்',
+        title:  Text(
+          'profileTitle'.tr,
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
         actions: [
@@ -54,36 +57,46 @@ class _ProfilePageState extends State<ProfilePage> {
                     color: Colors.white,
                     shape: BoxShape.circle,
                   ),
-                  child: const CircleAvatar(
+                  child: CircleAvatar(
                     backgroundColor: Colors.white,
                     radius: 50,
-                    child: Text(
-                      'S',
-                      style: TextStyle(fontSize: 50),
+                    child: Image.network(
+                      "https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/man-user-circle-icon.png",
+                      fit: BoxFit.fill,
                     ),
                   ),
                 ),
               ),
             ),
-            const Text(
-              'Sudharsan',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            const Text(
-              '@SudharsanCoder',
-              style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.black54),
-            ),
+            Obx(() {
+              userDataController.getUserDetails();
+              String name = userDataController.userDetails[0].firstName!;
+              String email = userDataController.userDetails[0].email!;
+              return Column(
+                children: [
+                  Text(
+                    name,
+                    style: const TextStyle(
+                        fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    email,
+                    style: const TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.black54),
+                  ),
+                ],
+              );
+            }),
             const SizedBox(
               height: 24,
             ),
             ElevatedButton(
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
                 onPressed: () {},
-                child: const Text(
-                  'சுயவிவரத்தைத் திருத்தவும்',
+                child:  Text(
+                  'editiProfile'.tr,
                   style: TextStyle(color: Colors.white, fontSize: 12),
                 )),
             const SizedBox(
@@ -95,7 +108,7 @@ class _ProfilePageState extends State<ProfilePage> {
             const ProfileBuilder(),
           ],
         ),
-      )),
+      ),),
     );
   }
 }

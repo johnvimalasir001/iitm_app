@@ -23,7 +23,7 @@ class _TaskRecordState extends State<TaskRecord> {
         selected: true,
         selectedTileColor: Colors.blue.shade50,
         title: Text(
-          'மோட்டாரை ஆன்/ஆஃப் செய்யவும்',
+          'reportActivity'.tr,
           style: TextStyle(
               color: Colors.black87,
               fontSize: 13.sp,
@@ -60,7 +60,7 @@ class _TaskRecordState extends State<TaskRecord> {
                 borderRadius: const BorderRadius.all(Radius.circular(10))),
             child: Center(
               child: Text(
-                'முடிந்தது',
+                'completed'.tr,
                 style: TextStyle(
                     color: Colors.green,
                     fontSize: 12.sp,

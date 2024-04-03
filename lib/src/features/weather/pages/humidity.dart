@@ -50,9 +50,9 @@ class _HumidityState extends State<Humidity> {
           ),
           Padding(
             padding: EdgeInsets.only(left: 23.w),
-            child: const Text(
-              "ஈரமான அடிப்படை",
-              style: TextStyle(
+            child: Text(
+              "humdityTitle".tr,
+              style: const TextStyle(
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -121,9 +121,9 @@ class _DailysoilBuilderState extends State<DailyHumidityBuilder> {
   final List<String> dailysoilreport = ['16%', '20%', '30%'];
 
   final List<String> soilreportcontent = [
-    'சராசரி ஈரப்பதம்',
-    'மிக உயர்ந்த',
-    'மிகக்குறைந்த'
+    'avgHumidity'.tr,
+    'minHumidity'.tr,
+    'maxHumidity'.tr,
   ];
 
   @override

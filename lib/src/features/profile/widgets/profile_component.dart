@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:iitm_app/src/features/auth/presentation/pages/login_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfileComponent extends StatelessWidget {
   const ProfileComponent({
@@ -13,7 +17,12 @@ class ProfileComponent extends StatelessWidget {
     return Column(
       children: [
         ListTile(
-          onTap: () {},
+          onTap: () async {
+            SharedPreferences preferences =
+                await SharedPreferences.getInstance();
+            preferences.setBool('loginStatus', false);
+            Get.to(() => const LoginPage());
+          },
           leading: Container(
             height: 40,
             width: 40,

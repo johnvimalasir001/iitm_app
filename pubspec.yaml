@@ -49,9 +49,12 @@ dependencies:
   syncfusion_flutter_charts: ^24.2.9
   weather: ^3.1.1
   flutter_tts: ^4.0.2
+  shared_preferences: ^2.2.2
   speech_to_text: ^6.6.0
   firebase_database: ^10.4.11
-  speech_to_text: ^6.6.0
+  translator: ^1.0.0
+  google_fonts: ^6.2.1
+
 
 dev_dependencies:
 

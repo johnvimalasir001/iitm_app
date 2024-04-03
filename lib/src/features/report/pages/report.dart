@@ -1,13 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_tts/flutter_tts.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
+import 'package:get/get.dart';
 import 'package:iitm_app/src/features/report/pages/taskinput.dart';
 import 'package:iitm_app/src/features/report/widgets/reportdata_builder.dart';
 import 'package:iitm_app/src/features/report/widgets/taskrecord.dart';
 import 'package:iitm_app/src/features/report/widgets/today_task_container.dart';
-import 'package:iitm_app/src/features/voice_assistent.dart/voice_to_text.dart';
 
 class ReportPage extends StatelessWidget {
   ReportPage({super.key});
@@ -23,13 +21,13 @@ class ReportPage extends StatelessWidget {
 
   Future<void> speak(String text) async {
     FlutterTts flutterTts = FlutterTts();
-    await flutterTts.setLanguage('en-US'); // Set language (optional)
-    await flutterTts.setPitch(1); // Set pitch (optional)
+    await flutterTts.setLanguage('en-US'); 
+    await flutterTts.setPitch(1); 
     await flutterTts.speak(text);
   }
 
-  String title = 'டாஸ்க் 1',
-      activity = 'மோட்டாரை ஆன்/ஆஃப் செய்யவும்',
+  final String title = 'report1'.tr,
+      activity = 'reportActivity'.tr,
       date = "20-03-2024",
       time = "12:30 pm";
 
@@ -39,7 +37,7 @@ class ReportPage extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          'அறிக்கை',
+          'reportTitle'.tr,
           style: TextStyle(fontSize: 22.sp, fontWeight: FontWeight.w600),
         ),
         elevation: 0,
@@ -52,7 +50,7 @@ class ReportPage extends StatelessWidget {
           Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) =>  TaskManagement(),
+                builder: (context) => const TaskManagement(),
               ));
         },
         shape: const CircleBorder(),
@@ -73,7 +71,7 @@ class ReportPage extends StatelessWidget {
                 child: ReportDataBuilder(),
               ),
               Text(
-                'இன்றைய டாஸ்க்',
+                'todaysTask'.tr,
                 style: TextStyle(
                     fontSize: 19.sp,
                     fontWeight: FontWeight.w700,
@@ -94,7 +92,7 @@ class ReportPage extends StatelessWidget {
                 height: 15.h,
               ),
               Text(
-                'பணி பதிவு',
+                'previousTask'.tr,
                 style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w700),
               ),
               SizedBox(

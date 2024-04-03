@@ -33,8 +33,8 @@ class OTPPage extends StatelessWidget {
           ),
         ),
         centerTitle: true,
-        title: const Text(
-          'OTP-ஐ சரிபார்க்கவும்',
+        title:  Text(
+          'OtpTitle'.tr,
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
         ),
         elevation: 0,
@@ -47,10 +47,10 @@ class OTPPage extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              const Padding(
+               Padding(
                 padding: EdgeInsets.only(top: 10),
                 child: Text(
-                  'உங்கள் தொலைபேசி செய்தியில் 6 இலக்க விசையை உள்ளிடவும்',
+                  'otpDescription'.tr,
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
                 ),
               ),
@@ -85,8 +85,8 @@ class OTPPage extends StatelessWidget {
                 onTap: () {
                   authController.resendOTP(phonenNumber, resendToken);
                 },
-                child: const Text(
-                  'OTP-ஐ மீண்டும் அனுப்பு',
+                child:  Text(
+                  'otpResnd'.tr,
                   style: TextStyle(
                     fontSize: 16,
                     color: Colors.blue,

@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:iitm_app/src/features/auth/presentation/pages/user_details.dart';
 import 'package:iitm_app/src/features/home/widgets/todaytask_dialog.dart';
 import 'package:iitm_app/src/features/home/widgets/weather_dialog.dart';
 import 'package:iitm_app/src/features/report/function/date_formate.dart';
+import 'package:iitm_app/src/features/report/pages/taskinput.dart';
 
 class Todaytask extends StatelessWidget {
   final String title, time;
@@ -28,7 +27,7 @@ class Todaytask extends StatelessWidget {
                   children: [
                     GestureDetector(
                         onTap: () {
-                          Get.to(const UserDetails());
+                          Get.to(const TaskManagement());
                         },
                         child: Text(
                           'Modify',

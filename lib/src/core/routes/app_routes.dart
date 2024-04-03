@@ -10,4 +10,5 @@ class AppRouteNames {
   static String voice = "/voice";
   static String voicetotext = "/voicetotext";
   static String voicecommand = "/voicecommand";
+  static String notification = '/notification';
 }

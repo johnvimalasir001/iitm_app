@@ -43,12 +43,12 @@ class _TemperatureState extends State<Temperature> {
                       color: Colors.black54),
                 );
               })),
-          const Padding(
-            padding: EdgeInsets.only(left: 23),
+          Padding(
+            padding: const EdgeInsets.only(left: 23),
             child: Text(
-              "தற்போதைய வெப்பநிலை",
-              style:
-                  TextStyle(fontWeight: FontWeight.w600, color: Colors.black54),
+              "tempReportTitle".tr,
+              style: const TextStyle(
+                  fontWeight: FontWeight.w600, color: Colors.black54),
             ),
           ),
           const SizedBox(

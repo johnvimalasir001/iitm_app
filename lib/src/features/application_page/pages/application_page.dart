@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iitm_app/src/features/home/pages/home.dart';
 import 'package:iitm_app/src/features/profile/pages/profile_page.dart';
 import 'package:iitm_app/src/features/report/pages/report.dart';
@@ -12,7 +13,7 @@ class ApplicationPage extends StatefulWidget {
 
 class _ApplicationPageState extends State<ApplicationPage> {
   List<Widget> pages = <Widget>[
-    const HomePage(),
+     HomePage(),
     ReportPage(),
     const ProfilePage(),
   ];
@@ -38,17 +39,17 @@ class _ApplicationPageState extends State<ApplicationPage> {
               "assets/icons/home-100.png",
               "assets/icons/home-100-2.png",
             ),
-            label: "வீடு",
+            label: "homeNav".tr,
           ),
           BottomNavigationBarItem(
             icon: iconWidget(1, index, "assets/icons/openbook.jpg",
                 "assets/icons/openbook.jpg"),
-            label: "அறிக்கை",
+            label: "reportNav".tr,
           ),
           BottomNavigationBarItem(
             icon: iconWidget(2, index, "assets/icons/user-outline.png",
                 "assets/icons/user-filled.png"),
-            label: "சுயவிவரம்",
+            label: "profile".tr,
           ),
         ],
         currentIndex: index,

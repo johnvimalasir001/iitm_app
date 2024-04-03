@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_instance/get_instance.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+import 'package:get/get.dart';
 import 'package:iitm_app/src/features/home/controller/home_controller.dart';
 import 'package:iitm_app/src/features/home/controller/realtimedatabase_controller.dart';
+import 'package:iitm_app/src/features/home/controller/voice_command_controller.dart';
+import 'package:iitm_app/src/features/home/controller/voice_controller.dart';
 import 'package:iitm_app/src/features/home/widgets/field_waterflow_container.dart';
 import 'package:iitm_app/src/features/home/widgets/home_soilmoisure_container.dart';
 import 'package:iitm_app/src/features/home/widgets/todaytask.dart';
@@ -22,12 +22,26 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final VoiceCommandController voiceCommandController =
+      VoiceCommandController();
   final HomeController homeController = Get.find();
   final RealtimeDataController realtimeDataController = Get.find();
+  final VoiceController voiceController = VoiceController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          voiceController.listen();
+        },
+        backgroundColor: Colors.blue,
+        shape: const CircleBorder(),
+        child: const Icon(
+          Icons.mic,
+          color: Colors.white,
+        ),
+      ),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
@@ -37,14 +51,14 @@ class _HomePageState extends State<HomePage> {
               children: [
                 const HomeAppBar(),
                 const SizedBox(height: 13),
-                const CustomText(inputText: "இன்றைய வானிலை"),
+                CustomText(inputText: "weatherCardTitle".tr),
                 const SizedBox(height: 15),
                 GestureDetector(
                     onTap: () {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const WeatherPage(),
+                            builder: (context) => WeatherPage(),
                           ));
                     },
                     child: const WeatherCard()),
@@ -53,15 +67,17 @@ class _HomePageState extends State<HomePage> {
                   height: 50.h,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                      color: Colors.blue.shade50,
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(10))),
+                    color: Colors.blue.shade50,
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(10),
+                    ),
+                  ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(left: 10),
-                        child: Text('மோட்டார் சுவிட்ச்',
+                        child: Text('motorSwitch'.tr,
                             style: TextStyle(fontSize: 17.sp)),
                       ),
                       Obx(() {
@@ -76,7 +92,6 @@ class _HomePageState extends State<HomePage> {
                               (states) => Colors.white,
                             ),
                             onChanged: (bool value) {
-                              // Toggle the switch directly using the controller
                               homeController.toggleSwitch(value);
                             },
                           ),
@@ -86,22 +101,22 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 const SizedBox(height: 12),
-                const CustomText(inputText: "இன்றைய டாஸ்க்"),
+                CustomText(inputText: "todaysTask".tr),
                 const SizedBox(height: 12),
-                const Todaytask(
-                  title: 'மோட்டார் 1 இயங்குகிறது',
+                Todaytask(
+                  title: 'todayTaskTitle'.tr,
                   time: '10:00 AM - 12:00 PM',
                 ),
                 const SizedBox(
                   height: 10,
                 ),
-                const Todaytask(
-                  title: 'மோட்டர் 2 இயங்கும்',
+                Todaytask(
+                  title: 'todayTaskTitle2'.tr,
                   time: '4:00 PM - 6:00 PM',
                 ),
                 const SizedBox(height: 10),
                 //
-                const CustomText(inputText: "அறிக்கை"),
+                CustomText(inputText: "reportTitle".tr),
                 //
                 const SizedBox(height: 8),
                 Padding(

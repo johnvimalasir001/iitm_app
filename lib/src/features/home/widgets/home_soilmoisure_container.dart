@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/get_core.dart';
+import 'package:get/get_instance/get_instance.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:iitm_app/src/features/home/controller/home_controller.dart';
+
 
 class HomeSoilMoisureContainer extends StatelessWidget {
   const HomeSoilMoisureContainer({
@@ -8,6 +14,7 @@ class HomeSoilMoisureContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final HomeController realtimeDataController = Get.find();
     return Container(
       height: 78.h,
       width: 100.w,
@@ -20,14 +27,18 @@ class HomeSoilMoisureContainer extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              '16%',
-              style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
-            ),
+            Obx(() {
+              realtimeDataController.fetchMoistureData();
+              String value = realtimeDataController.moistureData.value;
+              return Text(
+                "$value %",
+                style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
+              );
+            }),
             Padding(
               padding: const EdgeInsets.only(top: 4),
               child: Text(
-                'மண் ஈரம்',
+                'titleMoisture'.tr,
                 style: TextStyle(
                   fontSize: 13.sp,
                 ),

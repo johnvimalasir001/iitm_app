@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:iitm_app/src/features/home/controller/home_controller.dart';
 import 'package:iitm_app/src/features/report/widgets/report_data.dart';
 import 'package:iitm_app/src/features/weather/controller/weather_controller.dart';
 
 class ReportDataBuilder extends StatelessWidget {
-   ReportDataBuilder({Key? key}) : super(key: key);
+  ReportDataBuilder({Key? key}) : super(key: key);
 
   final WeatherController weatherController = Get.find();
+  final HomeController homeController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +25,8 @@ class ReportDataBuilder extends StatelessWidget {
               ? weatherController.minuteDataList[0].values.temperature
                   .toString()
               : '35.8';
-          String? soil = weatherController.minuteDataList.isNotEmpty
-              ? weatherController.minuteDataList[0].values.temperature
+          String? soil = homeController.moistureData.value.isNotEmpty
+              ? homeController.moistureData.value
                   .toString()
               : '10';
           String? hum = weatherController.minuteDataList.isNotEmpty
@@ -34,9 +36,9 @@ class ReportDataBuilder extends StatelessWidget {
           final List<String> dailyreport = [temp, soil, hum];
 
           final List<String> dailyreportcontent = [
-            'வெப்ப நிலை',
-            'மண் ஈரம்',
-            'ஈரம்'
+            'temperature'.tr,
+            'soilmoisture'.tr,
+            'weatherCardHumidity'.tr
           ];
 
           final List reportcolor = [

@@ -5,8 +5,10 @@ import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:translator/translator.dart';
 
 class LocationController extends GetxController {
+  final translator = GoogleTranslator();
   RxDouble latitude = 0.0.obs;
   RxDouble longitude = 0.0.obs;
   RxString address = "".obs;
@@ -66,7 +68,12 @@ class LocationController extends GetxController {
         var addresses =
             await Geocoder.local.findAddressesFromCoordinates(coordinates);
         if (addresses.isNotEmpty) {
-          address.value = addresses.first.addressLine ?? "";
+          translator
+              .translate(addresses.first.addressLine!, from: 'en', to: 'en')
+              .then((result) {
+            address.value = result.toString();
+          });
+
           log("address: ${address.value}");
         } else {
           log("No address found for the coordinates");

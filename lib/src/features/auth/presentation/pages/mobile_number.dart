@@ -18,7 +18,7 @@ class PhoneNumber extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          'உள்நுழைவு',
+          'login'.tr,
           style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w600),
         ),
       ),
@@ -31,8 +31,8 @@ class PhoneNumber extends StatelessWidget {
             //
             Padding(
               padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 8.w),
-              child: const Text(
-                'உங்கள் எண்ணை நிரப்பவும்',
+              child:  Text(
+                'loginTitle'.tr,
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
               ),
             ),
@@ -43,7 +43,7 @@ class PhoneNumber extends StatelessWidget {
               child: TextField(
                 controller: phoneNumberController,
                 decoration: InputDecoration(
-                  hintText: 'தொலைபேசி எண்',
+                  hintText: 'loginTextFieldHintText'.tr,
                   prefixIcon: const Icon(
                     Icons.phone,
                     color: Colors.blue,
@@ -63,7 +63,7 @@ class PhoneNumber extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 20.h),
               child: CustomElevatedButton(
-                fieldName: "Get OTP",
+                fieldName: "getOtpButton".tr,
                 onPressed: () async {
                   if (phoneNumberController.text.isEmpty) {
                     Get.snackbar(
