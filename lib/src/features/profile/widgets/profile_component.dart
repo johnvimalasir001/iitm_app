@@ -12,16 +12,17 @@ class ProfileComponent extends StatelessWidget {
   });
   final IconData icons;
   final String componentname;
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         ListTile(
-          onTap: () async {
-            SharedPreferences preferences =
-                await SharedPreferences.getInstance();
-            preferences.setBool('loginStatus', false);
-            Get.to(() => const LoginPage());
+          onTap: () {
+            // SharedPreferences preferences =
+            //     await SharedPreferences.getInstance();
+            // preferences.setBool('loginStatus', false);
+            // Get.to(() => const LoginPage());
           },
           leading: Container(
             height: 40,
@@ -37,7 +38,7 @@ class ProfileComponent extends StatelessWidget {
           title: Text(
             componentname,
             style: const TextStyle(
-                fontWeight: FontWeight.bold, color: Colors.black87),
+                fontWeight: FontWeight.w600, color: Colors.black87),
           ),
           trailing: IconButton(
               onPressed: () {},

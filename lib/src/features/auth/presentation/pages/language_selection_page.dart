@@ -50,22 +50,17 @@ class LanguageSelection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("languageTitle".tr),
-      ),
-      body: Column(
-        children: [
-          Center(
-            child: ElevatedButton(
-              onPressed: () {
-                buildLanguageDialog(context);
-              },
-              child: const Text("Select Your Language"),
-            ),
-          )
-        ],
-      ),
+    return Column(
+      children: [
+        Center(
+          child: ElevatedButton(
+            onPressed: () {
+              buildLanguageDialog(context);
+            },
+            child: const Text("Select Your Language"),
+          ),
+        )
+      ],
     );
   }
 }

@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:iitm_app/src/features/home/controller/home_controller.dart';
+import 'package:iitm_app/src/features/home/controller/realtimedatabase_controller.dart';
+import 'package:iitm_app/src/features/report/widgets/reportdata_builder.dart';
 
 class TodayTaskRecordData extends StatefulWidget {
   const TodayTaskRecordData({super.key});
@@ -12,6 +15,9 @@ class TodayTaskRecordData extends StatefulWidget {
 
 class _TodayTaskRecordDataState extends State<TodayTaskRecordData> {
   bool light = false;
+  String todaydate =
+      '${DateTime.now().day}-${DateTime.now().month}-${DateTime.now().year}';
+  final HomeController homeController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +36,7 @@ class _TodayTaskRecordDataState extends State<TodayTaskRecordData> {
         ),
         centerTitle: true,
         title: Text(
-          'பணி பதிவு',
+          'report1'.tr,
           style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w600),
         ),
         elevation: 0,
@@ -38,41 +44,26 @@ class _TodayTaskRecordDataState extends State<TodayTaskRecordData> {
       body: SingleChildScrollView(
         child: SafeArea(
             child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 14.w),
+          padding: EdgeInsets.symmetric(horizontal: 10.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Padding(
-              //   padding: EdgeInsets.only(top: 10.h, bottom: 7.w),
-              //   child: Text(
-              //     'பணி தலைப்பு :',
-              //     style:
-              //         TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w600),
-              //   ),
-              // ),
-              // Padding(
-              //   padding: EdgeInsets.only(bottom: 8.w, left: 50.w),
-              //   child: Text(
-              //     'மோட்டார் 1 இயங்குகிறது',
-              //     style:
-              //         TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w400),
-              //   ),
-              // ),
+              ReportDataBuilder(),
               Padding(
                 padding: EdgeInsets.only(bottom: 8.w, top: 10.h),
                 child: Row(
                   children: [
                     Text(
-                      'தேதி :',
+                      'date :'.tr,
                       style: TextStyle(
-                          fontSize: 18.sp, fontWeight: FontWeight.w500),
+                          fontSize: 16.sp, fontWeight: FontWeight.w500),
                     ),
                     Padding(
                       padding: EdgeInsets.only(left: 40.w),
                       child: Text(
                         '16/03/2024',
                         style: TextStyle(
-                            fontSize: 17.sp, fontWeight: FontWeight.w400),
+                            fontSize: 16.sp, fontWeight: FontWeight.w400),
                       ),
                     ),
                   ],
@@ -83,16 +74,16 @@ class _TodayTaskRecordDataState extends State<TodayTaskRecordData> {
                 child: Row(
                   children: [
                     Text(
-                      'நேரம் :',
+                      'time :'.tr,
                       style: TextStyle(
-                          fontSize: 18.sp, fontWeight: FontWeight.w500),
+                          fontSize: 16.sp, fontWeight: FontWeight.w500),
                     ),
                     Padding(
                       padding: EdgeInsets.only(left: 40.w),
                       child: Text(
                         '10:00 AM - 12:00 PM',
                         style: TextStyle(
-                            fontSize: 17.sp, fontWeight: FontWeight.w400),
+                            fontSize: 16.sp, fontWeight: FontWeight.w400),
                       ),
                     ),
                   ],
@@ -101,23 +92,23 @@ class _TodayTaskRecordDataState extends State<TodayTaskRecordData> {
               Padding(
                 padding: EdgeInsets.only(bottom: 8.w, top: 18),
                 child: Text(
-                  'விரித்துரைத்தல் :',
+                  'description :'.tr,
                   style:
-                      TextStyle(fontSize: 19.sp, fontWeight: FontWeight.w500),
+                      TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.only(left: 40.w),
-                child: SizedBox(
+              Obx(() {
+                String value = homeController.moistureData.value;
+                return SizedBox(
                   height: 200.h,
                   width: double.infinity.w,
                   child: Text(
-                    'ஒரு பயிர் என்பது ஒரு தாவரம் அல்லது தாவர தயாரிப்பு ஆகும், இது இலாபத்திற்காக அல்லது வாழ்வாதாரத்திற்காக வளர்க்கப்பட்டு அறுவடை செய்யப்படலாம். ',
+                    'Today, $todaydate we have used 3 liters of water for water your fields, The weather seems to be cloudy, The crops are at the moisture of $value% & there is no leaks found while watering, the motor seems to be in good condition and would not require service.',
                     style:
                         TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w400),
                   ),
-                ),
-              ),
+                );
+              })
             ],
           ),
         )),

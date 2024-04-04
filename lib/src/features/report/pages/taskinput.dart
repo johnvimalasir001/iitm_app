@@ -25,8 +25,6 @@ class _TaskManagementState extends State<TaskManagement> {
     reportController.remaindMe.value = false;
   }
 
- 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -228,34 +226,37 @@ class _TaskManagementState extends State<TaskManagement> {
                       border: Border.all(color: Colors.black),
                       color: Colors.white,
                       borderRadius: BorderRadius.all(Radius.circular(10.r))),
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(left: 10.w),
-                        child: Text(
-                          'remind'.tr,
-                          style: TextStyle(
-                              fontSize: 14.sp, fontWeight: FontWeight.w400),
-                        ),
-                      ),
-                      Obx(() {
-                        return Padding(
-                          padding: EdgeInsets.only(left: 25.w),
-                          child: Switch(
-                            value: reportController.remaindMe.value,
-                            activeColor: Colors.red,
-                            thumbColor:
-                                MaterialStateProperty.resolveWith<Color>(
-                              (states) => Colors.white,
-                            ),
-                            onChanged: (bool value) {
-                              reportController.remaindMe.value = value;
-                            },
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(left: 10.w),
+                          child: Text(
+                            'remind'.tr,
+                            style: TextStyle(
+                                fontSize: 14.sp, fontWeight: FontWeight.w400),
                           ),
-                        );
-                      })
-                      
-                    ],
+                        ),
+                        const Spacer(),
+                        Obx(() {
+                          return Padding(
+                            padding: EdgeInsets.only(left: 25.w),
+                            child: Switch(
+                              value: reportController.remaindMe.value,
+                              activeColor: Colors.red,
+                              thumbColor:
+                                  MaterialStateProperty.resolveWith<Color>(
+                                (states) => Colors.white,
+                              ),
+                              onChanged: (bool value) {
+                                reportController.remaindMe.value = value;
+                              },
+                            ),
+                          );
+                        })
+                      ],
+                    ),
                   ),
                 ),
               ),

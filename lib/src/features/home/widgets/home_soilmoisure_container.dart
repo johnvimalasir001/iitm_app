@@ -6,7 +6,6 @@ import 'package:get/get_instance/get_instance.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:iitm_app/src/features/home/controller/home_controller.dart';
 
-
 class HomeSoilMoisureContainer extends StatelessWidget {
   const HomeSoilMoisureContainer({
     super.key,
@@ -16,7 +15,7 @@ class HomeSoilMoisureContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     final HomeController realtimeDataController = Get.find();
     return Container(
-      height: 78.h,
+      height: 76.h,
       width: 100.w,
       decoration: BoxDecoration(
           color: Colors.blue.shade50,
@@ -40,7 +39,7 @@ class HomeSoilMoisureContainer extends StatelessWidget {
               child: Text(
                 'titleMoisture'.tr,
                 style: TextStyle(
-                  fontSize: 13.sp,
+                  fontSize: 12.sp,
                 ),
               ),
             ),

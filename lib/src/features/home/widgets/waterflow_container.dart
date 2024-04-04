@@ -12,7 +12,7 @@ class WaterflowContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     final HomeController homeController = Get.find();
     return Container(
-      height: 78.h,
+      height: 76.h,
       width: 100.w,
       decoration: BoxDecoration(
           color: Colors.blue.shade50,
@@ -29,7 +29,7 @@ class WaterflowContainer extends StatelessWidget {
                   homeController.fetchMotorWaterFlowData();
                   String value = homeController.waterFlow.value.toString();
                   return Text(
-                   value,
+                    value,
                     style:
                         TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
                   );
@@ -49,7 +49,7 @@ class WaterflowContainer extends StatelessWidget {
               child: Text(
                 'titleMotorFlow'.tr,
                 style: TextStyle(
-                  fontSize: 13.sp,
+                  fontSize: 12.sp,
                 ),
               ),
             ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iitm_app/src/features/Notification/entities/entities.dart';
 
 Container notificationCardWidget(
     String title, String content, date, bool alert) {
