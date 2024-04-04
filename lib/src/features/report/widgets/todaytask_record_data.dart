@@ -42,22 +42,22 @@ class _TodayTaskRecordDataState extends State<TodayTaskRecordData> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: EdgeInsets.only(top: 10.h, bottom: 7.w),
-                child: Text(
-                  'பணி தலைப்பு :',
-                  style:
-                      TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w600),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(bottom: 8.w, left: 50.w),
-                child: Text(
-                  'மோட்டார் 1 இயங்குகிறது',
-                  style:
-                      TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w400),
-                ),
-              ),
+              // Padding(
+              //   padding: EdgeInsets.only(top: 10.h, bottom: 7.w),
+              //   child: Text(
+              //     'பணி தலைப்பு :',
+              //     style:
+              //         TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w600),
+              //   ),
+              // ),
+              // Padding(
+              //   padding: EdgeInsets.only(bottom: 8.w, left: 50.w),
+              //   child: Text(
+              //     'மோட்டார் 1 இயங்குகிறது',
+              //     style:
+              //         TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w400),
+              //   ),
+              // ),
               Padding(
                 padding: EdgeInsets.only(bottom: 8.w, top: 10.h),
                 child: Row(

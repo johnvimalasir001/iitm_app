@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:iitm_app/src/features/application_page/pages/application_page.dart';
 import 'package:iitm_app/src/features/auth/controller/auth_controller.dart';
 import 'package:iitm_app/src/features/auth/presentation/pages/otp_page.dart';
 import 'package:iitm_app/src/features/auth/presentation/widgets/custom_button.dart';
@@ -31,9 +32,10 @@ class PhoneNumber extends StatelessWidget {
             //
             Padding(
               padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 8.w),
-              child:  Text(
+              child: Text(
                 'loginTitle'.tr,
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                style:
+                    const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
               ),
             ),
 
@@ -84,10 +86,11 @@ class PhoneNumber extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => OTPPage(
-                            phonenNumber: phoneNumberController.text,
-                          ),
-                        ),
+                            builder: (context) => 
+                            OTPPage(
+                              phonenNumber: phoneNumberController.text,
+                            ),
+                            ),
                       );
                     }
                   }
