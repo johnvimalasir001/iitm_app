@@ -26,6 +26,7 @@ class ReportData extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.all(10.w),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(

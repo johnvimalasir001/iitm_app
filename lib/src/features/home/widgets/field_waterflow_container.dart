@@ -12,7 +12,7 @@ class FieldWaterflowContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     final HomeController homeController = Get.find();
     return Container(
-      height: 78.h,
+      height: 76.h,
       width: 100.w,
       decoration: BoxDecoration(
           color: Colors.blue.shade50,

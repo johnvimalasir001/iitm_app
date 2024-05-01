@@ -35,11 +35,10 @@ class VoiceController extends GetxController {
           outputSpeech.speak(speechText);
 
           await Future.delayed(const Duration(seconds: 1));
-
-          speech.listen(onResult: (result) {
-            handleVoiceCommand(result.recognizedWords.toLowerCase());
-          });
         }
+        speech.listen(onResult: (result) {
+          handleVoiceCommand(result.recognizedWords.toLowerCase());
+        });
       }
       isListening.value = false;
     } catch (e) {

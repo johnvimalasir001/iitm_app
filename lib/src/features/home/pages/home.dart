@@ -78,15 +78,16 @@ class _HomePageState extends State<HomePage> {
                       Padding(
                         padding: const EdgeInsets.only(left: 10),
                         child: Text('motorSwitch'.tr,
-                            style: TextStyle(fontSize: 17.sp)),
+                            style: TextStyle(
+                                fontSize: 17.sp, fontWeight: FontWeight.bold)),
                       ),
                       Obx(() {
                         return Padding(
                           padding: const EdgeInsets.only(right: 50),
                           child: Switch(
                             value: homeController.switchButton.value,
-                            activeColor: Colors.green.shade600,
-                            inactiveTrackColor: Colors.red,
+                            activeColor: Colors.blue,
+                            inactiveTrackColor: Colors.grey.shade300,
                             thumbColor:
                                 MaterialStateProperty.resolveWith<Color>(
                               (states) => Colors.white,

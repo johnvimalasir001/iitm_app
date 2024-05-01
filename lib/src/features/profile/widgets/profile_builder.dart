@@ -11,23 +11,21 @@ class ProfileBuilder extends StatefulWidget {
 
 class _ProfileBuilderState extends State<ProfileBuilder> {
   final List profilecomponentname = [
-    'அமைப்புகள்',
-    'பயனர் மேலாண்மை',
-    'தெரிவிப்பு',
-    'logout'.tr
+    'setting'.tr,
+    'userManagement'.tr,
+    'Information'.tr,
   ];
-
 
   final List profilecomponenticon = [
     Icons.settings,
     Icons.folder_shared,
     Icons.error,
-    Icons.arrow_forward,
   ];
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return SizedBox(
+      height: 200,
       child: ListView.builder(
         itemCount: profilecomponentname.length,
         itemBuilder: (context, index) {
