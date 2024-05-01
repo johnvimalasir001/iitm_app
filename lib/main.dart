@@ -6,11 +6,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 void main() async {
   // Dependency initialization
   await DependencyInjection.initialise();
-final isLoggedIn = await isLoggedInState();
+  final isLoggedIn = await isLoggedInState();
   //
-  runApp( RootApp(isLoggedIn: isLoggedIn,));
+  runApp(const RootApp(
+    isLoggedIn: true,
+  ));
 }
-  Future<bool> isLoggedInState() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getBool('loginStatus') ?? false;
-  }
+
+Future<bool> isLoggedInState() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  return prefs.getBool('loginStatus') ?? false;
+}
